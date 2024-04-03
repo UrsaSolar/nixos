@@ -62,7 +62,12 @@
   #  /etc/profiles/per-user/kenglish/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    XDG_DATA_HOME="$HOME/.local/share";
+    XDG_CONFIG_HOME="$HOME/.config";
+    XDG_STATE_HOME="$HOME/.local/state";
+    XDG_CACHE_HOME="$HOME/.cache";
+
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
