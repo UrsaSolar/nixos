@@ -22,7 +22,7 @@ outputs = { self, nixpkgs, home-manager, ... }:
     };
 
     homeConfigurations = {
-      nixos-asm = home-manager.lib.homeManagerConfiguration {
+      kenglish = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
       };
