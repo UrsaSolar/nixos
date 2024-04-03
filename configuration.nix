@@ -61,6 +61,7 @@
   users.users.kenglish = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
       tree
@@ -74,6 +75,7 @@
     wget
     bind #nslookup
     git
+#    fzf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -120,5 +122,5 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.allowed-users = [ "@wheel" ];
-
+  programs.zsh.enable = true;
 }

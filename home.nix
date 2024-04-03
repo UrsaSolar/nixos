@@ -17,23 +17,8 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+  home.packages = with pkgs; [
+    zsh-powerlevel10k
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -72,4 +57,43 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Let Home Manager manage .bashrc
+  programs.zsh = {
+    enable = true;
+    initExtra = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source ~/.p10k.zsh
+    '';
+    shellAliases = {
+      # Shell shortcuts
+      histoff = "set +o history";
+      histon = "set -o history";
+      hist = "cat $XDG_STATE_HOME/zsh/history | grep $@";
+
+      # Fuzzy finder directory hopper
+      jj = "clear && cd $(find ~/Software/ ~/.config/ ~/Documents -type d | fzf)";
+      vv = "clear && vim $(find ~/Software/ ~/.config/ ~/Documents ~/Downloads ~/.vim ~/.bashrc -type f | fzf)";
+
+      nxsync = "nextcloudcmd -n --path /Notes ~/Notes https://io.ursa.solar/";
+      sshhosts = "grep '^Host' ~/.ssh/config | cut -d ' ' -f 2- | column";
+    };
+  };
+  programs.fzf = {
+    enable = true;
+    colors = {
+      "bg+" = "#313244";
+      "bg" = "#1e1e2e";
+      "spinner" = "#f5e0dc";
+      "hl" = "#f38ba8";
+      "fg" = "#cdd6f4";
+      "header" = "#f38ba8";
+      "info" = "#cba6f7";
+      "pointer" = "#f5e0dc";
+      "marker" = "#f5e0dc";
+      "fg+" = "#cdd6f4";
+      "prompt" = "#cba6f7";
+      "hl+" = "#f38ba8";
+      };
+  };
 }
