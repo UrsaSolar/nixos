@@ -18,6 +18,7 @@ outputs = { self, nixpkgs, home-manager, ... }:
       nixos-asm = lib.nixosSystem {
         inherit system;
         modules = [
+          ./configuration.nix
           ./hosts/asm.nix 
           ./hosts/asm-hardware.nix
         ];
@@ -25,6 +26,7 @@ outputs = { self, nixpkgs, home-manager, ... }:
       luna = lib.nixosSystem{
         inherit system;
         modules = [
+          ./configuration.nix
           ./hosts/luna.nix
           ./hosts/luna-hardware.nix
         ];
@@ -34,7 +36,17 @@ outputs = { self, nixpkgs, home-manager, ... }:
     homeConfigurations = {
       kenglish = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          ./hosts/asm-home.nix
+        ];
+      };
+      solarbear = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home.nix
+          ./hosts/luna-home.nix
+        ];
       };
     };
   };

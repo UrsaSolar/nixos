@@ -7,7 +7,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  console.font = "Lat2-Terminus16"
+  console.font = "Lat2-Terminus16";
   programs.zsh.enable = true;
 
   networking.networkmanager.enable = true;
