@@ -3,14 +3,20 @@
 { config, pkgs, ... }:
 {
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.allowed-users = [ "@wheel" ];
   console.font = "Lat2-Terminus16";
   programs.zsh.enable = true;
-
   networking.networkmanager.enable = true;
+
+  services.openssh.settings = { 
+    PasswordAuthentication = false;
+    PermitRootLogin = "no";
+    PrintLastLog = false;
+    PrintMotd = true;
+  };
 
   # Timezone and localization
   time.timeZone = "America/Los_Angeles";
@@ -35,9 +41,7 @@
     git
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.allowed-users = [ "@wheel" ];
-  
+ 
 
  
 }

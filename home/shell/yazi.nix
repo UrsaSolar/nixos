@@ -1,9 +1,17 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, unstable, ... }: 
 {
 
   programs.yazi = {
     enable = true;
+    package = unstable.yazi;
     enableZshIntegration = true;
+    settings = {
+      manager = {
+        ratio = [ 2 4 3 ];
+        linemode = "mtime";
+        sort_by = "natural";
+      }; 
+    };
     theme = {
       manager = {
         cwd		= { fg = "#94e2d5"; };

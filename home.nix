@@ -1,15 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   imports = [
     ./home/shell/zsh.nix
     ./home/shell/fzf.nix
+    ./home/shell/yazi.nix
+    ./home/shell/neovim.nix
   ];
+
   home.stateVersion = "23.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = with pkgs; [
+
+  home.packages = with pkgs; [ 
     zsh-powerlevel10k
   ];
 
@@ -22,6 +24,5 @@
     EDITOR = "vim";
   };
 
-
-    
+  
 }

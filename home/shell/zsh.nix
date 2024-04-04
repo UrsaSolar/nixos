@@ -3,10 +3,19 @@
 
 programs.zsh = {
   enable = true;
-  initExtra = ''
-    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    source ~/.p10k.zsh
-  '';
+  dotDir = ".config/zsh";
+  plugins = [
+    {
+      name = "powerlevel10k";
+      src = pkgs.zsh-powerlevel10k;
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    }
+  ];
+#  initExtra = ''
+#    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+#    source ~/.config/zsh/p10k.zsh
+#  '';
+  initExtra = builtins.readFile(./p10k.zsh);
   shellAliases = {
     # Shell shortcuts
     histoff = "set +o history";
