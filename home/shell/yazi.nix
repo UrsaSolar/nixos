@@ -102,4 +102,10 @@
     };
   };
 
+  home.file = {
+    ".config/yazi/init.lua" = {
+      text = builtins.readFile(./yazi-init.lua);
+    };
+  };
+
 }
