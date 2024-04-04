@@ -16,6 +16,7 @@
       kate
       lshw
       steam
+      discord
       thunderbird
     ];
   };
