@@ -11,13 +11,6 @@
     isNormalUser = true;
     description = "Solar Bear";
     extraGroups = [ "networkmanager" "wheel" ];
- #   packages = with pkgs; [
- #     firefox
- #     kate
- #     lshw
- #     steam
- #     thunderbird
- #   ];
   };
 
   # Plasma Desktop
