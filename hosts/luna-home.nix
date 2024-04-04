@@ -10,5 +10,12 @@
     firefox
     thunderbird
   ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (pkgs.lib.getName pkg) [
+      "steam"
+      "steam-run"
+      "steam-original"
+      "discord"
+    ];
 }
 
