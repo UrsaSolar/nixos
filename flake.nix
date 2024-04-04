@@ -17,7 +17,17 @@ outputs = { self, nixpkgs, home-manager, ... }:
     nixosConfigurations = {
       nixos-asm = lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration.nix ];
+        modules = [
+          ./hosts/asm.nix 
+          ./hosts/asm-hardware.nix
+        ];
+      };
+      luna = lib.nixosSystem{
+        inherit system;
+        modules = [
+          ./hosts/luna.nix
+          ./hosts/luna-hardware.nix
+        ];
       };
     };
 
