@@ -9,6 +9,11 @@
     extraConfig = ''
       colorscheme catppuccin-mocha
       nmap <F1> :Neotree toggle=true<CR>
+      set tabstop=2
+      set shiftwidth=4
+      set expandtab
+      set ignorecase
+      set smartcase
     '';
     extraLuaConfig = ''
       require'lspconfig'.nil_ls.setup{}
