@@ -11,6 +11,7 @@
     isNormalUser = true;
     description = "Solar Bear";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   # Plasma Desktop
