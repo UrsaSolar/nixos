@@ -45,7 +45,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
         extraSpecialArgs = {inherit unstable;};
         modules = [
           ./home.nix
-          ./hosts/asm-home.nix
+          ./home/asm-home.nix
         ];
       };
       solarbear = home-manager.lib.homeManagerConfiguration {
@@ -53,7 +53,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
 	extraSpecialArgs = {inherit unstable;};
         modules = [
           ./home.nix
-          ./hosts/luna-home.nix
+          ./home/luna-home.nix
         ];
       };
     };
