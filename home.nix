@@ -2,11 +2,7 @@
 
 {
   imports = [
-    ./home/shell/alias.nix
-    ./home/shell/zsh.nix
-    ./home/shell/fzf.nix
-    ./home/shell/yazi.nix
-    ./home/shell/nvim/nvim.nix
+    ./home/terminal/terminal.nix
   ];
 
   home.stateVersion = "23.11"; # Historical
