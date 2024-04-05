@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
 
   programs.neovim = {
@@ -10,6 +10,9 @@
       colorscheme catppuccin-mocha
       nmap <F1> :Neotree toggle=true<CR>
     '';
+    extraLuaConfig = ''
+      require'lspconfig'.nil_ls.setup{}
+    '';
     plugins = with pkgs.vimPlugins; [
       { plugin = neo-tree-nvim;
           type = "lua";
@@ -19,6 +22,8 @@
 	  config = builtins.readFile(./lualine-config.lua); }
     catppuccin-nvim
     which-key-nvim
+    vim-nix
+    nvim-lspconfig
     ];
   };
 

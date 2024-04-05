@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [ 
     zsh-powerlevel10k
+    nil
   ];
 
   home.sessionVariables = {
