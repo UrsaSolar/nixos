@@ -1,7 +1,17 @@
 # Luna.nix
 
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 {
+#disabledModules = [
+#    "nixos/modules/services/hardware/asusd.nix"
+#    "nixos/modules/programs/rog-control-center.nix"
+#    "nixos/modules/services/hardware/supergfxctl.nix"
+#  ];
+#  imports = [
+#    <nixos-unstable/nixos/modules/services/hardware/asusd.nix>
+#    <nixos-unstable/nixos/modules/programs/rog-control-center.nix>
+#    <nixos-unstable/nixos/modules/services/hardware/supergfxd.nix>
+#  ];
   system.stateVersion = "23.11"; # Historical reference
   nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "luna";
@@ -87,6 +97,12 @@
       enableOffloadCmd = true;
     };
   };
+
+#  environment.systemPackages = [
+#    unstable.asusctl
+#    unstable.supergfxctl
+#  ];
+
   # Asus-linux.org
   services.supergfxd.enable = true;
   services.asusd = {

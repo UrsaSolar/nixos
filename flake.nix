@@ -14,6 +14,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     unstable = import nixpkgs-unstable {inherit system;};
+#    unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     
     nixosConfigurations = {
@@ -28,6 +29,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
       };
       luna = lib.nixosSystem{
         inherit system;
+	#inherit nixpkgs-unstable;
         specialArgs = {inherit unstable;};
         modules = [
           ./configuration.nix
