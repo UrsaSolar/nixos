@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./home/shell/alias.nix
     ./home/shell/zsh.nix
     ./home/shell/fzf.nix
     ./home/shell/yazi.nix
