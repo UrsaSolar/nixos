@@ -24,11 +24,13 @@
           config = builtins.readFile(./neotree-config.lua); }
       { plugin = lualine-nvim;
           type = "lua";
-	  config = builtins.readFile(./lualine-config.lua); }
-    catppuccin-nvim
-    which-key-nvim
-    vim-nix
-    nvim-lspconfig
+      	  config = builtins.readFile(./lualine-config.lua); }
+      catppuccin-nvim
+      which-key-nvim
+      vim-nix
+      nvim-lspconfig
+      barbar-nvim
+      nvim-web-devicons # needed for barbar
     ];
   };
 
