@@ -5,7 +5,7 @@
     ./home/shell/zsh.nix
     ./home/shell/fzf.nix
     ./home/shell/yazi.nix
-    ./home/shell/neovim.nix
+    ./home/shell/nvim/nvim.nix
   ];
 
   home.stateVersion = "23.11"; # Historical
