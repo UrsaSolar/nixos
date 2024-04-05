@@ -3,6 +3,7 @@
 
   imports = [
     ./alias.nix
+    ./ssh.nix
     ./zsh.nix
     ./fzf.nix
     ./yazi.nix
