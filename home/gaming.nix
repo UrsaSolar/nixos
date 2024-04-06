@@ -1,12 +1,12 @@
 { lib, config, pkgs, unstable, ... } :
 {
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "discord"
-    ];
+#  nixpkgs.config.allowUnfreePredicate = pkg:
+#    builtins.elem (lib.getName pkg) [
+#      "steam"
+#      "steam-original"
+#      "discord"
+#    ];
 
   programs.mangohud = {
     enable = true;

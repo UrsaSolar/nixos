@@ -14,7 +14,6 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     unstable = import nixpkgs-unstable {inherit system; config = { allowUnfree = true; }; };
-#    unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     nixosConfigurations = {
       nixos-asm = lib.nixosSystem {
