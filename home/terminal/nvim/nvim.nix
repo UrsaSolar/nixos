@@ -14,6 +14,8 @@
       set expandtab
       set ignorecase
       set smartcase
+      nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
+      nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
     '';
     extraLuaConfig = ''
       require'lspconfig'.nil_ls.setup{}
