@@ -8,7 +8,7 @@
     vimAlias = true;
     extraConfig = ''
       colorscheme catppuccin-mocha
-      nmap <F1> :Neotree toggle=true<CR>
+      nmap <F1> :Neotree toggle reveal<CR>
       set tabstop=2
       set shiftwidth=4
       set expandtab

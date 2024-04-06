@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ./firefox/firefox.nix
+#    ./firefox/firefox.nix
   ];
 
 }
