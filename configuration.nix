@@ -9,6 +9,7 @@
   nix.settings.allowed-users = [ "@wheel" ];
   console.font = "Lat2-Terminus16";
   programs.zsh.enable = true;
+#  programs.bash.enable = true;
   networking.networkmanager.enable = true;
 
   services.openssh.settings = { 

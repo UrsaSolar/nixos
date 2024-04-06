@@ -10,13 +10,12 @@ inputs = {
 };
 outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
   let
-    lib = nixpkgs.lib;
     system = "x86_64-linux";
+    lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
-    unstable = import nixpkgs-unstable {inherit system;};
+    unstable = import nixpkgs-unstable {inherit system; config = { allowUnfree = true; }; };
 #    unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
-    
     nixosConfigurations = {
       nixos-asm = lib.nixosSystem {
         inherit system;
@@ -40,7 +39,7 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
     };
 
     homeConfigurations = {
-      kenglish = home-manager.lib.homeManagerConfiguration {
+      kenglish = home-manager.lib.homeManagerConfiguration { 
         inherit pkgs;
         extraSpecialArgs = {inherit unstable;};
         modules = [

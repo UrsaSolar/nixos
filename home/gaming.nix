@@ -1,5 +1,12 @@
-{ config, pkgs, unstable, ... } :
+{ lib, config, pkgs, unstable, ... } :
 {
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "discord"
+    ];
 
   programs.mangohud = {
     enable = true;
@@ -11,8 +18,10 @@
     };
   };
   
-  home.pkgs = [
+  home.packages = [
     unstable.lutris
+    unstable.steam
+    unstable.discord
     unstable.retroarch
 #    unstable.retroarch-assets          #unsure if needed, test later
 #    unstable.libretro-core-info        # unsure if needed, test later
@@ -22,7 +31,7 @@
     unstable.libretro.bsnes
     unstable.libretro.bsnes-hd
     unstable.libretro.mupen64plus # unsure if both needed
-    unstable.libretro.parallel-64 # unsure if both needed
+    unstable.libretro.parallel-n64 # unsure if both needed
     unstable.libretro.sameboy
     unstable.libretro.mgba
     unstable.libretro.desmume
@@ -38,7 +47,7 @@
     unstable.libretro.play
     unstable.libretro.ppsspp
     unstable.libretro.fbneo
-    unstable.rpcs3
+#    unstable.rpcs3
 
   ];
 
