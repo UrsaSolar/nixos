@@ -1,6 +1,7 @@
 # Luna.nix
 
 { config, pkgs, unstable, ... }:
+
 let
   overlay-asus-unstable = final: prev: {
     asusctl = unstable.asusctl;
@@ -9,30 +10,11 @@ let
 in
 {
   
-## Trying to figure out how to enable unstable asusctl/supergfxctl
-#  disabledModules = [
-    # Disable stable asus-linux.org module definitions
-#    "services/hardware/asusd.nix"
-#    "programs/rog-control-center.nix"
-#    "services/hardware/supergfxctl.nix"
-#  ];
   imports = [
     ../system/graphical.nix
-    # source unstable asus-linux.org module definitions
-#    <nixos-unstable/nixos/modules/services/hardware/asusd.nix>
-#    <nixos-unstable/nixos/modules/programs/rog-control-center.nix>
-#    <nixos-unstable/nixos/modules/services/hardware/supergfxd.nix>
   ];
 
-#  add-unstable-packages = final: _prev: {
-#    unstable = import nixpkgs-unstable {
-#      system = "x86_64-linux";
-#    };
-#  };
-
   nixpkgs.overlays = [ overlay-asus-unstable ];
-
-
 
   system.stateVersion = "23.11"; # Historical reference
   nixpkgs.config.allowUnfree = true; #Allow unfree packages
@@ -44,7 +26,6 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
-
 
   # services.openssh.enable = true;
 
@@ -86,11 +67,6 @@ in
       enableOffloadCmd = true;
     };
   };
-
- # environment.systemPackages = [
- #   unstable.asusctl
- #   unstable.supergfxctl
- # ];
 
   # Asus-linux.org
   services.supergfxd.enable = true;
