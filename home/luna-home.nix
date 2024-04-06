@@ -3,7 +3,7 @@
 {
   
   imports = [
-    ./gaming.nix
+#    ./gaming.nix
     ./graphical.nix
   ];
 
