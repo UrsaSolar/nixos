@@ -3,6 +3,10 @@
 { config, pkgs, unstable, ... }:
 {
 
+  imports = [
+    ../system/graphical.nix
+  ];
+
 ## Trying to figure out how to enable unstable asusctl/supergfxctl
 #disabledModules = [
 #    "nixos/modules/services/hardware/asusd.nix"
