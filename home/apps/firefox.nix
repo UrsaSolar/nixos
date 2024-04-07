@@ -14,6 +14,10 @@
       };
       settings ={
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "widget.use-xdg-desktop-portal.mime-handler" = 1;
+        "widget.use-xdg-desktop-portal.settings" = 1;
+        "widget.use-xdg-desktop-portal.open-uri" = 1;
       };
     }; 
   };

@@ -7,8 +7,14 @@ inputs = {
     url = "github:nix-community/home-manager/release-23.11";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  plasma-manager = {
+    url = "github:pjones/plasma-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.home-manager.follows = "home-manager";
+  };
+  catppuccin.url = "github:catppuccin/nix";
 };
-outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, catppuccin, ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -26,7 +32,6 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
       };
       terra = lib.nixosSystem{
         inherit system;
-	#inherit nixpkgs-unstable;
         specialArgs = {inherit unstable;};
         modules = [
           ./configuration.nix
@@ -35,9 +40,9 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
       };
       luna = lib.nixosSystem{
         inherit system;
-	#inherit nixpkgs-unstable;
         specialArgs = {inherit unstable;};
         modules = [
+          catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/luna.nix
         ];
@@ -49,14 +54,17 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
         inherit pkgs;
         extraSpecialArgs = {inherit unstable;};
         modules = [
+          catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/kenglish-home.nix
         ];
       };
       solarbear = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-	extraSpecialArgs = {inherit unstable;};
+	      extraSpecialArgs = {inherit unstable;};
         modules = [
+          plasma-manager.homeManagerModules.plasma-manager
+          catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/solarbear-home.nix
         ];

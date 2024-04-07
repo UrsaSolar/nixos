@@ -10,10 +10,5 @@
 
   home.username = "solarbear";
   home.homeDirectory = "/home/solarbear";
-  home.packages = with pkgs; [
-    kate
-    firefox
-    thunderbird
-  ];
 
 }

@@ -3,6 +3,7 @@
 
   programs.neovim = {
     enable = true;
+    catppuccin.enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -27,7 +28,7 @@
       { plugin = lualine-nvim;
           type = "lua";
       	  config = builtins.readFile(./lualine-config.lua); }
-      catppuccin-nvim
+      #catppuccin-nvim
       which-key-nvim
       vim-nix
       nvim-lspconfig

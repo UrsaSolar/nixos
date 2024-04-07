@@ -7,18 +7,30 @@
 
   home.stateVersion = "23.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
-
+  catppuccin.flavour = "mocha";
   home.packages = with pkgs; [ 
     zsh-powerlevel10k
-    nil
+    nil # Language server
   ];
+
+  xdg.enable = true;
+
+  programs.btop = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    catppuccin.enable = true;
+  };
 
   home.sessionVariables = {
     # XDG Specification Ride or Die
-    XDG_DATA_HOME="$HOME/.local/share";
-    XDG_CONFIG_HOME="$HOME/.config";
-    XDG_STATE_HOME="$HOME/.local/state";
-    XDG_CACHE_HOME="$HOME/.cache";
+#    XDG_DATA_HOME="$HOME/.local/share";
+#    XDG_CONFIG_HOME="$HOME/.config";
+#    XDG_STATE_HOME="$HOME/.local/state";
+#    XDG_CACHE_HOME="$HOME/.cache";
     # Dotfile cleanliness
     HISTFILE="${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
     LESSHISTFILE="${config.home.sessionVariables.XDG_STATE_HOME}/less/history";
