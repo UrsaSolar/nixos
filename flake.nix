@@ -22,7 +22,15 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
         modules = [
           ./configuration.nix
           ./hosts/asm.nix 
-          ./hosts/asm-hardware.nix
+        ];
+      };
+      terra = lib.nixosSystem{
+        inherit system;
+	#inherit nixpkgs-unstable;
+        specialArgs = {inherit unstable;};
+        modules = [
+          ./configuration.nix
+          ./hosts/terra.nix
         ];
       };
       luna = lib.nixosSystem{
@@ -32,7 +40,6 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
         modules = [
           ./configuration.nix
           ./hosts/luna.nix
-          ./hosts/luna-hardware.nix
         ];
       };
     };
@@ -43,7 +50,7 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
         extraSpecialArgs = {inherit unstable;};
         modules = [
           ./home.nix
-          ./home/asm-home.nix
+          ./home/kenglish-home.nix
         ];
       };
       solarbear = home-manager.lib.homeManagerConfiguration {
@@ -51,7 +58,7 @@ outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
 	extraSpecialArgs = {inherit unstable;};
         modules = [
           ./home.nix
-          ./home/luna-home.nix
+          ./home/solarbear-home.nix
         ];
       };
     };

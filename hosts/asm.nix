@@ -2,6 +2,8 @@
 
 { config, pkgs, ... }:
 {
+  imports = [ ./asm-hardware.nix ];
+
   system.stateVersion = "23.11"; # Historical reference
   networking.hostName = "nixos-asm"; # Define your hostname.
 

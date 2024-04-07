@@ -11,6 +11,7 @@ in
 {
   
   imports = [
+    ./luna-hardware.nix
     ../system/graphical.nix
   ];
 
