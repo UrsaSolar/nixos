@@ -12,7 +12,9 @@
         default = "DuckDuckGo";
         force = true;
       };
-      settings ={};
+      settings ={
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      };
     }; 
   };
 
