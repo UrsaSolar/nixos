@@ -7,7 +7,7 @@
       id = 0;
       name = "solarbear";
       isDefault = true;
-      userChrome = builtins.fileRead (./firefox-userChrome.css);
+      userChrome = builtins.readFile(./firefox-userChrome.css);
       search = {
         default = "DuckDuckGo";
         force = true;

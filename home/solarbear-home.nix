@@ -4,7 +4,7 @@
   
   imports = [
     ./gaming.nix
-    ./graphical.nix
+#    ./graphical.nix
   ];
 
   home.username = "solarbear";
