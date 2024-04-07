@@ -3,8 +3,9 @@
 {
   
   imports = [
-    ./gaming.nix
-#    ./graphical.nix
+    ./graphical.nix
+    ./apps/gaming.nix
+    ./apps/emulation.nix
   ];
 
   home.username = "solarbear";
