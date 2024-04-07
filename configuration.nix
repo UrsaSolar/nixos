@@ -9,8 +9,8 @@
   nix.settings.allowed-users = [ "@wheel" ];
   console.font = "Lat2-Terminus16";
   programs.zsh.enable = true;
-#  programs.bash.enable = true;
   networking.networkmanager.enable = true;
+  nix.optimise.automatic = true; # Periodically optimize filesystem with hard links via systemd service
 
   services.openssh.settings = { 
     PasswordAuthentication = false;
@@ -41,9 +41,8 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Only download Iosevka Nerd
   ]; 
 
- 
 }
 
