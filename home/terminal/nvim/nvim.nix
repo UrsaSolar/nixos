@@ -33,6 +33,9 @@
       nvim-lspconfig
       barbar-nvim
       nvim-web-devicons # needed for barbar
+      legendary-nvim
+      telescope-nvim # recommended for legendary
+      dressing-nvim
     ];
   };
 
