@@ -11,6 +11,7 @@
     kate
     firefox
     thunderbird
+    vlc
   ];
 
   # fixes glitches and inconsistency
