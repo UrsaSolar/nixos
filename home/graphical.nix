@@ -4,6 +4,7 @@
 
   imports = [
     ./apps/firefox.nix
+    ./plasma.nix
   ];
 
   home.packages = with pkgs; [
@@ -12,18 +13,13 @@
     thunderbird
   ];
 
-  #home.pointerCursor = {
-  #  gtk.enable = true;
-  #  x11.enable = true;
-  #  package = pkgs.catppuccin-cursors;
-  #  name = "Catppuccin-Mocha-Green-Cursors";
-  #  size = 48;
-  #};
-
-  #home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaGreen}/share/icons/Catppuccin-Mocha-/Catppuccin-Mocha-Green-Cursors"; 
-    
-  programs.plasma = {
-    enable = true;
+  # fixes glitches and inconsistency
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.catppuccin-cursors.mochaGreen;
+    name = "Catppuccin-Mocha-Green-Cursors";
+    size = 48;
   };
 
 }
