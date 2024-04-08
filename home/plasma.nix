@@ -3,17 +3,19 @@
 
   programs.plasma = {
     enable = true;
-      workspace ={
-        clickItemTo = "select";
-        lookAndFeel = "org.kde.breezedark.desktop";
-        cursorTheme = "Default";
-        iconTheme = "Papirus-Dark";
-      };
-      hotkeys.commands."launch-konsole" = {
-        name = "Launch Konsole";
-        key = "Meta+Alt+K";
-        command = "konsole";
-      };
+    configFile.kcminputrc.Keyboard.NumLock.value = 0; # Enable numlock on boot
+    workspace ={
+      clickItemTo = "select";
+      lookAndFeel = "org.kde.breezedark.desktop";
+      cursorTheme = "Default";
+      iconTheme = "Papirus-Dark";
+      colorScheme = "CatppuccinMochaFlamingo";
+    };
+    hotkeys.commands."launch-konsole" = {
+      name = "Launch Konsole";
+      key = "Meta+Alt+K";
+      command = "konsole";
+    };
   };
 
 
