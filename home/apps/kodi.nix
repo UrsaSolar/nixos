@@ -10,8 +10,8 @@
     pkgs.kodiPackages.netflix
     pkgs.kodiPackages.youtube
     pkgs.kodiPackages.jellyfin
-    pkgs.kodiPackages.jellycon
-    pkgs.kodiPackages.sponsorblock
-    pkgs.kodiPackages.steam-launcher
+#    pkgs.kodiPackages.jellycon
+#    pkgs.kodiPackages.sponsorblock
+#    pkgs.kodiPackages.steam-launcher
   ];
 }

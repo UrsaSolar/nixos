@@ -3,8 +3,9 @@
 {
 
   imports = [
-    ./apps/firefox.nix
     ./plasma.nix
+    ./apps/firefox.nix
+    ./apps/kodi.nix
   ];
 
   home.packages = with pkgs; [
@@ -12,6 +13,7 @@
     firefox
     thunderbird
     vlc
+    iosevka
   ];
 
   # fixes glitches and inconsistency

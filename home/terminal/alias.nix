@@ -13,7 +13,7 @@
     notesync = "nextcloudcmd -n --path /Notes ~/Notes https://io.ursa.solar/";
     sshhosts = "grep '^Host' ~/.ssh/config | cut -d ' ' -f 2- | column";
     # NixOS shortcuts
-    hm-rebuild = "home-manager switch --flake $XDG_CONFIG_HOME/nixos/ && source $XDG_CONFIG_HOME/zsh/.zshrc";
+    hm-rebuild = "home-manager switch --flake $XDG_CONFIG_HOME/nixos/ && source $XDG_CONFIG_HOME/zsh/.zshrc && rm $XDG_CACHE_HOME/ksycoca5*";
     nx-rebuild = "sudo nixos-rebuild switch --flake $XDG_CONFIG_HOME/nixos/";
     cdnix = "cd $XDG_CONFIG_HOME/nixos/";
   };
