@@ -11,6 +11,7 @@
   home.packages = with pkgs; [ 
     zsh-powerlevel10k
     nil # Language server
+    tealdeer
   ];
 
   xdg.enable = true;
@@ -44,6 +45,7 @@
     XSERVERRC="${config.home.sessionVariables.XDG_CONFIG_HOME}/X11/xserverrc";
     XCURSOR_PATH="/usr/share/icons:${config.home.sessionVariables.XDG_DATA_HOME}/icons";
     KDEHOME="${config.home.sessionVariables.XDG_CONFIG_HOME}/kde";
+    NIXOSDIR="${config.home.sessionVariables.XDG_CONFIG_HOME}/nixos";
   };
 
   
