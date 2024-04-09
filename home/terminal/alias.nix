@@ -7,7 +7,7 @@
     zrl = "source $XDG_CONFIG_HOME/zsh/.zshrc";
     histoff = "set +o history";
     histon = "set -o history";
-    hist = "cat $XDG_STATE_HOME/zsh/history | grep $@";
+    #hist = "cat $XDG_STATE_HOME/zsh/history | grep $@";
     
     # Fuzzy finder directory hopper
     jj = "clear && cd $(find ~/Software/ ~/.config/ ~/Documents -type d | fzf)";
