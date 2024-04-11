@@ -12,6 +12,7 @@
     kate
     firefox
     thunderbird
+    ungoogled-chromium
     vlc
     iosevka
   ];

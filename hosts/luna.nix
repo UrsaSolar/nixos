@@ -30,11 +30,14 @@ in
 
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Firewall
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 1714; to = 1764; } # KDE Connect
+  ]; 
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 1714; to = 1764; } # KDE Connect
+  ];
 
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth

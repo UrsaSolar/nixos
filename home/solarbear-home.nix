@@ -5,7 +5,7 @@
   imports = [
     ./graphical.nix
     ./apps/gaming.nix
-    ./apps/emulation.nix
+#    ./apps/emulation.nix
   ];
 
   home.username = "solarbear";
