@@ -4,8 +4,8 @@
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh"; # Relative to home, must be directly set
-    #histFile = "$XDG_STATE_HOME/zsh/zsh_history";
-    #histSize = "10000";
+#    histFile = "${config.xdg.dataHome}/zsh/zsh_history"; # Doesn't exist; added after 23.11?
+#    histSize = "10000";
     plugins = [
       {
         name = "powerlevel10k";

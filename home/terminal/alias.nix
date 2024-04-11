@@ -21,6 +21,7 @@
     nx-update = "git --git-dir=$NIXOSDIR/.git/ --work-tree=$NIXOSDIR pull && nix flake update $NIXOSDIR";
     nx-upgrade = "nx-update && nx-rebuild && hm-rebuild && gitsweep";
     cdnix = "cd $NIXOSDIR";
+    nx-vim = "vim $NIXOSDIR";
 
     # git shortcuts
     gitsweep = "git add * && git commit -m \"Sweep\" && git push";

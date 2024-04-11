@@ -13,6 +13,7 @@
     nil # Language server
     tealdeer
     nextcloud-client
+    xdg-ninja
   ];
 
   xdg.enable = true;
@@ -34,19 +35,19 @@
 #    XDG_STATE_HOME="$HOME/.local/state";
 #    XDG_CACHE_HOME="$HOME/.cache";
     # Dotfile cleanliness
-    HISTFILE="${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
-    LESSHISTFILE="${config.home.sessionVariables.XDG_STATE_HOME}/less/history";
-    INPUTRC="${config.home.sessionVariables.XDG_CONFIG_HOME}/readline/inputrc";
-    ANDROID_HOME="${config.home.sessionVariables.XDG_DATA_HOME}/android";
-    CUDA_CACHE_PATH="${config.home.sessionVariables.XDG_CACHE_HOME}/nv";
-    GTK2_RC_FILES="${config.home.sessionVariables.XDG_CONFIG_HOME}/gtk-2.0/gtkrc";
-    WGETRC="${config.home.sessionVariables.XDG_CONFIG_HOME}/wgetrc";
-    WINEPREFIX="${config.home.sessionVariables.XDG_DATA_HOME}/wineprefixes/default";
-    XINITRC="${config.home.sessionVariables.XDG_CONFIG_HOME}/X11/xinitrc";
-    XSERVERRC="${config.home.sessionVariables.XDG_CONFIG_HOME}/X11/xserverrc";
-    XCURSOR_PATH="/usr/share/icons:${config.home.sessionVariables.XDG_DATA_HOME}/icons";
-    KDEHOME="${config.home.sessionVariables.XDG_CONFIG_HOME}/kde";
-    NIXOSDIR="${config.home.sessionVariables.XDG_CONFIG_HOME}/nixos";
+    HISTFILE="${config.xdg.stateHome}/zsh/history";
+    LESSHISTFILE="${config.xdg.stateHome}/less/history";
+    INPUTRC="${config.xdg.configHome}/readline/inputrc";
+    ANDROID_HOME="${config.xdg.dataHome}/android";
+    CUDA_CACHE_PATH="${config.xdg.cacheHome}/nv";
+    GTK2_RC_FILES="${config.xdg.configHome}/gtk-2.0/gtkrc";
+    WGETRC="${config.xdg.configHome}/wgetrc";
+    WINEPREFIX="${config.xdg.dataHome}/wineprefixes/default";
+    XINITRC="${config.xdg.configHome}/X11/xinitrc";
+    XSERVERRC="${config.xdg.configHome}/X11/xserverrc";
+    XCURSOR_PATH="/usr/share/icons:${config.xdg.dataHome}/icons";
+    KDEHOME="${config.xdg.configHome}/kde";
+    NIXOSDIR="${config.xdg.configHome}/nixos";
   };
 
   
