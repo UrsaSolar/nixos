@@ -12,6 +12,7 @@
     zsh-powerlevel10k
     nil # Language server
     tealdeer
+    nextcloud-client
   ];
 
   xdg.enable = true;
