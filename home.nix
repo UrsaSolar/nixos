@@ -16,7 +16,7 @@
     xdg-ninja
   ];
 
-  xdg.enable = true;
+  xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
   programs.btop = {
     enable = true;
