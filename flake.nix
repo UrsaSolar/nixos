@@ -18,8 +18,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
-
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, catppuccin, ... }:
