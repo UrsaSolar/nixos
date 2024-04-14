@@ -13,6 +13,7 @@ in
   imports = [
     ./luna-hardware.nix
     ../system/graphical.nix
+#    ../system/kodi.nix
   ];
 
   nixpkgs.overlays = [ overlay-asus-unstable ];
