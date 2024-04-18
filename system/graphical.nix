@@ -40,6 +40,10 @@
     catppuccin-papirus-folders
     breeze-gtk
     breeze-icons
+    clinfo
+    glxinfo
+    vulkan-tools
+    wayland-utils
 
   ];
 
