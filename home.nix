@@ -11,7 +11,6 @@
   home.packages = with pkgs; [ 
     zsh-powerlevel10k
     nil # Language server
-    tealdeer
     nextcloud-client
     xdg-ninja
   ];
@@ -26,6 +25,11 @@
   programs.tmux = {
     enable = true;
     catppuccin.enable = true;
+  };
+
+  programs.tealdeer = {
+    enable = true;
+    settings.updates.auto_update = true;
   };
 
   home.sessionVariables = {
