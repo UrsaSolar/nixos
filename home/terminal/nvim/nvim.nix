@@ -31,7 +31,11 @@
 #          config = builtins.readFile(./transparent-config.lua); }
       { plugin = nvim-lspconfig;
           type = "lua";
-          config = ''require'lspconfig'.nil_ls.setup{}''; }
+          config = ''
+            require'lspconfig'.nil_ls.setup{}
+            require'lspconfig'.docker_compose_language_service.setup{}
+          '';
+      }
 
       #catppuccin-nvim # currently provided by another systemwide package!
       which-key-nvim

@@ -10,7 +10,8 @@
   catppuccin.flavour = "mocha";
   home.packages = with pkgs; [ 
     zsh-powerlevel10k
-    nil # Language server
+    nil # Nix language server
+    docker-compose-language-service
     nextcloud-client
     xdg-ninja
   ];
