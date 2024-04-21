@@ -17,6 +17,7 @@
     PermitRootLogin = "no";
     PrintLastLog = false;
     PrintMotd = true;
+    openFirewall = true;
   };
 
   # Timezone and localization

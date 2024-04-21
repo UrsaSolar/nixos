@@ -70,6 +70,16 @@
           ./hosts/luna.nix
         ];
       };
+      saturn = lib.nixosSystem{
+        inherit system;
+        specialArgs = {inherit unstable;};
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          ./configuration.nix
+          ./hosts/saturn.nix
+        ];
+      };
+
     };
     # Home-Manager Configs
     homeConfigurations = {
