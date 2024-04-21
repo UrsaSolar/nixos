@@ -26,6 +26,12 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    gperftools # automatic1111
+    python311Packages.torchvision
+    python311Packages.torch
+  ];
+
   # Nvidia
   hardware.opengl = {
     enable = true;
