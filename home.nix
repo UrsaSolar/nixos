@@ -14,6 +14,7 @@
     docker-compose-language-service
     nextcloud-client
     xdg-ninja
+    python3
   ];
 
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
