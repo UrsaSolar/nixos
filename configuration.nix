@@ -11,13 +11,17 @@
   programs.zsh.enable = true;
   networking.networkmanager.enable = true;
   nix.optimise.automatic = true; # Periodically optimize filesystem with hard links via systemd service
+  networking.firewall.enable = false;
 
-  services.openssh.settings = { 
-    PasswordAuthentication = false;
-    PermitRootLogin = "no";
-    PrintLastLog = false;
-    PrintMotd = true;
-    openFirewall = true;
+  services.openssh = {
+    enable = true;
+    settings = { 
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      PrintLastLog = false;
+      PrintMotd = true;
+#      openFirewall = true;
+    };
   };
 
   # Timezone and localization

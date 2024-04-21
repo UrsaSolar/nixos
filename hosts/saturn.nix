@@ -18,10 +18,6 @@
     shell = pkgs.zsh;
   };
 
-  # services.openssh.enable = true;
-
-  # Firewall
-  networking.firewall.enable = true;
 
   # Nvidia
   hardware.opengl = {
