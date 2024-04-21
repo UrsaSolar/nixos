@@ -17,7 +17,7 @@
     { device = "/dev/disk/by-uuid/efd60c3a-4296-4539-85a5-862d6636c298";
     fsType = "ext4"; };
   fileSystems."/home" = 
-    { device = "/dev/disk/by-uuid/";
+    { device = "/dev/disk/by-uuid/7edc0cf5-c4ec-4b56-89ca-1c3f41a4b9e2";
      fsType = "ext4"; };
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/41FA-649F";
