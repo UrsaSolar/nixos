@@ -18,6 +18,13 @@
     shell = pkgs.zsh;
   };
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Nvidia
   hardware.opengl = {
