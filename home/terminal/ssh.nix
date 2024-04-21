@@ -13,7 +13,7 @@ Host jupiter-luks
     Port 2222
     User root
     RequestTTY yes
-    RemoteCommand cryptroot-unlock
+    # RemoteCommand cryptroot-unlock
     IdentityFile ~/.ssh/jupiter-cryptunlock
     HostKeyAlgorithms ssh-rsa
 Host thebe
