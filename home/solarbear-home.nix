@@ -3,8 +3,8 @@
 {
   
   imports = [
-#    ./graphical.nix
-#    ./apps/gaming.nix
+    ./graphical.nix
+    ./apps/gaming.nix
 #    ./apps/emulation.nix
   ];
 

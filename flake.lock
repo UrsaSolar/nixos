@@ -2,11 +2,11 @@
   "nodes": {
     "catppuccin": {
       "locked": {
-        "lastModified": 1713552048,
-        "narHash": "sha256-RcDJNnxjG9MTQHV/yG7JwPzffFub0JrwP2C1m6LxWFc=",
+        "lastModified": 1713810719,
+        "narHash": "sha256-snalFs8bTVwLgs7QlqqpXwfS/mCNMGlv85+F8sggFUQ=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "29bd8a3bda02434bf6ee3edf9ea6edd360a9ce17",
+        "rev": "4bf909a0d7b399754784db869e1fc89235c9dcc7",
         "type": "github"
       },
       "original": {
@@ -78,11 +78,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713793681,
-        "narHash": "sha256-0IhyxuEhkVPBlZsubhD469Mp9aME0xA8Y6dzgjFuxm0=",
+        "lastModified": 1713805120,
+        "narHash": "sha256-WmqVyblqQ3g2Bmm+WONc1OnUuOuULQRIQya9wCLp5o8=",
         "owner": "pjones",
         "repo": "plasma-manager",
-        "rev": "cedea97b1217a5301c6fd9a9b7c6b40d96953628",
+        "rev": "ffeef9dc96a5a0e442479c94a6000f93b69aeaac",
         "type": "github"
       },
       "original": {
