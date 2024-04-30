@@ -7,7 +7,7 @@
 
   home.stateVersion = "23.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
-  catppuccin.flavour = "mocha";
+#  catppuccin.flavour = "mocha";
   home.packages = with pkgs; [ 
     zsh-powerlevel10k
     nil # Nix language server
@@ -24,12 +24,12 @@
 
   programs.btop = {
     enable = true;
-    catppuccin.enable = true;
+#    catppuccin.enable = true;
   };
 
   programs.tmux = {
     enable = true;
-    catppuccin.enable = true;
+#    catppuccin.enable = true;
   };
 
   programs.tealdeer = {

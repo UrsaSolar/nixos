@@ -16,10 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    catppuccin.url = "github:catppuccin/nix";
+    #catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, catppuccin, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
 
   let
     
@@ -65,7 +65,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
+          #catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/luna.nix
         ];
@@ -74,7 +74,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
+          #catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/saturn.nix
         ];
@@ -87,7 +87,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit unstable;};
         modules = [
-          catppuccin.homeManagerModules.catppuccin
+          #catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/kenglish-home.nix
         ];
@@ -97,7 +97,7 @@
 	      extraSpecialArgs = {inherit unstable;};
         modules = [
           plasma-manager.homeManagerModules.plasma-manager
-          catppuccin.homeManagerModules.catppuccin
+          #catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/solarbear-home.nix
         ];

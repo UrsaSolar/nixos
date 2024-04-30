@@ -3,7 +3,7 @@
 
   programs.neovim = {
     enable = true;
-    catppuccin.enable = true;
+    #catppuccin.enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -37,7 +37,7 @@
           '';
       }
 
-      #catppuccin-nvim # currently provided by another systemwide package!
+      catppuccin-nvim # currently provided by another systemwide package!
       which-key-nvim
       vim-nix
       #nvim-lspconfig
