@@ -18,6 +18,8 @@
     python311Packages.pip
     python311Packages.virtualenv
     distrobox
+    hyfetch
+    starfetch
   ];
 
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
