@@ -43,6 +43,7 @@
     wget
     bind #nslookup
     git
+    nmap
   ];
 
   fonts.packages = with pkgs; [
