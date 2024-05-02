@@ -24,7 +24,7 @@
       PermitRootLogin = "no";
       PrintLastLog = false;
       PrintMotd = true;
-      openFirewall = true;
+      #openFirewall = true;
     };
   };
 
