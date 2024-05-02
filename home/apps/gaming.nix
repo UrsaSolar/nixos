@@ -19,10 +19,5 @@
     };
   };
   
-  home.packages = [
-    unstable.lutris
-    unstable.steam
-    unstable.discord
-  ];
 
 }
