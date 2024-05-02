@@ -44,6 +44,12 @@
     glxinfo
     vulkan-tools
     wayland-utils
+    kate
+    firefox
+    thunderbird
+    ungoogled-chromium
+    vlc
+    iosevka
 
   ];
 

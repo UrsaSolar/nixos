@@ -8,15 +8,6 @@
     ./apps/kodi.nix
   ];
 
-  home.packages = with pkgs; [
-    kate
-    firefox
-    thunderbird
-    ungoogled-chromium
-    vlc
-    iosevka
-  ];
-
   # fixes glitches and inconsistency
   home.pointerCursor = {
     gtk.enable = true;
