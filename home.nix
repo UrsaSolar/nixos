@@ -8,20 +8,6 @@
   home.stateVersion = "23.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
 #  catppuccin.flavour = "mocha";
-  home.packages = with pkgs; [ 
-    zsh-powerlevel10k
-    nil # Nix language server
-    docker-compose-language-service
-    nextcloud-client
-    xdg-ninja
-    python3
-    python311Packages.pip
-    python311Packages.virtualenv
-    distrobox
-    hyfetch
-    starfetch
-  ];
-
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
   programs.btop = {

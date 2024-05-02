@@ -3,6 +3,10 @@
 { config, pkgs, ... }:
 {
 
+  imports = [
+    ./system/base-packages.nix
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -20,7 +24,7 @@
       PermitRootLogin = "no";
       PrintLastLog = false;
       PrintMotd = true;
-#      openFirewall = true;
+      openFirewall = true;
     };
   };
 
@@ -39,12 +43,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    bind #nslookup
-    git
-    nmap
-  ];
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Only download Iosevka Nerd
