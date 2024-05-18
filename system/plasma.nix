@@ -19,7 +19,7 @@
   environment.systemPackages = with pkgs; [
     sddm-kcm # SDDM config module
     kate
-    kwrite
+    #kwrite
     xdg-desktop-portal
     xdg-desktop-portal-kde
     plasma-browser-integration

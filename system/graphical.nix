@@ -10,8 +10,9 @@
     pulse.enable = true;
     #jack.enable = true;
   };
-
-  services.flatpak.enable = true;
+  
+  #xdg.portal.enable = true;
+  #services.flatpak.enable = true;
   services.printing.enable = true;
 
   environment.systemPackages = with pkgs; [

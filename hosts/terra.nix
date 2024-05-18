@@ -1,13 +1,14 @@
 # terra.nix
 
 { config, pkgs, unstable, ... }:
+{
 
   imports = [
     ./terra-hardware.nix
     ../system/graphical.nix
+    ../system/plasma.nix
+    ../system/gaming.nix
   ];
-
-  nixpkgs.overlays = [ overlay-asus-unstable ];
 
   system.stateVersion = "23.11"; # Historical reference
   nixpkgs.config.allowUnfree = true; #Allow unfree packages
@@ -31,5 +32,6 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.opengl.driSupport32Bit = true;
+  hardware.ckb-next.enable = true;
 
 }
