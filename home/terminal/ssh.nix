@@ -16,14 +16,17 @@ Host jupiter-luks
     # RemoteCommand cryptroot-unlock
     IdentityFile ~/.ssh/jupiter-cryptunlock
     HostKeyAlgorithms ssh-rsa
-Host thebe
+Host mercury
+    HostName 192.168.30.100
+    user solarbear
+Host saturn
     HostName 192.168.80.101
     user solarbear
 Host jupiterver
     HostName 192.168.80.100
     user solarbear
     RemoteCommand sed 's/[^0-9.]//g' <<< $(cat /etc/os-release | grep "VERSION_ID") && exit
-Host thebever
+Host saturnver
     HostName 192.168.80.101
     user solarbear
     RemoteCommand sed 's/[^0-9.]//g' <<< $(cat /etc/os-release | grep "VERSION_ID") && exit
