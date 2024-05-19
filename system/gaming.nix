@@ -18,4 +18,5 @@
     #settings = {};
   };
 
+  hardware.xone.enable = true;
 }
