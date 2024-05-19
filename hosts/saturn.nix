@@ -23,17 +23,16 @@
 
   virtualisation.docker = {
     enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    enableNvidia = true;
+    # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
+    #rootless = {
+    #  enable = true;
+    #  setSocketVariable = true;
+    #};
   };
 
-  environment.systemPackages = with pkgs; [
-    gperftools # automatic1111
-    python311Packages.torchvision
-    python311Packages.torch
-  ];
+ # environment.systemPackages = with pkgs; [
+ # ];
 
   # Nvidia
   hardware.opengl = {
