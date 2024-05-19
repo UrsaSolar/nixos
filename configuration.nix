@@ -15,7 +15,7 @@
   programs.zsh.enable = true;
   networking.networkmanager.enable = true;
   nix.optimise.automatic = true; # Periodically optimize filesystem with hard links via systemd service
-  networking.firewall.enable = false;
+  #networking.firewall.enable = false;
 
   services.openssh = {
     enable = true;
