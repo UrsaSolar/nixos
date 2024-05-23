@@ -20,5 +20,6 @@
     btop
     tmux
     tealdeer
+    tree
   ];
 }
