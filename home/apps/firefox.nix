@@ -9,7 +9,7 @@
       isDefault = true;
       userChrome = builtins.readFile(./firefox-userChrome.css);
       search = {
-        default = "DuckDuckGo";
+        default = "Kagi";
         force = true;
       };
       settings ={

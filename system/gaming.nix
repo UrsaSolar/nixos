@@ -2,7 +2,7 @@
 {
 
   environment.systemPackages = with pkgs; [
-    unstable.discord
+    discord
     unstable.lutris
     mangohud
 
