@@ -5,10 +5,10 @@
     discord
     unstable.lutris
     mangohud
-
   ];
   programs.steam = {
     enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
 #    remotePlay.openFirewall = true;
   };
   programs.gamemode = {

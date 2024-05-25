@@ -29,5 +29,6 @@
     catppuccin-kvantum
     strawberry
     kcalc
+    discover
   ];
 }
