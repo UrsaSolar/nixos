@@ -24,14 +24,14 @@
   virtualisation = {
     docker = {
       enable = true;
-      #enableNvidia = true;  # Deprecated
+      enableNvidia = true;  # Deprecated
       # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
       #rootless = {
       #  enable = true;
       #  setSocketVariable = true;
       #};
     };
-    containers.cdi.dynamic.nvidia.enable = true;
+    #containers.cdi.dynamic.nvidia.enable = true; # not working?
   };
 
  # environment.systemPackages = with pkgs; [
