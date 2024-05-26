@@ -21,14 +21,17 @@
     ];
   };
 
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-    # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
-    #rootless = {
-    #  enable = true;
-    #  setSocketVariable = true;
-    #};
+  virtualisation = {
+    docker = {
+      enable = true;
+      #enableNvidia = true;  # Deprecated
+      # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
+      #rootless = {
+      #  enable = true;
+      #  setSocketVariable = true;
+      #};
+    };
+    containers.cdi.dynamic.nvidia.enable = true;
   };
 
  # environment.systemPackages = with pkgs; [
