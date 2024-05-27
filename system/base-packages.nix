@@ -21,5 +21,6 @@
     tmux
     tealdeer
     tree
+    cifs-utils
   ];
 }
