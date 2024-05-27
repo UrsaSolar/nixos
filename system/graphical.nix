@@ -24,7 +24,12 @@
     thunderbird
     ungoogled-chromium
     vlc
+    jellyfin-media-player
+  ];
+
+  fonts.packages = with pkgs; [
     iosevka
+    terminus-nerdfont
   ];
 
 }

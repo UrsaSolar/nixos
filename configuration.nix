@@ -44,9 +44,9 @@
   };
 
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Only download Iosevka Nerd
-  ]; 
+  #fonts.packages = with pkgs; [
+  #  (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Only download Iosevka Nerd
+  #]; 
 
 }
 
