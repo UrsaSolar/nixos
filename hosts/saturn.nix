@@ -38,6 +38,31 @@
  # environment.systemPackages = with pkgs; [
  # ];
 
+ # Borgmatic
+  services.borgmatic = {
+    enable = false;
+    configurations.docker = {
+      source_directories = [ "/var/lib/docker/volumes" ];
+      repositories = [{
+        label = "saturn-docker";
+        path = "ssh://xpa4440n@xpa4440n.repo.borgbase.com/./repo";
+      }];
+      ssh_command = "${pkgs.openssh}/bin/ssh -i /root/keys/borg/id_ed25519";
+      encryption_passcommand = "${pkgs.coreutils}/bin/cat /root/keys/borg/borg.pass";
+      keep_daily = 7;
+      keep_weekly = 4;
+      keep_monthly = 3;
+      upload_rate_limit = 5000;
+      retries = 3;
+      retry_wait = 600;
+      #todo:
+      #mariadb_databases = ;
+      #postgresql_databases = ;
+
+    };
+  };
+
+
   # Nvidia
   hardware.opengl = {
     enable = true;
