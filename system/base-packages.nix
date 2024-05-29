@@ -22,5 +22,6 @@
     tealdeer
     tree
     cifs-utils
+    unzip
   ];
 }
