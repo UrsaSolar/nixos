@@ -40,7 +40,7 @@
 
  # Borgmatic
   services.borgmatic = {
-    enable = false;
+    enable = true;
     configurations.docker = {
       source_directories = [ "/var/lib/docker/volumes" ];
       repositories = [{
