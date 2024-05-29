@@ -102,6 +102,16 @@
           ./home/solarbear-home.nix
         ];
       };
+      solarbear-server = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+	      extraSpecialArgs = {inherit unstable;};
+        modules = [
+          plasma-manager.homeManagerModules.plasma-manager
+          #catppuccin.homeManagerModules.catppuccin
+          ./home.nix
+          ./home/solarbear-server.nix
+        ];
+      };
     };
   };
 }
