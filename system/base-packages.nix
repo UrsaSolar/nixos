@@ -23,5 +23,6 @@
     tree
     cifs-utils
     unzip
+    openssl
   ];
 }
