@@ -17,6 +17,7 @@
     # Replacements
     ls = "eza --icons=always";
     cat = "bat";
+    duf = "duf --hide special";
     
     # Other useful commands
     notesync = "nextcloudcmd -n --path /Notes ~/Notes https://io.ursa.solar/";

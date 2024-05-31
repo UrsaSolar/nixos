@@ -30,5 +30,8 @@
     yazi
     neovim
     eza
+    duf
+    du-dust
+    gping
   ];
 }
