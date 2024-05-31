@@ -25,5 +25,10 @@
     unzip
     openssl
     bat
+    btop
+    fzf
+    yazi
+    neovim
+    eza
   ];
 }

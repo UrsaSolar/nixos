@@ -14,6 +14,11 @@
     vv = "clear && nvim $(find ~/Software/ ~/.config/ ~/Documents ~/Downloads -type f | fbat)";
     fbat = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
 
+    # Replacements
+    ls = "eza --icons=always";
+    cat = "bat";
+    
+    # Other useful commands
     notesync = "nextcloudcmd -n --path /Notes ~/Notes https://io.ursa.solar/";
     sshhosts = "grep '^Host' ~/.ssh/config | cut -d ' ' -f 2- | column";
  
