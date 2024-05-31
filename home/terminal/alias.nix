@@ -9,9 +9,11 @@
     histon = "set -o history";
     #hist = "cat $XDG_STATE_HOME/zsh/history | grep $@";
     
-    # Fuzzy finder directory hopper
-    jj = "clear && cd $(find ~/Software/ ~/.config/ ~/Documents -type d | fzf)";
-    vv = "clear && nvim $(find ~/Software/ ~/.config/ ~/Documents ~/Downloads -type f | fzf)";
+    # Fuzzy finder & directory hoppers
+    jj = "clear && cd $(find ~/Software/ ~/.config/ ~/Documents -type d | fbat)";
+    vv = "clear && nvim $(find ~/Software/ ~/.config/ ~/Documents ~/Downloads -type f | fbat)";
+    fbat = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
+
     notesync = "nextcloudcmd -n --path /Notes ~/Notes https://io.ursa.solar/";
     sshhosts = "grep '^Host' ~/.ssh/config | cut -d ' ' -f 2- | column";
  

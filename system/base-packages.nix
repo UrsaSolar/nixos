@@ -24,5 +24,6 @@
     cifs-utils
     unzip
     openssl
+    bat
   ];
 }
