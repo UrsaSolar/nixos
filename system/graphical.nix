@@ -20,16 +20,21 @@
     glxinfo
     vulkan-tools
     wayland-utils
+    corectrl
     firefox
     thunderbird
     ungoogled-chromium
     vlc
     jellyfin-media-player
+    unstable.amarok
   ];
 
   fonts.packages = with pkgs; [
     iosevka
     terminus-nerdfont
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
   ];
 
 }

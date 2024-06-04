@@ -3,7 +3,7 @@
 
   environment.systemPackages = with pkgs; [
     discord
-    unstable.lutris
+    lutris
     mangohud
   ];
   programs.steam = {
