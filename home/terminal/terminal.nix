@@ -9,6 +9,7 @@
     ./fzf.nix
     ./yazi.nix
     ./nvim/nvim.nix
+    ./bat.nix
 #    ./fish.nix
   ];
 
