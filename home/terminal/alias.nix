@@ -24,7 +24,7 @@
     sshhosts = "grep '^Host' ~/.ssh/config | cut -d ' ' -f 2- | column";
  
     # NixOS shortcuts
-    #hm-rebuild = "home-manager switch --flake $NIXOSDIR && source $XDG_CONFIG_HOME/zsh/.zshrc && rm $XDG_CACHE_HOME/ksycoca5*";
+    hm-rebuild = "home-manager switch --flake $NIXOSDIR && source $XDG_CONFIG_HOME/zsh/.zshrc && rm $XDG_CACHE_HOME/ksycoca5*";
     nx-rebuild = "sudo nixos-rebuild switch --flake $NIXOSDIR";
     nx-update = "git --git-dir=$NIXOSDIR/.git/ --work-tree=$NIXOSDIR pull && nix flake update $NIXOSDIR";
     nx-upgrade = "nx-update && nx-rebuild && hm-rebuild && gitflake";
