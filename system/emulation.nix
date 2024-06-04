@@ -1,7 +1,7 @@
 { lib, config, pkgs, unstable, ... } :
 {
 
-  home.packages = with pkgs; [
+   environment.systemPackages = with pkgs; [
     retroarch
     retroarch-assets          #unsure if needed, test later
     libretro-core-info        # unsure if needed, test later
