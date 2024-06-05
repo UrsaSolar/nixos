@@ -35,4 +35,7 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.ckb-next.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
 }
