@@ -33,5 +33,6 @@
     duf
     du-dust
     gping
+    jq
   ];
 }
