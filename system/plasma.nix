@@ -30,5 +30,6 @@
     strawberry
     kcalc
     discover
+    bluedevil
   ];
 }
