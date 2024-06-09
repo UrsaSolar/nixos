@@ -15,6 +15,13 @@
   services.flatpak.enable = true;
   services.printing.enable = true;
 
+  services.syncthing = {
+    enable = true;
+    user = "solarbear";
+    dataDir = "/home/solarbear/Quicksync";
+    configDir = "/home/solarbear/.config/syncthing";
+  };
+
   environment.systemPackages = with pkgs; [
     clinfo
     glxinfo
