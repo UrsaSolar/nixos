@@ -45,7 +45,7 @@
     XCURSOR_PATH="/usr/share/icons:${config.xdg.dataHome}/icons";
     KDEHOME="${config.xdg.configHome}/kde";
     NIXOSDIR="${config.xdg.configHome}/nixos";
-    NIX_PATH="${config.xdg.configHome}/nixos";
+    #NIX_PATH="${config.xdg.configHome}/nixos";
   };
 
   
