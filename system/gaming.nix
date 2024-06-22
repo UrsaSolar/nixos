@@ -3,12 +3,13 @@
 
   environment.systemPackages = with pkgs; [
     discord
-    lutris
     mangohud
+    winetricks
   ];
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    #protontricks.enable = true;
 #    remotePlay.openFirewall = true;
   };
   programs.gamemode = {
@@ -17,7 +18,7 @@
     # https://mynixos.com/nixpkgs/option/programs.gamemode.settings
     #settings = {};
   };
-
+  #programs.lutris.enable = true;
   hardware.xone.enable = true;
   hardware.steam-hardware.enable = true;
 }
