@@ -33,7 +33,7 @@
 
   # Run appimages directly with appimage-run
   programs.appimage = {
-    #enable = true;
+    enable = true;
     binfmt = true;
   };
 }
