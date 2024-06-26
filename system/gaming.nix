@@ -8,6 +8,7 @@
 {
 
   #nixpkgs.overlays = [ overlay-steam-unstable ]; 
+  nixpkgs.config.permittedInsecurePackages = [ "freeimage-unstable-2021-11-01" ];
 
   environment.systemPackages = with pkgs; [
     discord
@@ -15,6 +16,8 @@
     winetricks
     protontricks
     lutris
+    wine-staging
+    emulationstation-de
   ];
 
   programs.steam = {
