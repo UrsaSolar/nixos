@@ -8,7 +8,7 @@
     ../system/graphical.nix
     ../system/plasma.nix
     ../system/gaming.nix
-    ../system/emulation.nix
+    #../system/emulation.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
@@ -29,7 +29,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  #networking.firewall.enable = false;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
