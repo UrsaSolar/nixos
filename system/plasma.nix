@@ -28,5 +28,12 @@
     kcalc
     discover
     bluedevil
+    appimage-run
   ];
+
+  # Run appimages directly with appimage-run
+  programs.appimage = {
+    #enable = true;
+    binfmt = true;
+  };
 }
