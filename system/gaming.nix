@@ -16,8 +16,7 @@
     winetricks
     protontricks
     lutris
-    wine-staging
-    emulationstation-de
+    mame
   ];
 
   programs.steam = {
