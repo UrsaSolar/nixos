@@ -13,6 +13,7 @@ in
   imports = [
     ./luna-hardware.nix
     ../system/graphical.nix
+    ../system/plasma.nix
 #    ../system/kodi.nix
   ];
 
