@@ -29,6 +29,9 @@
     discover
     bluedevil
     appimage-run
+    vlc
+    filelight
+    wine-staging
   ];
 
   # Run appimages directly with appimage-run
