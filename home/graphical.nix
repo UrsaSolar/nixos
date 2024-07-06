@@ -13,7 +13,7 @@
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.catppuccin-cursors.mochaGreen;
-    name = "Catppuccin-Mocha-Green-Cursors";
+    name = "catppuccin-mocha-green-cursors";
     size = 48;
   };
 
