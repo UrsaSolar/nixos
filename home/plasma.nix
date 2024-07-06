@@ -20,6 +20,15 @@
 
   services.kdeconnect.enable = true;
 
+  # fixes glitches and inconsistency
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.catppuccin-cursors.mochaGreen;
+    name = "catppuccin-mocha-green-cursors";
+    size = 48;
+  };
+
   home.packages = with pkgs; [
     catppuccin-kvantum
     strawberry
