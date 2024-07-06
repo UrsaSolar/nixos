@@ -2,7 +2,7 @@
 
  # Plasma Desktop
   services.xserver.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.desktopManager.plasma6.enable = true;
   #services.xserver.desktopManager.plasma5.bigscreen.enable = true;
   programs.dconf.enable = true; # Fix for Firefox not seeing mouse cursor settings; https://github.com/NixOS/nixpkgs/issues/207339#issuecomment-1747101887
   services.displayManager.sddm.enable = true;
@@ -21,6 +21,7 @@
     xdg-desktop-portal-kde
     plasma-browser-integration
     catppuccin-papirus-folders
+    kdePackages.breeze
     breeze-gtk
     breeze-icons
     catppuccin-kvantum
