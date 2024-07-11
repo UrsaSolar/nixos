@@ -1,6 +1,9 @@
- { config, pkgs, ... }:
-
+{ config, pkgs, ... }:
 {
+  imports = [
+    ./terminal/ssh-work.nix
+  ];
+
   home.username = "kenglish";
   home.homeDirectory = "/home/kenglish";
 

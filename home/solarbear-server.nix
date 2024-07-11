@@ -3,9 +3,7 @@
 {
   
   imports = [
-#    ./graphical.nix
-#    ./apps/gaming.nix
-#    ./apps/emulation.nix
+    ./terminal/ssh-home.nix
   ];
 
   home.username = "solarbear";
