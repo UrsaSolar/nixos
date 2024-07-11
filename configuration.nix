@@ -15,6 +15,12 @@
   programs.zsh.enable = true;
   networking.networkmanager.enable = true;
   nix.optimise.automatic = true; # Periodically optimize filesystem with hard links via systemd service
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   #networking.firewall.enable = false;
 
   services.openssh = {
