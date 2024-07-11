@@ -10,6 +10,15 @@
   system.stateVersion = "23.11"; # Historical reference
   nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "saturn";
+  networking.firewall = {
+    enable = false;
+    #allowedTCPPorts = [ 47984 47989 48010];
+    #allowedUDPPorts = [ 47999 ];
+    #allowedUDPPortRanges = [
+    #  { from = 48100; to = 48110; }
+    #  { from = 48200; to = 48210; }
+    #];
+  }; 
 
   users.users.solarbear = {
     isNormalUser = true;
