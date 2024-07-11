@@ -3,14 +3,14 @@
 
   imports = [
     ./alias.nix
-    ./ssh.nix
-    ./btop.nix
-    ./zsh.nix
-    ./fzf.nix
-    ./yazi.nix
-    ./nvim/nvim.nix
     ./bat.nix
-#    ./fish.nix
+    ./btop.nix
+    ./fzf.nix
+    ./nvim/nvim.nix
+    ./yazi/yazi.nix
+    ./zsh.nix
+    # ./fish.nix
+    #./ssh.nix
   ];
 
 
