@@ -17,6 +17,9 @@
     sddm-kcm # SDDM config module
     kate
     #kwrite
+    kdenlive
+    supersonic
+    tokodon
     xdg-desktop-portal
     xdg-desktop-portal-kde
     plasma-browser-integration
@@ -33,6 +36,7 @@
     vlc
     filelight
     wine-staging
+    gimp
   ];
 
   # Run appimages directly with appimage-run
