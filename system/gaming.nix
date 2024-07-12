@@ -17,7 +17,6 @@
     protontricks
     lutris
     mame
-    xivlauncher
   ];
 
   programs.steam = {
