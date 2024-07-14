@@ -6,6 +6,8 @@
     bind #nslookup
     git
     nmap
+    p7zip
+    unrar
     zsh-powerlevel10k
     nil # Nix language server
     docker-compose-language-service
