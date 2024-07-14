@@ -13,17 +13,25 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+# Boot
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/F99E-E759";
+    fsType = "vfat"; };
+  # Root
+  boot.initrd.luks.devices."luks-41280705-8a8f-44e0-b9e9-c4a43803580a".device = "/dev/disk/by-uuid/41280705-8a8f-44e0-b9e9-c4a43803580a";
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/313101c0-f1b5-4afb-b125-ac6d8fd94c84";
       fsType = "ext4"; };
+  # Home
+  boot.initrd.luks.devices."luks-3737e9de-2612-4bc8-a8f6-cab411d286fb".device = "/dev/disk/by-uuid/3737e9de-2612-4bc8-a8f6-cab411d286fb";
   fileSystems."/home" = 
     { device = "/dev/disk/by-uuid/178219dd-c801-41eb-a861-c6c7d0f3748c";
       fsType = "ext4"; };
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F99E-E759";
-      fsType = "vfat"; };
-boot.initrd.luks.devices."luks-3737e9de-2612-4bc8-a8f6-cab411d286fb".device = "/dev/disk/by-uuid/3737e9de-2612-4bc8-a8f6-cab411d286fb";
-boot.initrd.luks.devices."luks-41280705-8a8f-44e0-b9e9-c4a43803580a".device = "/dev/disk/by-uuid/41280705-8a8f-44e0-b9e9-c4a43803580a";
+  # Data
+  boot.initrd.luks.devices."luks-c4c5db23-12f9-4869-888a-0c469aedce37".device = "/dev/disk/by-uuid/c4c5db23-12f9-4869-888a-0c469aedce37";
+  fileSystems."/mnt/data" = 
+    { device = "/dev/disk/by-uuid/4516df7b-4550-4199-9c3c-a2e53f6b65e0";
+      fsType = "ext4"; };
 
 #  fileSystems."/mnt/jupiter-media" = 
 #    { device = "//192.168.80.100/media";
