@@ -1,10 +1,4 @@
-{ config, pkgs, unstable, ... }:
-#let
-#  overlay-steam-unstable = final: prev: {
-#    steam = unstable.steam;
-#    protontricks = unstable.protontricks;
-#  };
-#in
+{ pkgs, ... }:
 {
 
   #nixpkgs.overlays = [ overlay-steam-unstable ]; 

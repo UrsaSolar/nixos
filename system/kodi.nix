@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{ pkgs, ... }:{
     
   environment.systemPackages = [
   	(pkgs.kodi.passthru.withPackages (kodiPkgs: with kodiPkgs; [

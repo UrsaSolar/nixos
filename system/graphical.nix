@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ pkgs, unstable, ... }:
 {
   
   # Pipewire with PulseAudio and Alsa support
