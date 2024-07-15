@@ -1,6 +1,6 @@
 # Configuration.nix
 
-{ config, pkgs, lib,... }:
+{ ... }:
 {
 
   imports = [
@@ -49,14 +49,6 @@
     LC_TIME = "en_US.UTF-8";
   };
   
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "unrar"
-    "steam"
-    "nvidia"
-    "discord"
-    "nvidia-container-toolkit"
-  ];
-
   #fonts.packages = with pkgs; [
   #  (nerdfonts.override { fonts = [ "Iosevka" ]; }) # Only download Iosevka Nerd
   #]; 

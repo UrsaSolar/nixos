@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
 
+  imports = [
+    ./unfree.nix
+  ];
   environment.systemPackages = with pkgs; [
     wget
     bind #nslookup
