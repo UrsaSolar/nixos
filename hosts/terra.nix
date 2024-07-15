@@ -1,6 +1,6 @@
 # terra.nix
 
-{ config, pkgs, unstable, ... }:
+{ pkgs, ... }:
 {
 
   imports = [

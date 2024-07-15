@@ -1,6 +1,6 @@
 # ASM.nix
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./asm-hardware.nix ];
 

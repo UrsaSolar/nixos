@@ -1,6 +1,6 @@
 # Luna.nix
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
 
   imports = [
