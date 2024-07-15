@@ -8,7 +8,7 @@
   ];
 
   system.stateVersion = "23.11"; # Historical reference
-  nixpkgs.config.allowUnfree = true; #Allow unfree packages
+  #nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "saturn";
   networking.firewall = {
     enable = false;
