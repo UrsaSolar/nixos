@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }: 
+{ unstable, ... }: 
 {
 
   programs.yazi = {

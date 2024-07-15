@@ -1,4 +1,4 @@
-{ lib, config, pkgs, unstable, ... } :
+{ ... } :
 {
 
 #  nixpkgs.config.allowUnfreePredicate = pkg:
