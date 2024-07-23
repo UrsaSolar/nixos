@@ -57,6 +57,11 @@
   virtualisation = {
     docker = {
       enable = true;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+        flags = [ "--filter 'until=168h'" ];
+      };
       enableNvidia = true;  # Deprecated
       # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
       #rootless = {
