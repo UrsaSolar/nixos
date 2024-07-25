@@ -39,5 +39,7 @@
     du-dust
     gping
     jq
+    binutils
+    file
   ];
 }
