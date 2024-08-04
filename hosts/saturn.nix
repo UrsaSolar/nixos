@@ -61,17 +61,17 @@
         enable = true;
         dates = "weekly";
         flags = [ "--filter 'until=168h'" ];
-        extraOptions = [
-          "--tlsverify"
-          "--tlscacert=/root/certificates/ca.pem"
-          "--tlscert=/root/certificates/saturn.crt"
-          "--tlskey=/root/certificates/saturn.pem"
-        ];
-        listenOptions = [
-          "/run/docker.sock"
-          "0.0.0.0:2376"
-        ];
-      };
+      };      
+      extraOptions = ''
+        --tlsverify \
+        --tlscacert=/root/certificates/ca.pem \
+        --tlscert=/root/certificates/saturn.crt \
+        --tlskey=/root/certificates/saturn.pem
+      '';
+      listenOptions = [
+        "/run/docker.sock"
+        "0.0.0.0:2376"
+      ];
       enableNvidia = true;  # Deprecated
       # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
       #rootless = {
