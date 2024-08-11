@@ -37,6 +37,7 @@
     filelight
     wine-staging
     gimp
+    kdePackages.partitionmanager
   ];
 
   # Run appimages directly with appimage-run
