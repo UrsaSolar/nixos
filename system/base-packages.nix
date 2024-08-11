@@ -41,5 +41,6 @@
     jq
     binutils
     file
+    libreoffice
   ];
 }
