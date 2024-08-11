@@ -59,9 +59,11 @@
     firefox
     thunderbird
     ungoogled-chromium
-    #vlc
+    vlc
     jellyfin-media-player
     unstable.amarok
+    nextcloud-client
+    libreoffice
   ];
 
   fonts.packages = with pkgs; [
