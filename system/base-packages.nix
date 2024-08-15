@@ -5,6 +5,8 @@
     ./unfree.nix
   ];
   environment.systemPackages = with pkgs; [
+
+    #terminal tools
     wget
     bind #nslookup
     git
@@ -12,16 +14,6 @@
     p7zip
     unrar
     zsh-powerlevel10k
-    nil # Nix language server
-    docker-compose-language-service
-    nextcloud-client
-    xdg-ninja
-    python3
-    python311Packages.pip
-    python311Packages.virtualenv
-    distrobox
-    hyfetch
-    starfetch
     btop
     tmux
     tealdeer
@@ -29,17 +21,33 @@
     cifs-utils
     unzip
     openssl
-    bat
-    btop
-    fzf
-    yazi
+    bat # cat replacement
+    btop 
+    fzf 
+    yazi # file browser
     neovim
-    eza
-    duf
-    du-dust
-    gping
-    jq
-    binutils
-    file
+    eza # ls replacement
+    duf # df replacement
+    du-dust # du replacement
+    gping # ping replacement
+    jq # json query
+    binutils # gnu binary tools (ld, strings, readelf)
+    file # filetype guesser
+    xdg-ninja
+    hyfetch
+    starfetch
+
+    # language servers for nvim
+    nil # Nix
+    yaml-language-server
+    docker-compose-language-service
+
+    # other software
+    nextcloud-client
+    #python3
+    #python311Packages.pip
+    #python311Packages.virtualenv
+    #distrobox
+   
   ];
 }
