@@ -79,6 +79,15 @@
           ./hosts/saturn.nix
         ];
       };
+      mercury = lib.nixosSystem{
+        inherit system;
+        specialArgs = {inherit unstable;};
+        modules = [
+          #catppuccin.nixosModules.catppuccin
+          ./configuration.nix
+          ./hosts/mercury.nix
+        ];
+      };
 
     };
     # Home-Manager Configs
