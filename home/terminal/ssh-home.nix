@@ -27,7 +27,7 @@ Host saturn-luks
     user root
     StrictHostKeyChecking no
 Host mercury-luks
-    HostName 192.168.30.124
+    HostName 192.168.80.104
     user root
     StrictHostKeyChecking no
 Host jupiterver
