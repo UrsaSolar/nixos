@@ -50,14 +50,13 @@
   virtualisation = {
     docker = {
       enable = true;
-      #enableNvidia = true;  # Deprecated
-      # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
-      #rootless = {
-      #  enable = true;
-      #  setSocketVariable = true;
-      #};
+      enableOnBoot = true;
+      logDriver = "syslog";
+      extraOptions = "\
+        --log-opt syslog-address=udp://localhost:514 tag={{.Name}} \
+        --default-address-pools base=172.16.0.0/12 size=24 \
+      ";
     };
-    #containers.cdi.dynamic.nvidia.enable = true; # not working?
   };
 
  # environment.systemPackages = with pkgs; [
