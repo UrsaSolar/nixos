@@ -32,8 +32,9 @@
       { plugin = nvim-lspconfig;
           type = "lua";
           config = ''
-            require'lspconfig'.nil_ls.setup{}
-            require'lspconfig'.docker_compose_language_service.setup{}
+            require('lspconfig').nil_ls.setup{}
+            require('lspconfig').docker_compose_language_service.setup{}
+            require('lspconfig').yamlls.setup{}
           '';
       }
 
