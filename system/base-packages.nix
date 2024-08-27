@@ -36,6 +36,7 @@
     xdg-ninja
     hyfetch
     starfetch
+    step-cli
 
     # language servers for nvim
     nil # Nix
