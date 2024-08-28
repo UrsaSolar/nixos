@@ -1,6 +1,5 @@
 {
-
-  description = "Test flake";
+  description = "Nix Bear";
 
   inputs = {
 
@@ -44,7 +43,16 @@
   in {
 
     # System Configs
-    nixosConfigurations = {
+    nixosConfigurations = 
+    {
+      asm-wsl = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit unstable;};
+        modules = [
+          ./configuration.nix
+          ./hosts/wsl.nix 
+        ];
+      };
       nixos-asm = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit unstable;};
