@@ -1,16 +1,18 @@
 # ASM.nix
 
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, nixos-wsl, ... }:
 
 
 {
   imports = [ ./wsl-hardware.nix ];
-
-  wsl.enable = true;
+  
+  nixos-wsl.nixosModules.default = {
+    wsl.enable = true;
+  };
   wsl.nativeSystemd = true;
   programs.bash.loginShellInit = "nixos-wsl-welcome";
 
-  # When the config is built from a flake, the NIX_PATH entry of nixpkgs is set to its flake version.
+  # When the config is built from a flake, the NIX_PATH entry of nixxpkgs is set to its flake version.
   # Per default the resulting systems aren't flake-enabled, so rebuilds would fail.
   # Note: This does not affect the module being imported into your own flake.
   nixpkgs.flake.source = lib.mkForce null;
@@ -29,7 +31,7 @@
     ];
   system.stateVersion = config.system.nixos.release;
 
-  networking.hostName = "wsl-asm"; # Define your hostname.
+  networking.hostName = "nixos-wsl"; # Define your hostname.
 
   users.users.kenglish = {
     isNormalUser = true;

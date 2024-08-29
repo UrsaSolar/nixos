@@ -9,21 +9,20 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     plasma-manager = {
       url = "github:pjones/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     #catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, nixos-wsl, ... }:
 
   let
     
     system = "x86_64-linux";
-    lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     unstable = import nixpkgs-unstable {inherit system; config = { allowUnfree = true; }; };
 
@@ -45,7 +44,7 @@
     # System Configs
     nixosConfigurations = 
     {
-      asm-wsl = lib.nixosSystem {
+      nixos-wsl = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
@@ -53,7 +52,7 @@
           ./hosts/wsl.nix 
         ];
       };
-      nixos-asm = lib.nixosSystem {
+      nixos-asm = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
@@ -61,7 +60,7 @@
           ./hosts/asm.nix 
         ];
       };
-      terra = lib.nixosSystem{
+      terra = nixpkgs.lib.nixosSystem{
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
@@ -69,7 +68,7 @@
           ./hosts/terra.nix
         ];
       };
-      luna = lib.nixosSystem{
+      luna = nixpkgs.lib.nixosSystem{
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
@@ -78,7 +77,7 @@
           ./hosts/luna.nix
         ];
       };
-      saturn = lib.nixosSystem{
+      saturn = nixpkgs.lib.nixosSystem{
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
@@ -87,7 +86,7 @@
           ./hosts/saturn.nix
         ];
       };
-      mercury = lib.nixosSystem{
+      mercury = nixpkgs.lib.nixosSystem{
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
