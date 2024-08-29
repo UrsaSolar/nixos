@@ -5,10 +5,6 @@
 
 {
   #imports = [ ./wsl-hardware.nix ];
-  nixos-wsl = {
-    wsl.enable = true;
-    wsl.nativeSystemd = true;
-  };
   programs.bash.loginShellInit = "nixos-wsl-welcome";
 
   # When the config is built from a flake, the NIX_PATH entry of nixxpkgs is set to its flake version.

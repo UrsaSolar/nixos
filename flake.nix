@@ -48,7 +48,11 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          ./configuration.nix
+	  nixos-wsl.nixosModules.default {
+	    system.stateVersion = "24.05";
+	    wsl.enable = true;
+	  }
+          ./configuration-wsl.nix
           ./hosts/wsl.nix 
         ];
       };
