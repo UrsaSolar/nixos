@@ -4,7 +4,7 @@
 
 
 {
-  imports = [ ./wsl-hardware.nix ];
+  #imports = [ ./wsl-hardware.nix ];
   
   nixos-wsl.nixosModules.default = {
     wsl.enable = true;
