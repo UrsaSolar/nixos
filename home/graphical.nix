@@ -8,4 +8,9 @@
     ./apps/kodi.nix
   ];
 
+  services.easyeffects = {
+    enable = true;
+    preset = "mic-cleaner";
+  };
+
 }
