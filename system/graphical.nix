@@ -38,6 +38,7 @@
       };
     };
   };
+  programs.dconf.enable = true; # Needed for EasyEffects daemon
   
   xdg.portal.enable = true;
   services.flatpak.enable = true;
