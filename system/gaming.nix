@@ -11,6 +11,7 @@
     protontricks
     lutris
     mame
+    pcsx2
   ];
 
   programs.steam = {
