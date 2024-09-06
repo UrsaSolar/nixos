@@ -65,6 +65,7 @@
     unstable.amarok
     nextcloud-client
     libreoffice
+    anki
   ];
 
   fonts.packages = with pkgs; [
