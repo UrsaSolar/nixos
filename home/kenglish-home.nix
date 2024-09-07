@@ -13,5 +13,8 @@
     nm-sol = "nmcli c up \"Sol\"";
     hm-rebuild = "home-manager switch --flake $NIXOSDIR && source $XDG_CONFIG_HOME/zsh/.zshrc && rm $XDG_CACHE_HOME/ksycoca5*";
   };
+
+  catppuccin.accent = "red";
+
 }
 

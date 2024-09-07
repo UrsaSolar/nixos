@@ -3,15 +3,17 @@
 
   imports = [
     ./alias.nix
-    ./bat.nix
     ./btop.nix
     ./fzf.nix
     ./nvim/nvim.nix
     ./yazi/yazi.nix
     ./zsh.nix
-    # ./fish.nix
-    #./ssh.nix
   ];
 
-
+  programs.bat = {
+    enable = true;
+  };
+  programs.fzf = {
+    enable = true;
+  };
 }

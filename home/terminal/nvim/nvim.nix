@@ -3,7 +3,6 @@
 
   programs.neovim = {
     enable = true;
-    #catppuccin.enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -17,7 +16,7 @@
       nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
       nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
     '';
-    extraLuaConfig = builtins.readFile(./catppuccin-config.lua);
+    #extraLuaConfig = builtins.readFile(./catppuccin-config.lua);
     plugins = with pkgs.vimPlugins; [
 
       { plugin = neo-tree-nvim;
@@ -38,7 +37,7 @@
           '';
       }
 
-      catppuccin-nvim # currently provided by another systemwide package!
+      #catppuccin-nvim # currently provided by another systemwide package!
       which-key-nvim
       vim-nix
       #nvim-lspconfig

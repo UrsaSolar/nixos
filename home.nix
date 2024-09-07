@@ -7,17 +7,16 @@
 
   home.stateVersion = "23.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
-#  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
   programs.btop = {
     enable = true;
-#    catppuccin.enable = true;
   };
 
   programs.tmux = {
     enable = true;
-#    catppuccin.enable = true;
   };
 
   programs.tealdeer = {

@@ -15,10 +15,10 @@
       inputs.home-manager.follows = "home-manager";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    #catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, nixos-wsl, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, catppuccin, nixos-wsl, ... }:
 
   let
     
@@ -53,6 +53,7 @@
           wsl.enable = true;
           wsl.defaultUser = "kenglish";
 	      }
+          catppuccin.nixosModules.catppuccin
           ./configuration-wsl.nix
           ./hosts/wsl.nix 
         ];
@@ -61,6 +62,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
+          catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/asm.nix 
         ];
@@ -69,6 +71,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
+          catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/terra.nix
         ];
@@ -77,7 +80,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          #catppuccin.nixosModules.catppuccin
+          catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/luna.nix
         ];
@@ -86,7 +89,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          #catppuccin.nixosModules.catppuccin
+          catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/saturn.nix
         ];
@@ -95,7 +98,7 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          #catppuccin.nixosModules.catppuccin
+          catppuccin.nixosModules.catppuccin
           ./configuration.nix
           ./hosts/mercury.nix
         ];
@@ -108,7 +111,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit unstable;};
         modules = [
-          #catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/kenglish-home.nix
         ];
@@ -118,7 +121,7 @@
 	      extraSpecialArgs = {inherit unstable;};
         modules = [
           plasma-manager.homeManagerModules.plasma-manager
-          #catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/solarbear-home.nix
         ];
@@ -127,8 +130,7 @@
         inherit pkgs;
 	      extraSpecialArgs = {inherit unstable;};
         modules = [
-          plasma-manager.homeManagerModules.plasma-manager
-          #catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeManagerModules.catppuccin
           ./home.nix
           ./home/solarbear-server.nix
         ];

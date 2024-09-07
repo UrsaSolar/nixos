@@ -13,4 +13,6 @@
     hm-rebuild = "home-manager switch --flake $NIXOSDIR#solarbear-server && source $XDG_CONFIG_HOME/zsh/.zshrc && rm $XDG_CACHE_HOME/ksycoca5*";
   };
 
+  catppuccin.accent = "green";
+
 }
