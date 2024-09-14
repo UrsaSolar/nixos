@@ -4,7 +4,6 @@
   imports = [
     ./alias.nix
     ./btop.nix
-    ./fzf.nix
     ./nvim/nvim.nix
     ./yazi/yazi.nix
     ./zsh.nix
