@@ -38,6 +38,7 @@
     wine-staging
     gimp
     kdePackages.partitionmanager
+    yakuake
   ];
 
   # Run appimages directly with appimage-run
