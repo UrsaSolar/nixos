@@ -46,19 +46,26 @@
     };
   };
 
-
-
-  virtualisation = {
-    docker = {
-      enable = true;
-      enableOnBoot = true;
-      logDriver = "syslog";
-      extraOptions = "\
-        --log-opt syslog-address=udp://localhost:514 tag={{.Name}} \
-        --default-address-pools base=172.16.0.0/12 size=24 \
-      ";
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+    daemon.settings = {
+      default-address-pools = [{ base = "172.16.0.0/12"; size = 28;}];
+      fixed-cidr = "172.168.0.0/12";
+      bip = "172.16.0.1/24";
     };
   };
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_unprivileged_port_start" = 0;
+  };
+  networking.firewall.enable = false;
+
+  #virtualisation.docker.enable = true;
+  #virtualisation.podman = {
+    #enable = true;
+    #dockerCompat = true;
+    #dockerSocket.enable = true;
+  #};
 
  # environment.systemPackages = with pkgs; [
  # ];
