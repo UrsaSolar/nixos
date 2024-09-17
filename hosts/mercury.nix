@@ -60,6 +60,8 @@
   };
   networking.firewall.enable = false;
 
+  virtualisation.libvirtd.enable = true;
+
   #virtualisation.docker.enable = true;
   #virtualisation.podman = {
     #enable = true;
