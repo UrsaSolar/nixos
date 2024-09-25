@@ -66,6 +66,7 @@
     nextcloud-client
     libreoffice
     anki
+    virt-manager
   ];
 
   fonts.packages = with pkgs; [
