@@ -17,6 +17,13 @@ Host jupiter-luks
     IdentityFile ~/.ssh/jupiter-cryptunlock
     HostKeyAlgorithms ssh-rsa
 Host mercury
+    HostName 192.168.80.104
+    user solarbear
+Host mercury-luks
+    HostName 192.168.80.104
+    user root
+    StrictHostKeyChecking no
+Host mercury-old
     HostName 192.168.30.100
     user solarbear
 Host saturn
@@ -24,10 +31,6 @@ Host saturn
     user solarbear
 Host saturn-luks
     HostName 192.168.80.101
-    user root
-    StrictHostKeyChecking no
-Host mercury-luks
-    HostName 192.168.80.104
     user root
     StrictHostKeyChecking no
 Host jupiterver
