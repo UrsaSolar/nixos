@@ -14,11 +14,4 @@
     };
   };
 
-  # Removed. Also, I don't remember what it did.
-#  home.file = {
-#    ".config/yazi/init.lua" = {
-#      text = builtins.readFile(./yazi-init.lua);
-#    };
-#  };
-
 }
