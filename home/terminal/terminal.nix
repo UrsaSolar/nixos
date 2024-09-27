@@ -9,10 +9,15 @@
     ./zsh.nix
   ];
 
-  programs.bat = {
+  programs.bat.enable = true;
+  programs.fzf.enable = true;
+  programs.btop.enable = true;
+  programs.tmux.enable = true;
+  
+
+  programs.tealdeer = {
     enable = true;
+    settings.updates.auto_update = true;
   };
-  programs.fzf = {
-    enable = true;
-  };
+
 }
