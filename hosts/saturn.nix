@@ -44,6 +44,10 @@
     };
   };
 
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_unprivileged_port_start" = 0;
+  };
+
   users.users.solarbear = {
     isNormalUser = true;
     description = "Solar Bear";
