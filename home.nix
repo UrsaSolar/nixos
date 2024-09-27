@@ -11,26 +11,8 @@
   catppuccin.enable = true;
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
-  programs.btop = {
-    enable = true;
-  };
-
-  programs.tmux = {
-    enable = true;
-  };
-
-  programs.tealdeer = {
-    enable = true;
-    settings.updates.auto_update = true;
-  };
 
   home.sessionVariables = {
-    # XDG Specification Ride or Die
-#    XDG_DATA_HOME="$HOME/.local/share";
-#    XDG_CONFIG_HOME="$HOME/.config";
-#    XDG_STATE_HOME="$HOME/.local/state";
-#    XDG_CACHE_HOME="$HOME/.cache";
-    # Dotfile cleanliness
     HISTFILE="${config.xdg.stateHome}/zsh/history";
     LESSHISTFILE="${config.xdg.stateHome}/less/history";
     INPUTRC="${config.xdg.configHome}/readline/inputrc";
