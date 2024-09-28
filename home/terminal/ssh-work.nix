@@ -31,6 +31,10 @@ Host mercury-old
 Host saturn
     HostName 192.168.80.101
     user solarbear
+Host saturn-luks
+    HostName 192.168.80.101
+    user root
+    StrictHostKeyChecking no
 Host jupiterver
     HostName 192.168.80.100
     user solarbear
