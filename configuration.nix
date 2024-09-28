@@ -20,6 +20,7 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+  services.fstrim.enable = true;
 
   #networking.firewall.enable = false;
 
