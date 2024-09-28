@@ -88,30 +88,29 @@
     #containers.cdi.dynamic.nvidia.enable = true; # not working?
   };
 
- # Borgmatic
-  services.borgmatic = {
-    enable = true;
-    configurations.docker = {
-      source_directories = [ "/var/lib/docker/volumes" ];
-      repositories = [{
-        label = "saturn-docker";
-        path = "ssh://xpa4440n@xpa4440n.repo.borgbase.com/./repo";
-      }];
-      ssh_command = "${pkgs.openssh}/bin/ssh -i /root/keys/borg/id_ed25519";
-      encryption_passcommand = "${pkgs.coreutils}/bin/cat /root/keys/borg/borg.pass";
-      keep_daily = 7;
-      keep_weekly = 4;
-      keep_monthly = 3;
-      upload_rate_limit = 5000;
-      retries = 3;
-      retry_wait = 600;
-      #todo:
-      #mariadb_databases = ;
-      #postgresql_databases = ;
-
+  services.borgbackup.jobs."docker" = {
+    user = "root"; #change later when migrating to rootless
+    environment.BORG_RSH = "ssh -i /root/borg/id_ed25519";
+    paths = [
+      "/var/lib/docker/volumes"
+    ];
+    exclude = [
+      "*/nvidia-driver-vol"
+    ];
+    repo = "ssh://lc6kjvc3@lc6kjvc3.repo.borgbase.com/./repo";
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat /root/borg/pass";
+    };
+    compression = "auto,lzma";
+    startAt = "03:00:00";
+    persistentTimer = true; #trigger immediately if time was missed
+    prune.keep = {
+      daily = 7;
+      weekly = 4;
+      monthly = 3;
     };
   };
-
 
   # Nvidia
   hardware.opengl = {
