@@ -17,6 +17,7 @@
     # Replacements
     ls = "eza --icons=always";
     cat = "bat";
+    catplain = "bat --style=plain";
     duf = "duf --hide special";
     
     # Other useful commands
