@@ -70,9 +70,9 @@
       };      
       extraOptions = ''
         --tlsverify \
-        --tlscacert=/root/certificates/ca.pem \
-        --tlscert=/root/certificates/saturn.crt \
-        --tlskey=/root/certificates/saturn.pem
+        --tlscacert=/home/solarbear/certs/ca.crt \
+        --tlscert=/home/solarbear/certs/saturn.crt \
+        --tlskey=/home/solarbear/certs/saturn.key
       '';
       listenOptions = [
         "/run/docker.sock"
