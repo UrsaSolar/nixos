@@ -60,6 +60,28 @@
   };
   networking.firewall.enable = false;
 
+  services.borgbackup.jobs."docker" = {
+    user = "root"; # required due to write permissions inside volumes
+    environment.BORG_RSH = "ssh -i /root/borg/id_ed25519";
+    paths = [
+      "/home/solarbear/.local/share/docker/volumes"
+    ];
+    repo = "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat /root/borg/pass";
+    };
+    compression = "auto,lzma";
+    startAt = "03:00:00";
+    persistentTimer = true; #trigger immediately if time was missed
+    prune.keep = {
+      daily = 7;
+      weekly = 4;
+      monthly = 3;
+    };
+  };
+
+
   virtualisation.libvirtd.enable = true;
 
   #virtualisation.docker.enable = true;
