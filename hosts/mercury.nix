@@ -63,8 +63,15 @@
   services.borgbackup.jobs."docker" = {
     user = "root"; # required due to write permissions inside volumes
     environment.BORG_RSH = "ssh -i /root/borg/id_ed25519";
+    preHook = ''
+      for FILE in /root/borg/db/postgres/*; do
+        source $FILE;
+        PGPASSWORD=$DB_PASS ${pkgs.postgresql_16}/bin/pg_dump -U $DB_USER -h $DB_HOST -p $DB_PORT $DB_NAME > /root/borg/db/backup/$DB_NAME.sql;
+      done
+    '';
     paths = [
       "/home/solarbear/.local/share/docker/volumes"
+      "/root/borg/db/backup"
     ];
     repo = "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
     encryption = {
@@ -84,38 +91,9 @@
 
   virtualisation.libvirtd.enable = true;
 
-  #virtualisation.docker.enable = true;
-  #virtualisation.podman = {
-    #enable = true;
-    #dockerCompat = true;
-    #dockerSocket.enable = true;
-  #};
 
- # environment.systemPackages = with pkgs; [
- # ];
-
- # Borgmatic
-#  services.borgmatic = {
-#    enable = true;
-#    configurations.docker = {
-#      source_directories = [ "/var/lib/docker/volumes" ];
-#      repositories = [{
-#        label = "TEMPLATE-docker";
-#        path = "ssh://PLACEHOLDER.repo.borgbase.com/./repo";
-#      }];
-#      ssh_command = "${pkgs.openssh}/bin/ssh -i /root/keys/borg/id_ed25519";
-#      encryption_passcommand = "${pkgs.coreutils}/bin/cat /root/keys/borg/borg.pass";
-#      keep_daily = 7;
-#      keep_weekly = 4;
-#      keep_monthly = 3;
-#      upload_rate_limit = 5000;
-#      retries = 3;
-#      retry_wait = 600;
-      #todo:
-      #mariadb_databases = ;
-      #postgresql_databases = ;
-
-#    };
-#  };
+  environment.systemPackages = with pkgs; [
+    postgresql_16
+  ];
 
 }
