@@ -8,13 +8,14 @@
     vimAlias = true;
     extraConfig = ''
       nmap <F1> :Neotree toggle reveal<CR>
-      set tabstop=2
+      set tabstop=2                                         " format tabs sanely
       set shiftwidth=4
       set expandtab
       set ignorecase
       set smartcase
-      nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
+      nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>    " commands to allow easy buffer switching
       nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
+      autocmd FileType yaml set indentexpr=                 " prevents auto-indent on commenting in yaml
     '';
     #extraLuaConfig = builtins.readFile(./catppuccin-config.lua);
     plugins = with pkgs.vimPlugins; [
