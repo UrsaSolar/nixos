@@ -1,3 +1,5 @@
+This place is a mess. Proceed at your own caution.
+
 Initial configuration:
 `nix.settings.experimental-features = [ "nix-command" "flakes" ];`
 
