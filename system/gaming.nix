@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
 
-  #nixpkgs.overlays = [ overlay-steam-unstable ]; 
   nixpkgs.config.permittedInsecurePackages = [ "freeimage-unstable-2021-11-01" ];
 
   environment.systemPackages = with pkgs; [
@@ -12,6 +11,7 @@
     lutris
     mame
     pcsx2
+    steam-run
   ];
 
   programs.steam = {
@@ -33,4 +33,5 @@
   #programs.lutris.enable = true;
   hardware.xone.enable = true;
   hardware.steam-hardware.enable = true;
+
 }
