@@ -59,10 +59,14 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
     ];
   };
-
   virtualisation = {
     docker = {
       enable = true;
+      daemon.settings = {
+       default-address-pools = [{ base = "172.16.0.0/12"; size = 26;}];
+       fixed-cidr = "172.16.0.0/12";
+       bip = "172.16.0.1/24";
+      };
       autoPrune = {
         enable = true;
         dates = "weekly";
