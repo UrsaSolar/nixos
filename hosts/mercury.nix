@@ -1,6 +1,16 @@
 # Luna.nix
 
 { pkgs, ... }:
+
+let
+  user_name = "solarbear";
+  authorized_keys = [ 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
+    ];
+in
+
 {
 
   imports = [
@@ -13,17 +23,13 @@
   nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "mercury";
 
-  users.users.solarbear = {
+  users.users.${user_name} = {
     isNormalUser = true;
     description = "Solar Bear";
     extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
     shell = pkgs.zsh;
     linger = true;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
-    ];
+    openssh.authorizedKeys.keys = authorized_keys;
   };
 
   # SSH Unlocking - https://wiki.nixos.org/w/index.php?title=Remote_disk_unlocking
@@ -36,11 +42,7 @@
       ssh = {
         enable = true;
         port = 22;
-        authorizedKeys = [ 
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
-        ];
+        authorizedKeys = authorized_keys;
         hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
       };
       postCommands = ''
@@ -51,6 +53,7 @@
   };
 
   networking.firewall.enable = false;
+  services.openssh.openFirewall = true;
 
   services.borgbackup.jobs."docker" = {
     user = "root"; # required due to write permissions inside volumes
@@ -64,6 +67,7 @@
     paths = [
       "/home/solarbear/.local/share/docker/volumes"
       "/root/borg/db/backup"
+      "/home/solarbear/docker"
     ];
     repo = "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
     encryption = {
