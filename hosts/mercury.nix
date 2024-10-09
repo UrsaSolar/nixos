@@ -3,7 +3,6 @@
 { pkgs, ... }:
 
 let
-  user_name = "solarbear";
   authorized_keys = [ 
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
@@ -20,10 +19,9 @@ in
   ];
 
   system.stateVersion = "24.05"; # Historical reference
-  nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "mercury";
 
-  users.users.${user_name} = {
+  users.users.solarbear = {
     isNormalUser = true;
     description = "Solar Bear";
     extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
