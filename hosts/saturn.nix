@@ -63,9 +63,9 @@
     docker = {
       enable = true;
       daemon.settings = {
-       default-address-pools = [{ base = "172.16.0.0/12"; size = 26;}];
+       default-address-pools = [{ base = "172.17.0.0/12"; size = 26;}];
        fixed-cidr = "172.16.0.0/12";
-       bip = "172.16.0.1/24";
+       bip = "172.16.0.1/26";
       };
       autoPrune = {
         enable = true;
@@ -82,7 +82,7 @@
         "/run/docker.sock"
         "0.0.0.0:2376"
       ];
-      enableNvidia = true;  # Deprecated
+      #enableNvidia = true;  # Deprecated
       # investigate:  https://github.com/NVIDIA/nvidia-docker/issues/1155
       #rootless = {
       #  enable = true;
@@ -91,6 +91,7 @@
     };
     #containers.cdi.dynamic.nvidia.enable = true; # not working?
   };
+  hardware.nvidia-container-toolkit.enable = true;
 
   services.borgbackup.jobs."docker" = {
     user = "root"; #change later when migrating to rootless
