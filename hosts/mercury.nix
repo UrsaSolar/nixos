@@ -57,10 +57,19 @@ in
     user = "root"; # required due to write permissions inside volumes
     environment.BORG_RSH = "ssh -i /root/borg/id_ed25519";
     preHook = ''
-      for FILE in /root/borg/db/postgres/*; do
-        source $FILE;
-        PGPASSWORD=$DB_PASS ${pkgs.postgresql_16}/bin/pg_dump -U $DB_USER -h $DB_HOST -p $DB_PORT $DB_NAME > /root/borg/db/backup/$DB_NAME.sql;
-      done
+      if find /root/borg/db/postgres -mindepth 1 -maxdepth 1 | read; then
+        for FILE in /root/borg/db/postgres/*; do
+          source $FILE;
+          PGPASSWORD=$DB_PASS ${pkgs.postgresql_16}/bin/pg_dump -U $DB_USER -h $DB_HOST -p $DB_PORT $DB_NAME \
+            > /root/borg/db/backup/$DB_NAME.postgres;
+        done
+      fi
+      if find /root/borg/db/sqlite -mindepth 1 -maxdepth 1 | read; then
+        for FILE in /root/borg/db/sqlite/*; do
+          source $FILE;
+          ${pkgs.sqlite}/bin/sqlite3 $DB_FILE .dump > /root/borg/db/backup/$DB_NAME.sqlite
+        done
+      fi
     '';
     paths = [
       "/home/solarbear/.local/share/docker/volumes"
@@ -86,6 +95,7 @@ in
 
   environment.systemPackages = with pkgs; [
     postgresql_16
+    sqlite
   ];
 
 
