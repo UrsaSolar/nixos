@@ -34,6 +34,11 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     unstable = import nixpkgs-unstable {inherit system;};
+    authorized_keys= [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
+    ];
 
   in {
 
@@ -49,7 +54,6 @@
             wsl.defaultUser = "kenglish";
   	      }
           catppuccin.nixosModules.catppuccin
-          ./configuration-wsl.nix
           ./hosts/wsl.nix 
         ];
       };
@@ -58,16 +62,14 @@
         specialArgs = {inherit unstable;};
         modules = [
           catppuccin.nixosModules.catppuccin
-          ./configuration.nix
           ./hosts/asm.nix 
         ];
       };
       terra = nixpkgs.lib.nixosSystem{
         inherit system;
-        specialArgs = {inherit unstable;};
+        specialArgs = {inherit unstable authorized_keys;};
         modules = [
           catppuccin.nixosModules.catppuccin
-          ./configuration.nix
           ./hosts/terra.nix
         ];
       };
@@ -76,7 +78,6 @@
         specialArgs = {inherit unstable;};
         modules = [
           catppuccin.nixosModules.catppuccin
-          ./configuration.nix
           ./hosts/luna.nix
         ];
       };
@@ -85,7 +86,6 @@
         specialArgs = {inherit unstable;};
         modules = [
           catppuccin.nixosModules.catppuccin
-          ./configuration.nix
           ./hosts/saturn.nix
         ];
       };
@@ -94,7 +94,6 @@
         specialArgs = {inherit unstable;};
         modules = [
           catppuccin.nixosModules.catppuccin
-          ./configuration.nix
           ./hosts/mercury.nix
         ];
       };

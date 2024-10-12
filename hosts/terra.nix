@@ -5,6 +5,10 @@
 
   imports = [
     ./terra-hardware.nix
+    ../system/base-configuration.nix
+    ../system/base-packages.nix
+    ../system/bootloader.nix
+    ../system/ssh.nix
     ../system/graphical.nix
     ../system/plasma.nix
     ../system/gaming.nix

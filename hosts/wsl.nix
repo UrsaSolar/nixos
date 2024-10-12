@@ -1,11 +1,12 @@
-# ASM.nix
-
 { pkgs, lib, config, nixos-wsl, ... }:
 
-
 {
-  #imports = [ ./wsl-hardware.nix ];
-  #programs.bash.loginShellInit = "nixos-wsl-welcome";
+
+  imports = [
+    ./system/base-packages.nix
+    ./system/base-configuration.nix
+  ];
+
 
   # When the config is built from a flake, the NIX_PATH entry of nixxpkgs is set to its flake version.
   # Per default the resulting systems aren't flake-enabled, so rebuilds would fail.
@@ -26,7 +27,9 @@
     ];
   system.stateVersion = config.system.nixos.release;
 
-  networking.hostName = "nixos-wsl"; # Define your hostname.
+  networking.hostName = "nixos-wsl";
+  networking.networkmanager.enable = lib.mkForce false;
+  
 
   users.users.kenglish = {
     isNormalUser = true;

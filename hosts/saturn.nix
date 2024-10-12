@@ -1,15 +1,17 @@
-# Luna.nix
-
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
 
   imports = [
     ./saturn-hardware.nix
+    ../system/base-configuration.nix
+    ../system/base-packages.nix
+    ../system/nvidia.nix
+    ../system/bootloader.nix
     ../system/docker-rootful.nix
+    ../system/ssh.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
-  #nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "saturn";
   networking.firewall = {
     enable = false;
@@ -21,35 +23,6 @@
     #];
   }; 
 
-
-
-  # SSH Unlocking - https://wiki.nixos.org/w/index.php?title=Remote_disk_unlocking
-  boot.initrd = {
-    availableKernelModules = [ "igc" ];
-    network = {
-      enable = true;
-      udhcpc.enable = true;
-      flushBeforeStage2 = true;
-      ssh = {
-        enable = true;
-        port = 22;
-        authorizedKeys = [ 
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
-        ];
-        hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
-      };
-      postCommands = ''
-        # Automatically ask for the password on SSH login
-        echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
-      '';
-    };
-  };
-
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_unprivileged_port_start" = 0;
-  };
 
   users.users.solarbear = {
     isNormalUser = true;
@@ -85,31 +58,6 @@
       weekly = 4;
       monthly = 3;
     };
-  };
-
-  # Nvidia
-  hardware.nvidia-container-toolkit.enable = true;
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-  services.xserver.videoDrivers = ["nvidia"]; # Load nvidia driver
-  hardware.nvidia = {
-   modesetting.enable = true; # Modesetting is required for Optimus 
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-    # of just the bare essentials.
-    powerManagement.enable = true;
-    # REQUIRES SECOND GPU. Fine-grained power management. Turns off GPU when not in use. (Turing or newer).
-    powerManagement.finegrained = false;
-    # Use the NVidia open source kernel module (not nouveau
-    # supported GPUs: https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    open = false;
-    nvidiaSettings = false; # Enable the Nvidia settings app
-    package = config.boot.kernelPackages.nvidiaPackages.stable; #driver version
   };
 
 }

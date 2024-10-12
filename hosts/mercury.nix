@@ -14,6 +14,10 @@ in
 
   imports = [
     ./mercury-hardware.nix
+    ../system/base-configuration.nix
+    ../system/base-packages.nix
+    ../system/bootloader.nix
+    ../system/ssh.nix
     ../system/docker-rootless.nix
     ../system/servers.nix
   ];
