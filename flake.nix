@@ -67,7 +67,7 @@
       };
       terra = nixpkgs.lib.nixosSystem{
         inherit system;
-        specialArgs = {inherit unstable authorized_keys;};
+        specialArgs = {inherit unstable authorized_keys catppuccin plasma-manager;};
         modules = [
           catppuccin.nixosModules.catppuccin
           ./hosts/terra.nix
