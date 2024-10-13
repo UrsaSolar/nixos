@@ -6,6 +6,9 @@
     enable = true;
     extraConfig = ''
 
+# Always check for password
+PreferredAuthentications keyboard-interactive,password,publickey
+
 # Home
 Host jupiter
     HostName 192.168.80.100

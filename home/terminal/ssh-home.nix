@@ -5,6 +5,10 @@
   programs.ssh = {
     enable = true;
     extraConfig = ''
+
+# Always check for password
+PreferredAuthentications keyboard-interactive,password,publickey
+
 Host jupiter
     HostName 192.168.80.100
     user solarbear
