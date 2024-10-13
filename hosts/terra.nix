@@ -10,6 +10,7 @@
     ../system/bootloader.nix
     ../system/amd.nix
     ../system/ssh.nix
+    ../system/bluetooth.nix
     ../system/graphical.nix
     ../system/plasma.nix
     ../system/gaming.nix

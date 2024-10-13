@@ -5,6 +5,8 @@
     ./saturn-hardware.nix
     ../system/base-configuration.nix
     ../system/base-packages.nix
+    ../system/servers.nix
+    ../system/ssh.nix
     ../system/nvidia.nix
     ../system/bootloader.nix
     ../system/docker-rootful.nix
@@ -29,12 +31,6 @@
     description = "Solar Bear";
     extraGroups = [ "networkmanager" "wheel" "video" ];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINivT/RWXZhBr4CUXGlsmHzq9QQDsJ7w009gKpetqgfY kenglish@nixos-wsl"
-    ];
   };
 
   services.borgbackup.jobs."docker" = {
