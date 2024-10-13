@@ -1,6 +1,5 @@
 { ... }:
 
-# TODO: Also consolidate user-level SSH settings here across all profiles
 let
   authorized_keys = [ 
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
@@ -18,9 +17,11 @@ in
       PermitRootLogin = "no";
       PrintLastLog = false;
       PrintMotd = true;
-      #openFirewall = true;
+      openFirewall = true;
     };
   };  
+  
+  users.users.solarbear.openssh.authorizedKeys.keys = authorized_keys;
 
   # SSH Unlocking - https://wiki.nixos.org/w/index.php?title=Remote_disk_unlocking
   boot.initrd = {
