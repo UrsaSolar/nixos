@@ -12,12 +12,12 @@ in
 
   services.openssh = {
     enable = true;
+    openFirewall = true;
     settings = { 
       PasswordAuthentication = false;
       PermitRootLogin = "no";
       PrintLastLog = false;
       PrintMotd = true;
-      openFirewall = true;
     };
   };  
   

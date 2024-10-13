@@ -1,15 +1,4 @@
-# Luna.nix
-
 { pkgs, ... }:
-
-let
-  authorized_keys = [ 
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUHyx/4I3LxcmzRp9d1+MLd4lt0RyctsiqyfOnBXSXl solarbear@terra"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxtCabfWGBSoEY4spPRPJLAAT6dM22ElBdnoxCiPDlU kenglish@nixos-asm"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuTwUDCM3+GaHuXkLMGYFeRqCcCHuhOblydZhMzmWrn kenglish@nixos-wsl"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINivT/RWXZhBr4CUXGlsmHzq9QQDsJ7w009gKpetqgfY kenglish@nixos-wsl"
-    ];
-in
 
 {
 
@@ -23,7 +12,7 @@ in
     ../system/servers.nix
   ];
 
-  system.stateVersion = "24.05"; # Historical reference
+  system.stateVersion = "24.05";
   networking.hostName = "mercury";
 
   users.users.solarbear = {
@@ -32,12 +21,10 @@ in
     extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
     shell = pkgs.zsh;
     linger = true;
-    openssh.authorizedKeys.keys = authorized_keys;
   };
 
   # SSH Unlocking - https://wiki.nixos.org/w/index.php?title=Remote_disk_unlocking
   networking.firewall.enable = false;
-  services.openssh.openFirewall = true;
 
   services.borgbackup.jobs."docker" = {
     user = "root"; # required due to write permissions inside volumes
