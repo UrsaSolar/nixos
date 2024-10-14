@@ -16,8 +16,8 @@
     extraOptions = ''
       --tlsverify \
       --tlscacert=/home/solarbear/certs/ca.crt \
-      --tlscert=/home/solarbear/certs/saturn.crt \
-      --tlskey=/home/solarbear/certs/saturn.key
+      --tlscert=/home/solarbear/certs/cert.crt \
+      --tlskey=/home/solarbear/certs/cert.key
     '';
     listenOptions = [
       "/run/docker.sock"
