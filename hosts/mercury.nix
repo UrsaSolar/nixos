@@ -8,7 +8,7 @@
     ../system/base-packages.nix
     ../system/bootloader.nix
     ../system/ssh.nix
-    ../system/docker-rootless.nix
+    ../system/docker-rootful.nix
     ../system/servers.nix
   ];
 
