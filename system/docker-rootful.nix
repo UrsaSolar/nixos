@@ -4,9 +4,9 @@
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
-     default-address-pools = [{ base = "172.17.0.0/12"; size = 24;}];
-     fixed-cidr = "172.16.0.0/12";
-     bip = "172.16.0.1/24";
+      default-address-pools = [{ base = "172.16.0.0/12"; size = 24;}];
+      fixed-cidr = "172.16.0.0/12";
+      bip = "172.16.0.1/24";
     };
     autoPrune = {
       enable = true;
