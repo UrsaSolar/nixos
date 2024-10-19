@@ -58,14 +58,14 @@
     wayland-utils
     corectrl
     firefox
-    thunderbird
+    #thunderbird
     ungoogled-chromium
     vlc
     jellyfin-media-player
-    unstable.amarok
+    #unstable.amarok
     nextcloud-client
-    libreoffice
-    anki
+    #libreoffice
+    #anki
     virt-manager
   ];
 
