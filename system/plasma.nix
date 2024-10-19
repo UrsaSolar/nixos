@@ -5,9 +5,12 @@
   services.desktopManager.plasma6.enable = true;
   #services.xserver.desktopManager.plasma5.bigscreen.enable = true;
   programs.dconf.enable = true; # Fix for Firefox not seeing mouse cursor settings; https://github.com/NixOS/nixpkgs/issues/207339#issuecomment-1747101887
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.autoNumlock = true;
-  #services.xserver.displayManager.sddm.theme = "elegant-sddm";
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    autoNumlock = true;
+    #theme = "elegant-sddm";
+  };
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
   # Configure keymap in X11
@@ -18,8 +21,8 @@
     kate
     #kwrite
     kdenlive
-    supersonic
-    tokodon
+    #supersonic
+    #tokodon
     xdg-desktop-portal
     xdg-desktop-portal-kde
     plasma-browser-integration
@@ -28,7 +31,7 @@
     breeze-gtk
     breeze-icons
     catppuccin-kvantum
-    strawberry
+    #strawberry
     kcalc
     discover
     bluedevil
@@ -37,8 +40,12 @@
     filelight
     wine-staging
     gimp
-    kdePackages.partitionmanager
-    yakuake
+    #kdePackages.partitionmanager
+    #yakuake
+  ];
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
   ];
 
   # Run appimages directly with appimage-run
