@@ -11,6 +11,10 @@
   catppuccin.enable = true;
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
+  nix.gc = {
+    automatic = true;
+    frequency = "daily";
+  };
 
   home.sessionVariables = {
     HISTFILE="${config.xdg.stateHome}/zsh/history";
