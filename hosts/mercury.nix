@@ -64,18 +64,22 @@
     };
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    onBoot = "start";
+    onShutdown = "shutdown";
+  };
 
   environment.systemPackages = with pkgs; [
     postgresql_16
     sqlite
+    kubernetes-helm
   ];
-
-
 
   # KUBERNETES TIME
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/cluster/k3s/docs/USAGE.md
   #services.k3s.enable = true;
   #services.k3s.role = "server";
+
 
 }
