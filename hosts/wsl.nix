@@ -1,4 +1,4 @@
-{ pkgs, lib, config, nixos-wsl, ... }:
+{ pkgs, lib, config, unstable, nixos-wsl, ... }:
 
 {
 
@@ -37,6 +37,12 @@
     shell = pkgs.zsh;
   };
 
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  environment.systemPackages = [ pkgs.distrobox ];
 
   security.pki.certificates = [
     # Alleigant-stadium-root.crt
