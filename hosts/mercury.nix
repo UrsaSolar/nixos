@@ -49,6 +49,9 @@
       "/root/borg/db/backup"
       "/home/solarbear/"
     ];
+    exclude = [
+      "/home/solarbear/virt"
+    ];
     repo = "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
     encryption = {
       mode = "repokey-blake2";
