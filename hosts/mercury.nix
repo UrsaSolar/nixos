@@ -45,9 +45,9 @@
       fi
     '';
     paths = [
-      "/home/solarbear/.local/share/docker/volumes"
+      "/var/lib/docker/volumes"
       "/root/borg/db/backup"
-      "/home/solarbear/docker"
+      "/home/solarbear/"
     ];
     repo = "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
     encryption = {
