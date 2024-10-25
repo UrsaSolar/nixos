@@ -7,12 +7,14 @@
     extraConfig = ''
 
 # Always check for password
-PreferredAuthentications keyboard-interactive,password,publickey
+PreferredAuthentications password,keyboard-interactive,publickey
 
 # Home
 Host jupiter
     HostName 192.168.80.100
     user solarbear
+    RequestTTY yes
+    RemoteCommand tmux new -A -s solarbear
 Host jupiter-luks
     Hostname 192.168.80.100
     Port 2222
@@ -24,6 +26,8 @@ Host jupiter-luks
 Host mercury
     HostName 192.168.80.104
     user solarbear
+    RequestTTY yes
+    RemoteCommand tmux new -A -s solarbear
 Host mercury-luks
     HostName 192.168.80.104
     user root
@@ -34,10 +38,17 @@ Host mercury-old
 Host saturn
     HostName 192.168.80.101
     user solarbear
+    RequestTTY yes
+    RemoteCommand tmux new -A -s solarbear
 Host saturn-luks
     HostName 192.168.80.101
     user root
     StrictHostKeyChecking no
+Host eunomia
+    HostName 192.168.81.100
+    user solarbear
+    RequestTTY yes
+    RemoteCommand tmux new -A -s solarbear
 Host jupiterver
     HostName 192.168.80.100
     user solarbear
