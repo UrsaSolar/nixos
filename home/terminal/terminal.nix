@@ -6,6 +6,7 @@
     ./btop.nix
     ./nvim/nvim.nix
     ./yazi/yazi.nix
+    ./zellij.nix
     ./zsh.nix
   ];
 
