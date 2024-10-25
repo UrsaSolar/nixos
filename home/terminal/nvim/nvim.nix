@@ -47,6 +47,7 @@
       legendary-nvim
       telescope-nvim # recommended for legendary
       dressing-nvim
+      cheatsheet-nvim
 #      unstable.vimPlugins.transparent-nvim
 
     ];
