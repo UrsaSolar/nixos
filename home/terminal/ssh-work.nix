@@ -46,6 +46,7 @@ Host saturn-luks
     StrictHostKeyChecking no
 Host eunomia
     HostName 192.168.81.100
+    Port 222
     user solarbear
     RequestTTY yes
     RemoteCommand tmux new -A -s solarbear
