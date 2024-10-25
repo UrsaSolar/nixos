@@ -97,6 +97,15 @@
           ./hosts/mercury.nix
         ];
       };
+      eunomia = nixpkgs.lib.nixosSystem{
+        inherit system;
+        specialArgs = {inherit unstable;};
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          ./hosts/eunomia.nix
+        ];
+      };
+
     };
 
     homeConfigurations = {
