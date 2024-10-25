@@ -5,6 +5,7 @@
     ./alias.nix
     ./btop.nix
     ./nvim/nvim.nix
+    ./tmux.nix
     ./yazi/yazi.nix
     ./zsh.nix
   ];
