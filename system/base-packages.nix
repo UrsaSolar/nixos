@@ -28,6 +28,7 @@
     neovim
     eza # ls replacement
     duf # df replacement
+    ncdu # ncurses disk usage TUI
     du-dust # du replacement
     gping # ping replacement
     jq # json query
