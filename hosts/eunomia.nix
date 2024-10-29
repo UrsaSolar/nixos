@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
 
@@ -38,5 +38,9 @@
   #services.k3s.enable = true;
   #services.k3s.role = "server";
 
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_unprivileged_port_start" = 0;
+  };
+  services.openssh.ports = lib.mkForce [ 222 ];
 
 }
