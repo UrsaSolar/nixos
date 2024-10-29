@@ -10,6 +10,7 @@
     ../system/ssh.nix
     ../system/docker-rootful.nix
     ../system/servers.nix
+    ../system/promtail.nix
   ];
 
   system.stateVersion = "24.05";

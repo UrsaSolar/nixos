@@ -21,6 +21,7 @@ in
     ../system/graphical.nix
     ../system/plasma.nix
 #    ../system/kodi.nix
+    ../system/promtail.nix
   ];
 
   nixpkgs.overlays = [ overlay-asus-unstable ];
