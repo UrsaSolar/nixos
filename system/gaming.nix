@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 {
 
   nixpkgs.config.permittedInsecurePackages = [ "freeimage-unstable-2021-11-01" ];
@@ -16,7 +16,7 @@
 
   programs.steam = {
     enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraCompatPackages = [ unstable.proton-ge-bin ];
     #protontricks = {
     #  enable = true;
     #};
