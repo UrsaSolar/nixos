@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
 
  # Plasma Desktop
   services.xserver.enable = true;
@@ -18,6 +18,7 @@
  
   environment.systemPackages = with pkgs; [
     sddm-kcm # SDDM config module
+    sigil
     kate
     #kwrite
     kdenlive
@@ -41,7 +42,6 @@
     wine-staging
     gimp
     #kdePackages.partitionmanager
-    #yakuake
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
