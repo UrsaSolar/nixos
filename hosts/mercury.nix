@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
 
@@ -73,6 +73,11 @@
     onBoot = "start";
     onShutdown = "shutdown";
   };
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_unprivileged_port_start" = 0;
+  };
+  services.openssh.ports = lib.mkForce [ 222 ];
 
   environment.systemPackages = with pkgs; [
     postgresql_16
