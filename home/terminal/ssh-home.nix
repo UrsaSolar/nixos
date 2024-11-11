@@ -23,6 +23,7 @@ Host jupiter-luks
     HostKeyAlgorithms ssh-rsa
 Host mercury
     HostName 192.168.80.104
+    Port 222
     user solarbear
     RequestTTY yes
     RemoteCommand tmux new -A -s solarbear
@@ -42,11 +43,6 @@ Host saturn-luks
     HostName 192.168.80.101
     user root
     StrictHostKeyChecking no
-Host eunomia
-    HostName 192.168.81.100
-    user solarbear
-    RequestTTY yes
-    RemoteCommand tmux new -A -s solarbear
 Host jupiterver
     HostName 192.168.80.100
     user solarbear
