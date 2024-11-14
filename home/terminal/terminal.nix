@@ -5,7 +5,6 @@
     ./alias.nix
     ./btop.nix
     ./nvim/nvim.nix
-    ./starship.nix
     ./tmux.nix
     ./yazi/yazi.nix
     ./zsh.nix
