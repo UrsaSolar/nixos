@@ -5,6 +5,7 @@
     ./alias.nix
     ./btop.nix
     ./nvim/nvim.nix
+    ./starship.nix
     ./tmux.nix
     ./yazi/yazi.nix
     ./zsh.nix
@@ -14,7 +15,6 @@
   programs.fzf.enable = true;
   programs.btop.enable = true;
   programs.tmux.enable = true;
-  
 
   programs.tealdeer = {
     enable = true;

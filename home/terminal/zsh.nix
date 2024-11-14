@@ -1,11 +1,29 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
 
   programs.zsh = {
+
     enable = true;
     dotDir = ".config/zsh"; # Relative to home, must be directly set
-#    histFile = "${config.xdg.dataHome}/zsh/zsh_history"; # Doesn't exist; added after 23.11?
-#    histSize = "10000";
+
+    autosuggestion = {
+      enable = true;
+      #strategy = [ "completion" ];   # [NOT IN STABLE 24.05]
+    };
+
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = [ "main" "brackets" ];
+    };
+
+    history = {
+#      append = true;   # allow multiple sessions to share file [NOT IN STABLE 24.05]
+      extended = true; # store timestamp
+      expireDuplicatesFirst = true;
+      path = "${config.xdg.dataHome}/zsh/zsh_history";
+      save = 10000;
+    };
+
     plugins = [
       {
         name = "powerlevel10k";
@@ -14,22 +32,9 @@
       }
     ];
     initExtra = builtins.readFile(./p10k.zsh);
+
   }; 
 
-#  programs.starship = {
-#    enable = true;
-    # Configuration written to ~/.config/starship.toml
-#    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-#    };
-#  };
 }
 
 
