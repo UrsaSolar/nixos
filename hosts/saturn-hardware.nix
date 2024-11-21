@@ -35,13 +35,13 @@
       fsType = "cifs";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter-media,uid=1000,gid=1000"]; };
+      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
   fileSystems."/mnt/jupiter-storage" = 
     { device = "//192.168.80.100/storage";
       fsType = "cifs";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter-storage,uid=1000,gid=1000"]; };
+      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
 #  swapDevices =
 #  [ { device = "/dev/disk/by-uuid/bd82fcdc-77ed-435c-b5bf-2cd6adc00a6b"; } ];
 
