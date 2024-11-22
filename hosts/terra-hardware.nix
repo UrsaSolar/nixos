@@ -29,6 +29,19 @@
     fsType = "btrfs";
   };
 
+  fileSystems."/mnt/jupiter-media" = 
+    { device = "//192.168.80.100/media";
+      fsType = "cifs";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
+  fileSystems."/mnt/jupiter-storage" = 
+    { device = "//192.168.80.100/storage";
+      fsType = "cifs";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/7efb1fce-6e7f-45c0-b98a-2057e0b2005c"; }
     ];
