@@ -5,6 +5,7 @@ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-run"
     "steam-original"
+    "steam-unwrapped"
     "discord"
     "nvidia-container-toolkit"
     "nvidia-x11"
