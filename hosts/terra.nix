@@ -1,6 +1,6 @@
 # terra.nix
 
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
 
   imports = [
@@ -20,6 +20,7 @@
 
   system.stateVersion = "23.11"; # Historical reference
   networking.hostName = "terra";
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   users.users.solarbear = {
     isNormalUser = true;
@@ -41,5 +42,7 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  virtualisation.libvirtd.enable = true;
 
 }
