@@ -1,6 +1,8 @@
 { pkgs, unstable, ... }:
 {
-  
+
+  hardware.keyboard.qmk.enable = true;
+
   # Pipewire with PulseAudio and Alsa support
   security.rtkit.enable = true;
   services.pipewire = {
@@ -73,7 +75,7 @@
     iosevka
     terminus-nerdfont
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
   ];
 
