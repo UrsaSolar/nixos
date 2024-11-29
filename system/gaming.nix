@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     discord
+    discord-canary
     mangohud
     winetricks
     protontricks
