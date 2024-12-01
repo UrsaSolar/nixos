@@ -10,17 +10,17 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."luks-09fbdde3-2f22-43b4-82d5-ab04211d8131".device = "/dev/disk/by-uuid/09fbdde3-2f22-43b4-82d5-ab04211d8131"; #root
+  boot.initrd.luks.devices."luks-9dc0d76a-c299-482a-9d80-3a2e1c142726".device = "/dev/disk/by-uuid/9dc0d76a-c299-482a-9d80-3a2e1c142726"; #root
   boot.initrd.luks.devices."luks-5f407ada-f056-4561-807b-f18eec58d294".device = "/dev/disk/by-uuid/5f407ada-f056-4561-807b-f18eec58d294"; #bfd
-  boot.initrd.luks.devices."luks-9ca573dd-11ec-4bf6-b2e0-37e31f027ea1".device = "/dev/disk/by-uuid/9ca573dd-11ec-4bf6-b2e0-37e31f027ea1"; #swap
+  boot.initrd.luks.devices."luks-21d8f235-17fa-4484-9843-914b47020f80".device = "/dev/disk/by-uuid/21d8f235-17fa-4484-9843-914b47020f80"; #swap
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b074e53f-588a-411c-b322-a04cbc9fcb14";
+    { device = "/dev/disk/by-uuid/9882b632-b08a-4fe6-856e-cf4e028aa62d";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7C83-1040";
+    { device = "/dev/disk/by-uuid/902A-4E6B";
       fsType = "vfat";
     };
 
@@ -29,13 +29,13 @@
     fsType = "btrfs";
   };
 
-  fileSystems."/mnt/jupiter-media" = 
+  fileSystems."/mnt/jupiter/media" = 
     { device = "//192.168.80.100/media";
       fsType = "cifs";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
       in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
-  fileSystems."/mnt/jupiter-storage" = 
+  fileSystems."/mnt/jupiter/storage" = 
     { device = "//192.168.80.100/storage";
       fsType = "cifs";
       options = let
@@ -43,7 +43,7 @@
       in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/7efb1fce-6e7f-45c0-b98a-2057e0b2005c"; }
+    [ { device = "/dev/disk/by-uuid/7271c40a-d84f-4405-aa0d-18370bc45e8c"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
