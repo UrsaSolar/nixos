@@ -1,15 +1,14 @@
 { pkgs, unstable, ... }: {
 
  # Plasma Desktop
-  services.xserver.enable = true;
+  #services.xserver.enable = true; # No longer needed?
   services.desktopManager.plasma6.enable = true;
-  #services.xserver.desktopManager.plasma5.bigscreen.enable = true;
   programs.dconf.enable = true; # Fix for Firefox not seeing mouse cursor settings; https://github.com/NixOS/nixpkgs/issues/207339#issuecomment-1747101887
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     autoNumlock = true;
-    #theme = "elegant-sddm";
+    theme = "catppuccin-mocha";
   };
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -17,7 +16,10 @@
   services.xserver.xkb.layout = "us";
  
   environment.systemPackages = with pkgs; [
-    sddm-kcm # SDDM config module
+    kdePackages.sddm-kcm # SDDM config module
+    where-is-my-sddm-theme
+    catppuccin-sddm
+    catppuccin-sddm-corners
     sigil
     kate
     #kwrite
