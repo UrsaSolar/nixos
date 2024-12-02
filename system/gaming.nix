@@ -13,6 +13,7 @@
     mame
     pcsx2
     steam-run
+    obs-studio
   ];
 
   programs.steam = {
