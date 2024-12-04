@@ -25,10 +25,10 @@
     { device = "/dev/disk/by-uuid/178219dd-c801-41eb-a861-c6c7d0f3748c";
       fsType = "ext4"; };
   # Data
-  boot.initrd.luks.devices."luks-c4c5db23-12f9-4869-888a-0c469aedce37".device = "/dev/disk/by-uuid/c4c5db23-12f9-4869-888a-0c469aedce37";
-  fileSystems."/mnt/data" = 
-    { device = "/dev/disk/by-uuid/4516df7b-4550-4199-9c3c-a2e53f6b65e0";
-      fsType = "ext4"; };
+#  boot.initrd.luks.devices."luks-c4c5db23-12f9-4869-888a-0c469aedce37".device = "/dev/disk/by-uuid/c4c5db23-12f9-4869-888a-0c469aedce37";
+#  fileSystems."/mnt/data" = 
+#    { device = "/dev/disk/by-uuid/4516df7b-4550-4199-9c3c-a2e53f6b65e0";
+#      fsType = "ext4"; };
   # Jupiter    
   fileSystems."/mnt/jupiter-media" = 
     { device = "//192.168.80.100/media";
