@@ -7,6 +7,7 @@
     discord
     discord-canary
     mangohud
+    gamescope
     winetricks
     protontricks
     lutris
