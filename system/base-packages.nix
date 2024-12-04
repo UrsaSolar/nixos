@@ -38,6 +38,8 @@
     hyfetch
     starfetch
     step-cli
+    lm_sensors
+    exfatprogs
 
     # language servers for nvim
     nil # Nix
