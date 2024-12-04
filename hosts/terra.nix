@@ -20,7 +20,9 @@
 
   system.stateVersion = "23.11"; # Historical reference
   networking.hostName = "terra";
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  programs.coolercontrol.enable=true;
 
   users.users.solarbear = {
     isNormalUser = true;
