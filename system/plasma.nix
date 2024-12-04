@@ -17,6 +17,7 @@
  
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm # SDDM config module
+    kdePackages.bluedevil
     where-is-my-sddm-theme
     catppuccin-sddm
     catppuccin-sddm-corners
@@ -37,13 +38,12 @@
     #strawberry
     kcalc
     discover
-    bluedevil
     appimage-run
     vlc
     filelight
     wine-staging
     gimp
-    #kdePackages.partitionmanager
+    kdePackages.partitionmanager
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
