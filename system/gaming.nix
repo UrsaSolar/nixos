@@ -6,8 +6,8 @@
   environment.systemPackages = with pkgs; [
     discord
     discord-canary
+    vesktop
     mangohud
-    gamescope
     winetricks
     protontricks
     lutris
@@ -20,6 +20,9 @@
   programs.steam = {
     enable = true;
     extraCompatPackages = [ unstable.proton-ge-bin ];
+    package = pkgs.steam.override {
+      extraPkgs = pkgs: with pkgs; [ gamescope ];
+    };
     #protontricks = {
     #  enable = true;
     #};
