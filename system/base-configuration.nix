@@ -13,8 +13,9 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
+  boot.loader.systemd-boot.configurationLimit = 10;
   services.fstrim.enable = true; # SSD cleanup
 
   # Timezone and localization
