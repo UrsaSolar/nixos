@@ -6,8 +6,8 @@
     enable = true;
     extraConfig = ''
 
-# Always check for password
-PreferredAuthentications publickey
+PreferredAuthentications publickey,password,keyboard-interactive
+
 Host jupiter
     HostName 192.168.80.100
     user solarbear

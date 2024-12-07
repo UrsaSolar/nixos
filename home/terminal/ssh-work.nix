@@ -6,8 +6,7 @@
     enable = true;
     extraConfig = ''
 
-# Always check for password
-PreferredAuthentications publickey
+PreferredAuthentications publickey,password,keyboard-interactive
 
 # Home
 Host jupiter
