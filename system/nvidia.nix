@@ -4,9 +4,10 @@
   # Nvidia
   hardware.nvidia-container-toolkit.enable = true;
   services.xserver.videoDrivers = ["nvidia"]; # Load nvidia driver
-  hardware.opengl = {
+
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
   hardware.nvidia = {
     modesetting.enable = true; # Modesetting is required for Optimus 
