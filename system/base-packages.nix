@@ -40,6 +40,7 @@
     step-cli
     lm_sensors
     exfatprogs
+    lsof
 
     # language servers for nvim
     nil # Nix
