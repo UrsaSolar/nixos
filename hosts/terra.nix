@@ -22,6 +22,8 @@
   networking.hostName = "terra";
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+
+
   programs.coolercontrol.enable=true;
 
   users.users.solarbear = {
