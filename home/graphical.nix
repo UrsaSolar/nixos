@@ -10,7 +10,6 @@
 
   services.easyeffects = {
     enable = true;
-    preset = "mic-cleaner";
   };
 
 }
