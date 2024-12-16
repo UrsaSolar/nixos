@@ -21,7 +21,7 @@ in
       PrintMotd = true;
     };
   };  
-  
+
   users.users.solarbear.openssh.authorizedKeys.keys = authorized_keys;
 
   # SSH Unlocking - https://wiki.nixos.org/w/index.php?title=Remote_disk_unlocking

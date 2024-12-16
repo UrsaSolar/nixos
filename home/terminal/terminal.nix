@@ -14,6 +14,7 @@
   programs.fzf.enable = true;
   programs.btop.enable = true;
   programs.tmux.enable = true;
+  services.ssh-agent.enable = true;
 
   programs.tealdeer = {
     enable = true;
