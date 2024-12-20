@@ -24,7 +24,7 @@
       { plugin = lualine-nvim; type = "lua"; config = builtins.readFile(./lualine-config.lua); }
       { plugin = indent-blankline-nvim; type = "lua"; config = builtins.readFile(./indent-blankline.lua); }
       { plugin = nvim-treesitter.withAllGrammars; type = "lua"; config = builtins.readFile(./treesitter-config.lua); }
-      { plugin = gruvbox-nvim; type = "lua"; config = builtins.readFile(./gruvbox-config.lua); }
+      { plugin = gruvbox-material-nvim; type = "lua"; config = builtins.readFile(./gruvbox-config.lua); }
       #{ plugin = unstable.vimPlugins.transparent-nvim; type = "lua"; config = builtins.readFile(./transparent-config.lua); }
 
       { plugin = nvim-lspconfig; type = "lua";
