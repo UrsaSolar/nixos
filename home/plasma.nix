@@ -30,7 +30,7 @@
   };
 
   home.packages = with pkgs; [
-    catppuccin-kvantum
+    #catppuccin-kvantum
     strawberry
     kcalc
   ];

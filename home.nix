@@ -7,8 +7,8 @@
 
   home.stateVersion = "23.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
+  #catppuccin.flavor = "mocha";
+  #catppuccin.enable = true;
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
   nix.gc = {

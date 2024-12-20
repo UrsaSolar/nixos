@@ -17,13 +17,14 @@
       nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
       autocmd FileType yaml set indentexpr=                 " prevents auto-indent on commenting in yaml
     '';
-    extraLuaConfig = builtins.readFile(./catppuccin-config.lua);
+    #extraLuaConfig = builtins.readFile(./catppuccin-config.lua);
     plugins = with pkgs.vimPlugins; [
 
       { plugin = neo-tree-nvim; type = "lua"; config = builtins.readFile(./neotree-config.lua); }
       { plugin = lualine-nvim; type = "lua"; config = builtins.readFile(./lualine-config.lua); }
       { plugin = indent-blankline-nvim; type = "lua"; config = builtins.readFile(./indent-blankline.lua); }
       { plugin = nvim-treesitter.withAllGrammars; type = "lua"; config = builtins.readFile(./treesitter-config.lua); }
+      { plugin = gruvbox-nvim; type = "lua"; config = builtins.readFile(./gruvbox-config.lua); }
       #{ plugin = unstable.vimPlugins.transparent-nvim; type = "lua"; config = builtins.readFile(./transparent-config.lua); }
 
       { plugin = nvim-lspconfig; type = "lua";
