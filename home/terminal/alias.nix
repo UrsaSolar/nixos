@@ -12,7 +12,8 @@
     # Fuzzy finder & directory hoppers
     jj = "clear && cd $(find ~/Software/ ~/.config/ ~/Documents -type d | fbat)";
     vv = "clear && nvim $(find ~/Software/ ~/.config/ ~/Documents ~/Downloads -type f | fbat)";
-    fbat = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
+    fzbat = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
+    fzgrep = "grep --line-buffered --color=never -r \"\" * | fzf";
 
     # Replacements
     ls = "eza --icons=always";
