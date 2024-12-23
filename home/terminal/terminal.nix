@@ -7,7 +7,7 @@
     ./nvim/nvim.nix
     ./tmux.nix
     ./yazi/yazi.nix
-    ./zsh.nix
+    ./zsh/zsh.nix
   ];
 
   programs.bat.enable = true;

@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
 {
 
+  # In order for completion to work, system config requires environment.pathsToLink = [ "/share/zsh" ];
+
   programs.zsh = {
 
     enable = true;
@@ -31,7 +33,9 @@
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
-    initExtra = builtins.readFile(./p10k.zsh);
+    initExtra = builtins.readFile(./p10k.zsh)
+      + builtins.readFile(./gruvbox-material-dark.zsh)
+      + builtins.readFile(./initExtra.zsh);
 
   }; 
 

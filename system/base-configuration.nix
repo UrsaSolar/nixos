@@ -6,6 +6,7 @@
   nix.settings.allowed-users = [ "@wheel" ];
   #Terminal stuff
   programs.zsh.enable = true;
+  #environment.pathsToLink = [ "/share/zsh" ]; # Required for zsh autocomplete
   console.font = "Lat2-Terminus16";
 
   # Maintenance stuff
