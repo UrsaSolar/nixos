@@ -59,10 +59,20 @@
           require('lspconfig').yamlls.setup{}
         '';
       }
+
       {
         plugin = noice-nvim; # ui adjustments
         type = "lua";
         config = builtins.readFile (./noice-config.lua);
+      }
+
+      {
+        plugin = bufferline-nvim;
+        type = "lua";
+        config = ''
+          vim.opt.termguicolors = true
+          require("bufferline").setup{}
+        '';
       }
 
       #{ plugin = unstable.vimPlugins.transparent-nvim; type = "lua"; config = builtins.readFile(./transparent-config.lua); }
@@ -77,7 +87,8 @@
       cheatsheet-nvim
       #unstable.vimPlugins.transparent-nvim
       rainbow-delimiters-nvim
-
+      nvim-notify
+      nvim-lsp-notify
     ];
   
   };
