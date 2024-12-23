@@ -21,43 +21,48 @@
     plugins = with pkgs.vimPlugins; [
 
       {
-        plugin = neo-tree-nvim;
+        plugin = neo-tree-nvim; # sidebar tree
         type = "lua";
         config = builtins.readFile(./neotree-config.lua);
       }
 
       {
-        plugin = lualine-nvim;
+        plugin = lualine-nvim; # statusbar
         type = "lua";
         config = builtins.readFile(./lualine-config.lua);
       }
 
       {
-        plugin = indent-blankline-nvim;
+        plugin = indent-blankline-nvim; # visual indentation
         type = "lua";
         config = builtins.readFile(./indent-blankline.lua);
       }
 
       {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = nvim-treesitter.withAllGrammars; # syntax tree parser
         type = "lua";
         config = builtins.readFile(./treesitter-config.lua);
       }
 
       {
-        plugin = gruvbox-material-nvim;
+        plugin = gruvbox-material-nvim; # eyecandy
         type = "lua";
         config = builtins.readFile(./gruvbox-config.lua);
       }
 
       {
-        plugin = nvim-lspconfig;
+        plugin = nvim-lspconfig; # syntax highlighting and completion
         type = "lua";
         config = ''
           require('lspconfig').nil_ls.setup{}
           require('lspconfig').docker_compose_language_service.setup{}
           require('lspconfig').yamlls.setup{}
         '';
+      }
+      {
+        plugin = noice-nvim; # ui adjustments
+        type = "lua";
+        config = builtins.readFile (./noice-config.lua);
       }
 
       #{ plugin = unstable.vimPlugins.transparent-nvim; type = "lua"; config = builtins.readFile(./transparent-config.lua); }
