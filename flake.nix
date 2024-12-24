@@ -16,7 +16,6 @@
       };
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    catppuccin.url = "github:catppuccin/nix";
     stylix.url = "github:danth/stylix";
   };
 
@@ -25,9 +24,8 @@
     nixpkgs-unstable,
     home-manager,
     plasma-manager,
-    catppuccin,
-    stylix,
     nixos-wsl,
+    stylix,
     ...
   }:
 
@@ -48,7 +46,6 @@
             wsl.enable = true;
             wsl.defaultUser = "kenglish";
   	      }
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/wsl.nix 
         ];
@@ -57,16 +54,14 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/asm.nix 
         ];
       };
       terra = nixpkgs.lib.nixosSystem{
         inherit system;
-        specialArgs = {inherit unstable catppuccin plasma-manager;};
+        specialArgs = {inherit unstable plasma-manager;};
         modules = [
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/terra.nix
         ];
@@ -75,7 +70,6 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/luna.nix
         ];
@@ -84,7 +78,6 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/saturn.nix
         ];
@@ -93,7 +86,6 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/mercury.nix
         ];
@@ -102,7 +94,6 @@
         inherit system;
         specialArgs = {inherit unstable;};
         modules = [
-          catppuccin.nixosModules.catppuccin
           stylix.nixosModules.stylix
           ./hosts/eunomia.nix
         ];
@@ -115,8 +106,6 @@
         inherit pkgs;
         extraSpecialArgs = {inherit unstable;};
         modules = [
-          catppuccin.homeManagerModules.catppuccin
-          #stylix.nixosModules.stylix
           ./home.nix
           ./home/kenglish-home.nix
         ];
@@ -126,8 +115,6 @@
 	      extraSpecialArgs = {inherit unstable;};
         modules = [
           plasma-manager.homeManagerModules.plasma-manager
-          catppuccin.homeManagerModules.catppuccin
-          #stylix.nixosModules.stylix
           ./home.nix
           ./home/solarbear-home.nix
         ];
@@ -136,8 +123,6 @@
         inherit pkgs;
 	      extraSpecialArgs = {inherit unstable;};
         modules = [
-          catppuccin.homeManagerModules.catppuccin
-          #stylix.nixosModules.stylix
           ./home.nix
           ./home/solarbear-server.nix
         ];
