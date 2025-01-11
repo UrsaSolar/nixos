@@ -1,11 +1,9 @@
-{ pkgs, ... } :
+{ unstable, pkgs, ... } :
 {
 
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     retroarch
-    retroarch-assets          #unsure if needed, test later
     libretro-core-info        # unsure if needed, test later
-    retroarch-joypad-assets   # unsure if needed, test later
     libretro.nestopia
     libretro.bsnes
     libretro.bsnes-hd
