@@ -12,6 +12,9 @@ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "nvidia-x11"
     "nvidia-persistenced"
     "xow_dongle-firmware"
+    "libretro-genesis-plus-gx"
+    "libretro-picodrive"
+    "libretro-fbneo"
   ];
 
 }
