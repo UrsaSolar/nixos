@@ -23,6 +23,7 @@
     package = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [ gamescope ];
     };
+    gamescopeSession.enable = true;
     #protontricks = {
     #  enable = true;
     #};
