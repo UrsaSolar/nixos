@@ -1,15 +1,5 @@
 { ... } :
 {
-  #  imports = [
-  #  ./emulation.nix
-  #];
-
-#  nixpkgs.config.allowUnfreePredicate = pkg:
-#    builtins.elem (lib.getName pkg) [
-#      "steam"
-#      "steam-original"
-#      "discord"
-#    ];
 
   programs.mangohud = {
     enable = true;

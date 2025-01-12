@@ -6,7 +6,6 @@
     ./graphical.nix
     ./apps/gaming.nix
     ./terminal/ssh-home.nix
-#    ./apps/emulation.nix
   ];
 
   home.username = "solarbear";
