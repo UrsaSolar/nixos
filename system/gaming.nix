@@ -21,7 +21,7 @@
     enable = true;
     extraCompatPackages = [ unstable.proton-ge-bin ];
     package = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [ gamescope ];
+      extraPkgs = pkgs: [ unstable.gamescope ];
     };
     gamescopeSession.enable = true;
     #protontricks = {
