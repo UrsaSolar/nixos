@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
 
     #terminal tools
+    killall
     wget
     bind #nslookup
     git
@@ -41,6 +42,7 @@
     lm_sensors
     exfatprogs
     lsof
+    dialog
 
     # language servers for nvim
     nil # Nix
