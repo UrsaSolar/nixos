@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm # SDDM config module
     kdePackages.bluedevil
+    kdialog
     where-is-my-sddm-theme
     catppuccin-sddm
     catppuccin-sddm-corners
