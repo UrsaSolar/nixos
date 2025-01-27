@@ -18,5 +18,4 @@
       proc_filter_kernel = true; # filter out kernel processes
     };
   };
-
 }
