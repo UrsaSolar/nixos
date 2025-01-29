@@ -33,8 +33,13 @@
 
   users.users.kenglish = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    group = "kenglish";
+    extraGroups = [ "kenglish" "wheel" "networkmanager" ];
     shell = pkgs.zsh;
+  };
+  users.groups.kenglish = {
+    name = "kenglish";
+    gid = 1000;
   };
 
   virtualisation.podman = {
