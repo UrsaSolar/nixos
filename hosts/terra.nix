@@ -22,7 +22,7 @@
   networking.hostName = "terra";
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-
+  boot.supportedFilesystems = [ "ntfs" ];
 
   programs.coolercontrol.enable=true;
 
