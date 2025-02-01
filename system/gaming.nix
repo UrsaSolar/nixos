@@ -38,7 +38,7 @@
   };
 
   #programs.lutris.enable = true;
-  hardware.xone.enable = true;
+  #hardware.xone.enable = true; For xbox one dongle, incompatible with 360 pads
   hardware.steam-hardware.enable = true;
 
 }
