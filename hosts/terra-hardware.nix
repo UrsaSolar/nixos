@@ -22,14 +22,18 @@
     device = "/dev/disk/by-uuid/9dc0d76a-c299-482a-9d80-3a2e1c142726";
     allowDiscards = true;
   };
-  boot.initrd.luks.devices."luks-5f407ada-f056-4561-807b-f18eec58d294" = { # bfd
-    device = "/dev/disk/by-uuid/5f407ada-f056-4561-807b-f18eec58d294";
-    allowDiscards = true;
-  };
+  #boot.initrd.luks.devices."luks-5f407ada-f056-4561-807b-f18eec58d294" = { # bfd
+  #  device = "/dev/disk/by-uuid/5f407ada-f056-4561-807b-f18eec58d294";
+  #  allowDiscards = true;
+  #};
   boot.initrd.luks.devices."luks-21d8f235-17fa-4484-9843-914b47020f80" = { # swap
     device = "/dev/disk/by-uuid/21d8f235-17fa-4484-9843-914b47020f80"; #swap
     allowDiscards = true;
   };
+
+  environment.etc.crypttab.text = ''
+    cryptstorage UUID=5f407ada-f056-4561-807b-f18eec58d294 /root/bfd.key
+  '';
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9882b632-b08a-4fe6-856e-cf4e028aa62d";
