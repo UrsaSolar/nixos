@@ -32,7 +32,7 @@
   };
 
   environment.etc.crypttab.text = ''
-    cryptstorage UUID=5f407ada-f056-4561-807b-f18eec58d294 /root/bfd.key
+    cryptstorage UUID=5f407ada-f056-4561-807b-f18eec58d294 /root/secrets/bfd.key
   '';
 
   fileSystems."/" =
