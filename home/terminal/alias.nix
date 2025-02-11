@@ -31,7 +31,7 @@
     nx-bootswitch = "sudo nixos-rebuild boot --flake $NIXOSDIR";
     nx-upchannel = "sudo nix-channel --update";
     nx-update = "git --git-dir=$NIXOSDIR/.git/ --work-tree=$NIXOSDIR pull && nix flake update --flake $NIXOSDIR && nx-upchannel";
-    nx-upgrade = "nx-update && nx-upchannel && nx-rebuild && hm-rebuild && gitflake";
+    nx-upgrade = "nx-update && nx-upchannel && nx-rebuild && hm-rebuild && gitflake && nix flake archive";
     cdnix = "cd $NIXOSDIR";
     nx-vim = "vim $NIXOSDIR";
 
