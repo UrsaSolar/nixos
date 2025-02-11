@@ -22,50 +22,56 @@
     device = "/dev/disk/by-uuid/9dc0d76a-c299-482a-9d80-3a2e1c142726";
     allowDiscards = true;
   };
-  #boot.initrd.luks.devices."luks-5f407ada-f056-4561-807b-f18eec58d294" = { # bfd
-  #  device = "/dev/disk/by-uuid/5f407ada-f056-4561-807b-f18eec58d294";
-  #  allowDiscards = true;
-  #};
   boot.initrd.luks.devices."luks-21d8f235-17fa-4484-9843-914b47020f80" = { # swap
-    device = "/dev/disk/by-uuid/21d8f235-17fa-4484-9843-914b47020f80"; #swap
+    device = "/dev/disk/by-uuid/21d8f235-17fa-4484-9843-914b47020f80"; 
     allowDiscards = true;
   };
 
   environment.etc.crypttab.text = ''
-    cryptstorage UUID=5f407ada-f056-4561-807b-f18eec58d294 /root/secrets/bfd.key
+    luks-c6ef5c75-08af-4bfd-8391-a9e4368e6436 UUID=c6ef5c75-08af-4bfd-8391-a9e4368e6436 /root/secrets/bfd.key
   '';
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9882b632-b08a-4fe6-856e-cf4e028aa62d";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/9882b632-b08a-4fe6-856e-cf4e028aa62d";
       fsType = "ext4";
     };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/902A-4E6B";
+    "/boot" = {
+      device = "/dev/disk/by-uuid/902A-4E6B";
       fsType = "vfat";
     };
+    "/mnt/BFD" = {
+      device = "/dev/disk/by-uuid/f17b755d-d977-4980-bac0-b8d3d476da28";
+      fsType = "ext4";
+      options = ["defaults,nofail,x-systemd.device-timeout=5s"];
+    };
+    "/mnt/jupiter/media" = {
+      device = "//192.168.80.100/media";
+      fsType = "cifs";
+      options =
+        let
+          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+        in
+          ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"];
+    };
+    "/mnt/jupiter/storage" = {
+      device = "//192.168.80.100/storage";
+      fsType = "cifs";
+      options =
+        let
+          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+        in
+          ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"];
+    };
 
-  fileSystems."/mnt/BFD" = {
-    device = "/dev/disk/by-uuid/81ee3a15-45c6-4b60-bd07-c9d009e360ac";
-    fsType = "btrfs";
+    swapDevices = [ { device = "/dev/disk/by-uuid/7271c40a-d84f-4405-aa0d-18370bc45e8c"; } ];
+
+    fileSystems."/mnt/Hell" = {
+      device = "/dev/disk/by-uuid/DA227AEC227ACCCF";
+      fsType = "ntfs";
+      options = ["defaults,noauto,nofail,x-systemd.device-timeout=5s"];
+    };
   };
-
-  fileSystems."/mnt/jupiter/media" = 
-    { device = "//192.168.80.100/media";
-      fsType = "cifs";
-      options = let
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
-  fileSystems."/mnt/jupiter/storage" = 
-    { device = "//192.168.80.100/storage";
-      fsType = "cifs";
-      options = let
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in ["${automount_opts},credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000"]; };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/7271c40a-d84f-4405-aa0d-18370bc45e8c";  }
-    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
