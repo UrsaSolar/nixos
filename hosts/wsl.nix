@@ -1,4 +1,4 @@
-{ pkgs, lib, config, unstable, nixos-wsl, ... }:
+{ pkgs, lib, config, ... }:
 
 {
 

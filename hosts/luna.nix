@@ -1,13 +1,4 @@
-# Luna.nix
-
-{ config, lib, pkgs, unstable, ... }:
-
-let
-  overlay-asus-unstable = final: prev: {
-    asusctl = unstable.asusctl;
-    supergfxctl = unstable.supergfxctl;
-  };
-in
+{ lib, ... }:
 {
   
   imports = [
@@ -23,8 +14,6 @@ in
 #    ../system/kodi.nix
     ../system/promtail.nix
   ];
-
-  nixpkgs.overlays = [ overlay-asus-unstable ];
 
   system.stateVersion = "23.11"; # Historical reference
   nixpkgs.config.allowUnfree = true; #Allow unfree packages

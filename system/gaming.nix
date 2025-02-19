@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 {
 
   nixpkgs.config.permittedInsecurePackages = [ "freeimage-unstable-2021-11-01" ];
@@ -19,9 +19,9 @@
 
   programs.steam = {
     enable = true;
-    extraCompatPackages = [ unstable.proton-ge-bin ];
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
     package = pkgs.steam.override {
-      extraPkgs = pkgs: [ unstable.gamescope ];
+      extraPkgs = pkgs: [ pkgs.gamescope ];
     };
     gamescopeSession.enable = true;
     #protontricks = {

@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, ... }: {
 
  # Plasma Desktop
   #services.xserver.enable = true; # No longer needed?
@@ -18,30 +18,27 @@
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm # SDDM config module
     kdePackages.bluedevil
-    kdialog
+    kdePackages.kdialog
     where-is-my-sddm-theme
     catppuccin-sddm
     catppuccin-sddm-corners
     sigil
-    kate
-    #kwrite
-    kdenlive
-    #supersonic
-    #tokodon
+    kdePackages.kate
+    #kdePackages.kwrite
+    kdePackages.kdenlive
     xdg-desktop-portal
-    xdg-desktop-portal-kde
-    plasma-browser-integration
+    kdePackages.xdg-desktop-portal-kde
+    kdePackages.plasma-browser-integration
     catppuccin-papirus-folders
     kdePackages.breeze
-    breeze-gtk
-    breeze-icons
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
     catppuccin-kvantum
-    #strawberry
-    kcalc
-    discover
+    kdePackages.kcalc
+    kdePackages.discover
     appimage-run
     vlc
-    filelight
+    kdePackages.filelight
     wine-staging
     gimp
     kdePackages.partitionmanager

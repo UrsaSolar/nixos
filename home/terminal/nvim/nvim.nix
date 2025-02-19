@@ -75,7 +75,7 @@
         '';
       }
 
-      #{ plugin = unstable.vimPlugins.transparent-nvim; type = "lua"; config = builtins.readFile(./transparent-config.lua); }
+      #{ plugin = vimPlugins.transparent-nvim; type = "lua"; config = builtins.readFile(./transparent-config.lua); }
 
       which-key-nvim
       vim-nix
@@ -85,7 +85,7 @@
       telescope-nvim # recommended for legendary
       dressing-nvim
       cheatsheet-nvim
-      #unstable.vimPlugins.transparent-nvim
+      #vimPlugins.transparent-nvim
       rainbow-delimiters-nvim
       nvim-notify
       nvim-lsp-notify

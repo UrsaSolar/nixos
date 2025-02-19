@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 {
 
   hardware.keyboard.qmk.enable = true;
@@ -36,7 +36,7 @@
     ungoogled-chromium
     vlc
     jellyfin-media-player
-    #unstable.amarok
+    #amarok
     nextcloud-client
     #libreoffice
     #anki

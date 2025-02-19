@@ -1,6 +1,6 @@
 # terra.nix
 
-{ pkgs, config, ... }:
+{ pkgs, config, chaotic, ... }:
 {
 
   imports = [
@@ -20,7 +20,7 @@
 
   system.stateVersion = "23.11"; # Historical reference
   networking.hostName = "terra";
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -49,4 +49,5 @@
 
   virtualisation.libvirtd.enable = true;
 
+  chaotic.hdr.enable = true;
 }
