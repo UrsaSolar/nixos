@@ -30,8 +30,8 @@
     nx-rebuild = "sudo nixos-rebuild switch --flake $NIXOSDIR";
     nx-bootswitch = "sudo nixos-rebuild boot --flake $NIXOSDIR";
     nx-upchannel = "sudo nix-channel --update";
-    nx-update = "git --git-dir=$NIXOSDIR/.git/ --work-tree=$NIXOSDIR pull && nix flake update --flake $NIXOSDIR && nx-upchannel";
-    nx-upgrade = "nx-update && nx-upchannel && nx-rebuild && hm-rebuild && gitflake && nix flake archive";
+    nx-update = "git --git-dir=$NIXOSDIR/.git/ --work-tree=$NIXOSDIR pull && nix flake update --flake $NIXOSDIR && nx-upchannel && nix flake archive";
+    nx-upgrade = "nx-update && nx-upchannel && nx-rebuild && hm-rebuild && gitflake";
     cdnix = "cd $NIXOSDIR";
     nx-vim = "vim $NIXOSDIR";
 
