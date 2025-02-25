@@ -15,6 +15,7 @@
     pcsx2
     steam-run
     obs-studio
+    wine-staging
   ];
 
   programs.steam = {
