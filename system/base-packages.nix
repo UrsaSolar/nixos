@@ -46,7 +46,8 @@
 
     # language servers for nvim
     nil # Nix
-    yaml-language-server
+    nodePackages.yaml-language-server
+    nodePackages.nodejs
     docker-compose-language-service
 
     # other software
