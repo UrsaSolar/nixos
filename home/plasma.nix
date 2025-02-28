@@ -31,8 +31,7 @@
 
   home.packages = with pkgs; [
     #catppuccin-kvantum
-    strawberry
-    kcalc
+    kdePackages.kcalc
   ];
 
 #  services.nextcloud-client = {
