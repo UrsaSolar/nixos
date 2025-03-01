@@ -11,7 +11,7 @@
 
     autosuggestion = {
       enable = true;
-      #strategy = [ "completion" ];   # [NOT IN STABLE 24.05]
+      strategy = [ "completion" ];   # [NOT IN STABLE 24.05]
     };
 
     syntaxHighlighting = {
@@ -20,7 +20,7 @@
     };
 
     history = {
-#      append = true;   # allow multiple sessions to share file [NOT IN STABLE 24.05]
+      append = true;   # allow multiple sessions to share file [NOT IN STABLE 24.05]
       extended = true; # store timestamp
       expireDuplicatesFirst = true;
       path = "${config.xdg.dataHome}/zsh/zsh_history";
