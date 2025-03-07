@@ -11,7 +11,7 @@
     ../system/bootloader.nix
     ../system/docker-rootful.nix
     ../system/ssh.nix
-    ../system/promtail.nix
+    #../system/promtail.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
