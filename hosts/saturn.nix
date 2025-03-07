@@ -10,7 +10,6 @@
     ../system/nvidia.nix
     ../system/bootloader.nix
     ../system/docker-rootful.nix
-    ../system/ssh.nix
     #../system/promtail.nix
   ];
 
