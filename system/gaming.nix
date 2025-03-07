@@ -16,6 +16,7 @@
     steam-run
     obs-studio
     wine-staging
+    vulkan-hdr-layer-kwin6
   ];
 
   programs.steam = {
