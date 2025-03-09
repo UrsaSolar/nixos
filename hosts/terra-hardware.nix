@@ -33,7 +33,7 @@
 
   fileSystems =
     let
-      smb_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,credentials=/etc/secrets/sam  ba/jupiter,uid=1000,gid=1000";
+      smb_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000";
     in {
     "/" = {
       device = "/dev/disk/by-uuid/9882b632-b08a-4fe6-856e-cf4e028aa62d";
