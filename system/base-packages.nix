@@ -43,6 +43,7 @@
     exfatprogs
     lsof
     dialog
+    gnupg
 
     # language servers for nvim
     nil # Nix
