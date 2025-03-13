@@ -15,16 +15,6 @@
       dates = "weekly";
       flags = [ "--filter 'until=168h'" ];
     };      
-    extraOptions = ''
-      --tlsverify \
-      --tlscacert=/home/solarbear/certs/ca.crt \
-      --tlscert=/home/solarbear/certs/cert.crt \
-      --tlskey=/home/solarbear/certs/cert.key
-    '';
-    listenOptions = [
-      "/run/docker.sock"
-      "0.0.0.0:2376"
-    ];
   };
 
   # https://rdes.gitlab.io/posts/2016-08-29-enabling-dockers-user-namespaces-in-nixos.html
