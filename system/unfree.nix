@@ -15,6 +15,8 @@ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "libretro-genesis-plus-gx"
     "libretro-picodrive"
     "libretro-fbneo"
+    "unigine-superposition"
+    "nvidia-settings"
   ];
 
 }

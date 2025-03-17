@@ -6,12 +6,11 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  #boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" "nct6687" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [ nct6687d ]; # For NCT6687D chip in B650I Lightning
   boot.extraModprobeConfig = ''
   options nct6687 force=1
-  options amdgpu ppfeaturemask=0xFFF7FFFF
   ''; # Needed because driver only starts automatically for intel
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

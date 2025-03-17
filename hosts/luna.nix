@@ -7,7 +7,7 @@
     ../system/base-packages.nix
     ../system/bootloader.nix
     ../system/users.nix
-    ../system/nvidia.nix
+    ../system/nvidia-optimus.nix
     ../system/bluetooth.nix
     ../system/graphical.nix
     ../system/plasma.nix

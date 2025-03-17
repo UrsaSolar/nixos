@@ -8,7 +8,8 @@
     ../system/base-configuration.nix
     ../system/base-packages.nix
     ../system/bootloader.nix
-    ../system/amd.nix
+    #../system/amd.nix
+    ../system/nvidia.nix
     ../system/ssh.nix
     ../system/bluetooth.nix
     ../system/graphical.nix
@@ -16,6 +17,7 @@
     ../system/gaming.nix
     ../system/promtail.nix
     ../system/unfree.nix
+    # ../system/docker-rootful.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
@@ -48,6 +50,12 @@
   hardware.bluetooth.powerOnBoot = true;
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  environment.systemPackages = [ pkgs.distrobox ];
 
   chaotic.hdr.enable = true;
 }
