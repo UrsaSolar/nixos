@@ -17,7 +17,7 @@
     obs-studio
     wine-staging
     vulkan-hdr-layer-kwin6
-    unigine-superposition
+    #unigine-superposition
   ];
 
   programs.steam = {
