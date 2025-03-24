@@ -64,18 +64,18 @@
           ./hosts/luna/luna.nix
         ];
       };
-      saturn = nixpkgs.lib.nixosSystem{
+      saturn-manager = nixpkgs.lib.nixosSystem{
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/saturn/saturn.nix
+          ./hosts/saturn/manager.nix
         ];
       };
-      mercury = nixpkgs.lib.nixosSystem{
+      mercury-manager = nixpkgs.lib.nixosSystem{
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/mercury/mercury.nix
+          ./hosts/mercury/mercury-manager.nix
         ];
       };
 
