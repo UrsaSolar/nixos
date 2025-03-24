@@ -48,17 +48,17 @@
       options = ["defaults,nofail,x-systemd.device-timeout=5s"];
     };
     "/mnt/jupiter/media" = {
-      device = "//192.168.80.100/media";
+      device = "//192.168.40.10/media";
       fsType = "cifs";
       options = ["${smb_opts}"];
     };
     "/mnt/jupiter/storage" = {
-      device = "//192.168.80.100/storage";
+      device = "//192.168.40.10/storage";
       fsType = "cifs";
       options = ["${smb_opts}"];
     };
     "/mnt/jupiter/helium" = {
-      device = "//192.168.80.100/helium";
+      device = "//192.168.40.10/helium";
       fsType = "cifs";
       options = ["${smb_opts}"];
 
