@@ -12,6 +12,15 @@
     pulse.enable = true;
     #jack.enable = true;
   };
+
+  hardware.bluetooth = {
+    enable = true; # enables support for Bluetooth
+    powerOnBoot = true; # powers up the default Bluetooth controller on boot
+    settings.general = {
+      enable = "Source,Sink,Media,Socket"; # Enable A2DP sink
+      experimental = true; # Enables battery reporting
+    };
+
   programs.dconf.enable = true; # Needed for EasyEffects daemon
   
   xdg.portal.enable = true;
@@ -26,21 +35,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    clinfo
-    glxinfo
-    vulkan-tools
-    wayland-utils
     corectrl
     firefox
-    #thunderbird
+    thunderbird
     ungoogled-chromium
     vlc
     jellyfin-media-player
-    #amarok
     nextcloud-client
-    #libreoffice
-    #anki
-    virt-manager
   ];
 
   fonts.packages = with pkgs; [

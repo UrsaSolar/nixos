@@ -5,19 +5,15 @@
 
   environment.systemPackages = with pkgs; [
     discord
-    discord-canary
-    vesktop
     mangohud
     winetricks
     protontricks
     lutris
-    mame
     pcsx2
     steam-run
     obs-studio
     wine-staging
     vulkan-hdr-layer-kwin6
-    #unigine-superposition
   ];
 
   programs.steam = {
@@ -41,7 +37,7 @@
   };
 
   #programs.lutris.enable = true;
-  #hardware.xone.enable = true; For xbox one dongle, incompatible with 360 pads
+  #hardware.xone.enable = true; For xbox one dongle, incompatible with 360 pads like my Vader
   hardware.steam-hardware.enable = true;
 
 }

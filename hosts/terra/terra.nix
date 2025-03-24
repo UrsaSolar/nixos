@@ -1,23 +1,19 @@
-# terra.nix
-
 { pkgs, ... }:
 {
 
   imports = [
     ./terra-hardware.nix
-    ../../system/base-configuration.nix
-    ../../system/base-packages.nix
-    ../../system/bootloader.nix
-    #../../system/amd.nix
-    ../../system/nvidia.nix
-    ../../system/ssh.nix
-    ../../system/bluetooth.nix
-    ../../system/graphical.nix
-    ../../system/plasma.nix
-    ../../system/gaming.nix
-    ../../system/promtail.nix
-    ../../system/unfree.nix
-    # ../../system/docker-rootful.nix
+    ../../system/config/base.nix
+    ../../system/config/workstation.nix
+    ../../system/gpu/nvidia.nix
+    ../../system/graphical/base.nix
+    ../../system/graphical/plasma.nix
+    ../../system/graphical/gaming.nix
+    ../../system/pkgs/base.nix
+    ../../system/pkgs/workstation.nix
+    ../../system/pkgs/unfree.nix
+    ../../system/users/solarbear.nix
+    #../../system/promtail.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
@@ -49,5 +45,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   chaotic.hdr.enable = true;
 }

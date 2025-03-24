@@ -3,8 +3,11 @@
 {
 
   imports = [
-    ../../system/base-packages.nix
-    ../../system/base-configuration.nix
+    ../../system/config/base.nix
+    ../../system/config/workstation.nix
+    ../../system/pkgs/base.nix
+    ../../system/pkgs/workstation.nix
+    ../../system/pkgs/unfree.nix
   ];
 
 

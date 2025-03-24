@@ -5,15 +5,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.allowed-users = [ "@wheel" ];
   #Terminal stuff
-  programs.zsh.enable = true;
-  environment.pathsToLink = [ "/share/zsh" ]; # Required for zsh autocomplete
   console.font = "Lat2-Terminus16";
 
   # Maintenance stuff
   nix.optimise.automatic = true; # Periodically optimize filesystem with hard links via systemd service
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    dates = "daily";
     options = "--delete-older-than 14d";
   };
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -56,7 +54,6 @@
       }
     });
   '';
-  programs.nix-ld.enable = true;
 
 }
 

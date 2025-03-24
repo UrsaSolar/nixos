@@ -3,16 +3,17 @@
   
   imports = [
     ./luna-hardware.nix
-    ../../system/base-configuration.nix
-    ../../system/base-packages.nix
-    ../../system/bootloader.nix
-    ../../system/users.nix
-    ../../system/nvidia-optimus.nix
-    ../../system/bluetooth.nix
-    ../../system/graphical.nix
-    ../../system/plasma.nix
-#    ../../system/kodi.nix
-    ../../system/promtail.nix
+    ../../system/config/base.nix
+    ../../system/config/workstation.nix
+    ../../system/gpu/optimus.nix
+    ../../system/graphical/base.nix
+    ../../system/graphical/plasma.nix
+    ../../system/graphical/gaming.nix
+    ../../system/pkgs/base.nix
+    ../../system/pkgs/workstation.nix
+    ../../system/pkgs/unfree.nix
+    ../../system/users/solarbear.nix
+    #../../system/promtail.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
@@ -51,5 +52,7 @@
       enableUserService = true;
   };
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
 }
