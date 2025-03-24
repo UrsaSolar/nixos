@@ -1,8 +1,13 @@
 { config, ... }:
-
 {
+  
+  imports = [
+    ../terminal/alias.nix
+    ../terminal/btop.nix
+    ../terminal/tmux.nix
+  ];
 
-  home.stateVersion = "23.11"; # Historical
+  home.stateVersion = "24.11"; # Historical
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
   xdg.enable = true; # Reference with ${config.xdg.objectHome}
 
@@ -28,5 +33,4 @@
     #NIX_PATH="${config.xdg.configHome}/nixos";
   };
 
-  
 }

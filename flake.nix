@@ -85,23 +85,20 @@
       kenglish = home-manager.lib.homeManagerConfiguration { 
         inherit pkgs;
         modules = [
-          ./home.nix
-          ./home/kenglish-home.nix
+          ./home/schema/kenglish.nix
         ];
       };
       solarbear = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           plasma-manager.homeManagerModules.plasma-manager
-          ./home.nix
-          ./home/solarbear-home.nix
+          ./home/schema/solarbear.nix
         ];
       };
       solarbear-server = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home.nix
-          ./home/solarbear-server.nix
+          ./home/schema/server.nix
         ];
       };
     };
