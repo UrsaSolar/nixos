@@ -1,30 +1,53 @@
-# ASM.nix
+{ pkgs, lib, config, ... }:
 
-{ pkgs, ... }:
 {
-  imports = [
-    ./asm-hardware.nix
-    ../system/base-configuration.nix
-    ../system/base-packages.nix
-    ../system/bootloader.nix
-    ../system/ssh.nix
-  ];
-  
 
-  system.stateVersion = "23.11"; # Historical reference
-  networking.hostName = "nixos-asm"; # Define your hostname.
+  imports = [
+    ../../system/base-packages.nix
+    ../../system/base-configuration.nix
+  ];
+
+
+  # When the config is built from a flake, the NIX_PATH entry of nixxpkgs is set to its flake version.
+  # Per default the resulting systems aren't flake-enabled, so rebuilds would fail.
+  # Note: This does not affect the module being imported into your own flake.
+  nixpkgs.flake.source = lib.mkForce null;
+
+  systemd.tmpfiles.rules =
+    let
+      channels = pkgs.runCommand "default-channels" { } ''
+        mkdir -p $out
+        ln -s ${pkgs.path} $out/nixos
+        ln -s ${./.} $out/nixos-wsl
+      '';
+    in
+    [
+      "L /nix/var/nix/profiles/per-user/root/channels-1-link - - - - ${channels}"
+      "L /nix/var/nix/profiles/per-user/root/channels - - - - channels-1-link"
+    ];
+  system.stateVersion = config.system.nixos.release;
+
+  networking.hostName = "nixos-wsl";
+  networking.networkmanager.enable = lib.mkForce false;
+  networking.firewall.enable = false; # Not needed due to host firewall
 
   users.users.kenglish = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    group = "kenglish";
+    extraGroups = [ "kenglish" "wheel" "networkmanager" ];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmWTYLdAzG37mtBzXLRwUXRzhJlPRryu10PjyHuIDtkS2i8DJ/1UJRbbHUQFodYCJQPA7YD3ZujFCwO2ZsKsvv9Sqa9DpdttteR8JHWGIlcOmEz7DyO4ttpLdRZD/w6KBpZEprB5xgESEkwk4TirwTbK6I/kSqfWee8HvPPBG4o4NdZpJK6SZvzKPowMis0PkQGdea0IjgByNlXdzngZPeRZ1idnBA3IbqyOC5Diwzh+/YpD37bFOdwj6NquK9cSZ2htDqPchux628x1KfE0AikTiGbLUsffh+bvZTtcTi8V4BBLFJRzQytiwtiPiv3QwVCKCYSakx5JuiRd3oqrsSwSzyFfSI1TN12efb8FhRpAB15UKppIqE1Vn9Mqp3gL594tsd3uTQTl+zCMGF+TmNB0u2ifBJw+OBNMht862VmUYvEMIO866gRA1tW5DJq3rqYsyBM/qwh/pt9S8JM9f+gfp/rGQbqLshyVqQOVKRsaaCY0N2z6tmFU70QralhjU= azuread\kyleenglish@DESKTOP-IPL03K8"
-    ];
+  };
+  users.groups.kenglish = {
+    name = "kenglish";
+    gid = 1000;
   };
 
-  services.openssh.enable = true;
-  networking.firewall.enable = false; # Not needed due to host firewall
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  environment.systemPackages = [ pkgs.distrobox ];
 
   security.pki.certificates = [
     # Alleigant-stadium-root.crt

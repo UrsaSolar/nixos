@@ -3,14 +3,14 @@
 
   imports = [
     ./saturn-hardware.nix
-    ../system/base-configuration.nix
-    ../system/base-packages.nix
-    ../system/servers.nix
-    ../system/ssh.nix
-    ../system/nvidia.nix
-    ../system/bootloader.nix
-    ../system/docker-rootful.nix
-    #../system/promtail.nix
+    ../../system/base-configuration.nix
+    ../../system/base-packages.nix
+    ../../system/servers.nix
+    ../../system/ssh.nix
+    ../../system/nvidia.nix
+    ../../system/bootloader.nix
+    ../../system/docker-rootful.nix
+    #../../system/promtail.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference

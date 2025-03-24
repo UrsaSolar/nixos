@@ -15,7 +15,6 @@
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.cpu.amd.ryzen-smu.enable = true; # https://gitlab.com/leogx9r/ryzen_smu
-  #services.hardware.openrgb.enable = true;
   
   boot.initrd.luks.devices."luks-9dc0d76a-c299-482a-9d80-3a2e1c142726" = { # root
     device = "/dev/disk/by-uuid/9dc0d76a-c299-482a-9d80-3a2e1c142726";

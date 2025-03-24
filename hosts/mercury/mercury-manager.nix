@@ -1,15 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
 
   imports = [
-    ./mercury-hardware.nix
-    ../system/base-configuration.nix
-    ../system/base-packages.nix
-    ../system/bootloader.nix
-    ../system/ssh.nix
-    ../system/docker-rootful.nix
-    ../system/servers.nix
+    ./mercury-manager-hardware.nix
+    ../../system/base-configuration.nix
+    ../../system/base-packages.nix
+    ../../system/bootloader.nix
+    ../../system/ssh.nix
+    ../../system/docker-rootful.nix
+    ../../system/servers.nix
+    #../../system/promtail.nix
   ];
 
   system.stateVersion = "24.05";
@@ -67,22 +68,13 @@
     };
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    onBoot = "start";
-    onShutdown = "shutdown";
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_unprivileged_port_start" = 0;
   };
 
   environment.systemPackages = with pkgs; [
     postgresql_16
     sqlite
-    kubernetes-helm
   ];
-
-  # KUBERNETES TIME
-  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/cluster/k3s/docs/USAGE.md
-  #services.k3s.enable = true;
-  #services.k3s.role = "server";
-
 
 }

@@ -45,14 +45,7 @@
             wsl.defaultUser = "kenglish";
   	      }
           stylix.nixosModules.stylix
-          ./hosts/wsl.nix 
-        ];
-      };
-      nixos-asm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          stylix.nixosModules.stylix
-          ./hosts/asm.nix 
+          ./hosts/wsl/wsl.nix 
         ];
       };
       terra = nixpkgs.lib.nixosSystem{
@@ -61,35 +54,28 @@
         modules = [
           stylix.nixosModules.stylix
           chaotic.nixosModules.default
-          ./hosts/terra.nix
+          ./hosts/terra/terra.nix
         ];
       };
       luna = nixpkgs.lib.nixosSystem{
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/luna.nix
+          ./hosts/luna/luna.nix
         ];
       };
       saturn = nixpkgs.lib.nixosSystem{
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/saturn.nix
+          ./hosts/saturn/saturn.nix
         ];
       };
       mercury = nixpkgs.lib.nixosSystem{
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/mercury.nix
-        ];
-      };
-      eunomia = nixpkgs.lib.nixosSystem{
-        inherit system;
-        modules = [
-          stylix.nixosModules.stylix
-          ./hosts/eunomia.nix
+          ./hosts/mercury/mercury.nix
         ];
       };
 

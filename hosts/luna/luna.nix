@@ -3,20 +3,19 @@
   
   imports = [
     ./luna-hardware.nix
-    ../system/base-configuration.nix
-    ../system/base-packages.nix
-    ../system/bootloader.nix
-    ../system/users.nix
-    ../system/nvidia-optimus.nix
-    ../system/bluetooth.nix
-    ../system/graphical.nix
-    ../system/plasma.nix
-#    ../system/kodi.nix
-    ../system/promtail.nix
+    ../../system/base-configuration.nix
+    ../../system/base-packages.nix
+    ../../system/bootloader.nix
+    ../../system/users.nix
+    ../../system/nvidia-optimus.nix
+    ../../system/bluetooth.nix
+    ../../system/graphical.nix
+    ../../system/plasma.nix
+#    ../../system/kodi.nix
+    ../../system/promtail.nix
   ];
 
   system.stateVersion = "23.11"; # Historical reference
-  nixpkgs.config.allowUnfree = true; #Allow unfree packages
   networking.hostName = "luna";
 
   # services.openssh.enable = true;
