@@ -4,8 +4,9 @@
     isNormalUser = true;
     description = "Solar Bear";
     group = "solarbear";
-    extraGroups = [ "solarbear" "networkmanager" "wheel" "video" "libvirtd" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" "adbusers" ];
     shell = pkgs.zsh;
+    linger = true;
   };
 
   users.groups.solarbear = {
