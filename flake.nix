@@ -40,10 +40,7 @@
       nixos-wsl = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-      	  nixos-wsl.nixosModules.default {
-            wsl.enable = true;
-            wsl.defaultUser = "kenglish";
-  	      }
+      	  nixos-wsl.nixosModules.default
           stylix.nixosModules.stylix
           ./hosts/wsl/wsl.nix 
         ];
