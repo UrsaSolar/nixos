@@ -5,11 +5,14 @@
   imports = [
     ../../system/config/base.nix
     ../../system/config/workstation.nix
+    ../../system/users/kenglish.nix
     ../../system/pkgs/base.nix
     ../../system/pkgs/workstation.nix
     ../../system/pkgs/unfree.nix
   ];
 
+  wsl.enable = true;
+  wsl.defaultUser = "kenglish";
 
   # When the config is built from a flake, the NIX_PATH entry of nixxpkgs is set to its flake version.
   # Per default the resulting systems aren't flake-enabled, so rebuilds would fail.
@@ -33,24 +36,6 @@
   networking.hostName = "nixos-wsl";
   networking.networkmanager.enable = lib.mkForce false;
   networking.firewall.enable = false; # Not needed due to host firewall
-
-  users.users.kenglish = {
-    isNormalUser = true;
-    group = "kenglish";
-    extraGroups = [ "kenglish" "wheel" "networkmanager" ];
-    shell = pkgs.zsh;
-  };
-  users.groups.kenglish = {
-    name = "kenglish";
-    gid = 1000;
-  };
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
-  environment.systemPackages = [ pkgs.distrobox ];
 
   security.pki.certificates = [
     # Alleigant-stadium-root.crt
