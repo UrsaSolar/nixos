@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   boot.kernel.sysctl = {
     "net.ipv4.ip_unprivileged_port_start" = 0;
@@ -40,7 +40,6 @@
       "/var/lib/docker/volumes"
       "/root/borg/db/backup"
     ];
-    repo = "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
     encryption = {
       mode = "repokey-blake2";
       passCommand = "cat /root/borg/pass";
