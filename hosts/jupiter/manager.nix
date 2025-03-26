@@ -5,8 +5,9 @@
   imports = [
     ./manager-hardware.nix
     ../../system/config/base.nix
-    ../../system/pkgs/base.nix
     ../../system/config/docker.nix
+    ../../system/pkgs/base.nix
+    ../../system/users/server.nix
     #../../system/promtail.nix
   ];
 
