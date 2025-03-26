@@ -79,7 +79,7 @@
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/jupiter/jupiter-manager.nix
+          ./hosts/jupiter/manager.nix
         ];
       };
     };
