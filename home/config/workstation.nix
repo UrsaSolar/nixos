@@ -3,9 +3,7 @@
 {
   
   imports = [
-    ../terminal/yazi.nix
-    ../terminal/nvim/nvim.nix
-    ../terminal/zsh/zsh.nix
+    ../terminal/terminal.nix
   ];
 
   home.shellAliases = {
