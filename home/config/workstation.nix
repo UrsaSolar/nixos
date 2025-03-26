@@ -4,6 +4,7 @@
   
   imports = [
     ../terminal/terminal.nix
+    ../terminal/alias/workstation.nix
   ];
 
   home.shellAliases = {

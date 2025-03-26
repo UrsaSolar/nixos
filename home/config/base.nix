@@ -2,7 +2,8 @@
 {
   
   imports = [
-    ../terminal/alias.nix
+    ../terminal/alias/base.nix
+    ../terminal/alias/nixos.nix
     ../terminal/btop.nix
     ../terminal/tmux.nix
   ];
