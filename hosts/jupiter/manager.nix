@@ -8,6 +8,7 @@
     ../../system/config/docker.nix
     ../../system/pkgs/base.nix
     ../../system/users/server.nix
+    ../../system/users/ssh.nix
     #../../system/promtail.nix
   ];
 

@@ -16,6 +16,7 @@
     #../../system/pkgs/workstation.nix
     ../../system/pkgs/unfree.nix
     ../../system/users/solarbear.nix
+    ../../system/users/ssh.nix
     #../../system/promtail.nix
   ];
 
