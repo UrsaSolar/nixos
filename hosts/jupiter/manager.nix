@@ -4,12 +4,9 @@
 
   imports = [
     ./manager-hardware.nix
-    ../../system/base-configuration.nix
-    ../../system/base-packages.nix
-    ../../system/bootloader.nix
-    ../../system/ssh.nix
-    ../../system/docker.nix
-    ../../system/servers.nix
+    ../../system/config/base.nix
+    ../../system/pkgs/base.nix
+    ../../system/config/docker.nix
     #../../system/promtail.nix
   ];
 
