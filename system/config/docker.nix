@@ -63,6 +63,7 @@
   environment.systemPackages = with pkgs; [
     postgresql_16
     sqlite
+    cifs-utils
   ];
 
   #services.prometheus.exporters.node.enable = true;
