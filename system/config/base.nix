@@ -9,12 +9,6 @@
 
   # Maintenance stuff
   nix.optimise.automatic = true; # Periodically optimize filesystem with hard links via systemd service
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 14d";
-  };
-  boot.loader.systemd-boot.configurationLimit = 10;
   services.fstrim.enable = true; # SSD cleanup
 
   # Timezone and localization

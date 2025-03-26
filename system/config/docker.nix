@@ -4,6 +4,12 @@
     "net.ipv4.ip_unprivileged_port_start" = 0;
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 1d";
+  };
+
   virtualisation.docker = {
     enable = true;
     liveRestore = false; # Necessary to be disabled for swarm mode
@@ -15,7 +21,7 @@
     autoPrune = {
       enable = true;
       dates = "daily";
-      flags = [ "--filter 'until=168h'" ];
+      flags = [ "--filter 'until=24h'" ];
     };      
   };
   services.borgbackup.jobs."docker" = {
