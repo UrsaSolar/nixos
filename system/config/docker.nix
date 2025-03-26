@@ -64,6 +64,7 @@
     postgresql_16
     sqlite
     cifs-utils
+    nfs-utils
   ];
 
   #services.prometheus.exporters.node.enable = true;
