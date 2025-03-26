@@ -39,9 +39,10 @@
       PURE_POWER_MODE = "modern";
       COLORTERM = "truecolor";
     };
+    
     initExtra = builtins.readFile(./p10k.zsh)
-      + builtins.readFile(./gruvbox-material-dark.zsh)
-      + builtins.readFile(./initExtra.zsh);
+              + builtins.readFile(./gruvbox-material-dark.zsh)
+              + builtins.readFile(./initExtra.zsh);
 
   }; 
 

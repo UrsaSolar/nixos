@@ -11,7 +11,6 @@
   ];
 
   programs.bat.enable = true;
-  programs.fzf.enable = true;
   programs.btop.enable = true;
   programs.tmux.enable = true;
   services.ssh-agent.enable = true;
@@ -21,4 +20,8 @@
     settings.updates.auto_update = true;
   };
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }
