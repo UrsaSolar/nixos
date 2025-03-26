@@ -21,4 +21,5 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  virtualisation.docker.daemon.settings.ip = "192.168.80.124/24";
 }
