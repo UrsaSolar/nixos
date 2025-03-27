@@ -34,6 +34,10 @@
       7946 # Overlay network node discovery
       4789 # Overlay network traffic
     ];
+    extraCommands = ''
+      iptables -I DOCKER-USER -o ens19 -s 192.168.40.0/24 -j DROP
+      iptables -I DOCKER-USER -i ens19 -s 192.168.40.0/24 -j DROP
+    '';
   };
 
   services.borgbackup.jobs."docker" = {
