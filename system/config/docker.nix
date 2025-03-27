@@ -21,7 +21,7 @@
     autoPrune = {
       enable = true;
       dates = "daily";
-      flags = [ "--filter 'until=24h'" ];
+      flags = [ "--filter 'until=48h'" ];
     };      
   };
 
