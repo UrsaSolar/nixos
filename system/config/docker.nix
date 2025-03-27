@@ -40,6 +40,24 @@
     '';
   };
 
+  fileSystems."/mnt/storage" = {
+    device = "192.168.40.10:/mnt/hydrogen/data/storage";
+    fsType = "nfs";
+    options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
+  };
+
+  fileSystems."/mnt/media" = {
+    device = "192.168.40.10:/mnt/hydrogen/data/media";
+    fsType = "nfs";
+    options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
+  };
+
+  fileSystems."/mnt/docker" = {
+    device = "192.168.40.10:/mnt/helium/data/docker";
+    fsType = "nfs";
+    options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
+  };
+
   services.borgbackup.jobs."docker" = {
     user = "root"; # required due to write permissions inside volumes
     environment.BORG_RSH = "ssh -i /root/borg/id_ed25519";

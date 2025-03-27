@@ -24,12 +24,6 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt/media" = {
-    device = "192.168.40.10:/mnt/hydrogen/data/media";
-    fsType = "nfs";
-    options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
-  };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/1beb1ca4-22f0-4014-8e7d-041ac07c6074"; }
     ];
