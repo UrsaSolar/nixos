@@ -15,7 +15,7 @@
   system.stateVersion = "24.11";
   networking.hostName = "jupiter-manager";
 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   services.borgbackup.jobs."docker".repo = lib.mkForce "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
   boot.loader.systemd-boot.enable = true;
