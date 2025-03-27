@@ -24,6 +24,18 @@
       flags = [ "--filter 'until=24h'" ];
     };      
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [ 
+      2377 # Communication with manager nodes
+      7946 # Overlay network node discovery
+    ];
+    allowedUDPPorts = [
+      7946 # Overlay network node discovery
+      4789 # Overlay network traffic
+    ];
+  };
+
   services.borgbackup.jobs."docker" = {
     user = "root"; # required due to write permissions inside volumes
     environment.BORG_RSH = "ssh -i /root/borg/id_ed25519";
