@@ -20,7 +20,7 @@
       enable = "Source,Sink,Media,Socket"; # Enable A2DP sink
       experimental = true; # Enables battery reporting
     };
-
+  };
   programs.dconf.enable = true; # Needed for EasyEffects daemon
   
   xdg.portal.enable = true;
