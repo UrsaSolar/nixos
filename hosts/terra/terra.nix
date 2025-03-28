@@ -25,13 +25,6 @@
 
   programs.coolercontrol.enable=true;
 
-  users.users.solarbear = {
-    isNormalUser = true;
-    description = "Solar Bear";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
-    shell = pkgs.zsh;
- };
-
   services.openssh.enable = true;
   programs.adb.enable = true;
 
