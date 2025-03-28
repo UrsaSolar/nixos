@@ -4,7 +4,7 @@
 
   imports = [
     ./plasma.nix
-    ./apps/firefox.nix
+    ../apps/firefox.nix
   ];
 
   services.easyeffects = {
