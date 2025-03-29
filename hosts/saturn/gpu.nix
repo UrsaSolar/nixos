@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ./manager-hardware.nix
+    ./gpu-hardware.nix
     ../../system/config/base.nix
     ../../system/config/docker.nix
     ../../system/gpu/nvidia.nix
