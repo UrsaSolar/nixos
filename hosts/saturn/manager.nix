@@ -6,7 +6,6 @@
     ./manager-hardware.nix
     ../../system/config/base.nix
     ../../system/config/docker.nix
-    ../../system/gpu/nvidia.nix
     ../../system/pkgs/base.nix
     ../../system/users/server.nix
     ../../system/users/ssh.nix
@@ -14,7 +13,7 @@
   ];
 
   system.stateVersion = "24.11";
-  networking.hostName = "jupiter-manager";
+  networking.hostName = "saturn-manager";
 
   networking.firewall.enable = true;
 
