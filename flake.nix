@@ -68,7 +68,14 @@
           ./hosts/saturn/manager.nix
         ];
       };
-      mercury-manager = nixpkgs.lib.nixosSystem{
+      saturn-gpu = nixpkgs.lib.nixosSystem{
+        inherit system;
+        modules = [
+          stylix.nixosModules.stylix
+          ./hosts/saturn/gpu.nix
+        ];
+     };
+     mercury-manager = nixpkgs.lib.nixosSystem{
         inherit system;
         modules = [
           stylix.nixosModules.stylix
