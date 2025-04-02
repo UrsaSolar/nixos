@@ -3,21 +3,24 @@
 {
 
   imports = [
-    ./mercury-manager-hardware.nix
-    ../../system/base-configuration.nix
-    ../../system/base-packages.nix
-    ../../system/bootloader.nix
-    ../../system/ssh.nix
-    ../../system/docker-rootful.nix
-    ../../system/servers.nix
+    ./manager-hardware.nix
+    ../../system/config/base.nix
+    ../../system/config/docker.nix
+    ../../system/pkgs/base.nix
+    ../../system/users/server.nix
+    ../../system/users/ssh.nix
     #../../system/promtail.nix
   ];
 
-  system.stateVersion = "24.05";
-  networking.hostName = "mercury";
+  system.stateVersion = "24.11";
+  networking.hostName = "mercury-manager";
 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   services.borgbackup.jobs."docker".repo = lib.mkForce "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
+  virtualisation.docker.daemon.settings.ip = "192.168.80.126";
+  services.openssh.listenAddresses = [{ addr = "192.168.40.104"; port = 22; }];
 }
