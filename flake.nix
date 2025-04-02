@@ -79,7 +79,7 @@
         inherit system;
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/mercury/mercury-manager.nix
+          ./hosts/mercury/manager.nix
         ];
       };
       jupiter-manager = nixpkgs.lib.nixosSystem{
