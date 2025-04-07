@@ -23,16 +23,6 @@
 
   virtualisation.docker.daemon.settings.ip = "192.168.80.124";
   #services.openssh.listenAddresses = [{ addr = "192.168.40.102"; port = 22; }];
-  networking.useDHCP = lib.mkDefault false;
+  networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp6s18.useDHCP = lib.mkDefault true;
-  networking.interfaces = {
-    ens18 = {
-      useDHCP = false;
-      ipv4.addresses = [ { address = "192.168.80.102"; prefixLength = 24; } ];
-    };
-    ens19 = {
-      useDHCP = false;
-      ipv4.addresses = [ { address = "192.168.40.102"; prefixLength = 24; } ];
-    };
-  };
 }
