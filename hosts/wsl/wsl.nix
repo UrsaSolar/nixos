@@ -6,7 +6,6 @@
     ../../system/config/base.nix
     ../../system/config/workstation.nix
     ../../system/users/kenglish.nix
-    ../../system/users/ssh.nix
     ../../system/pkgs/base.nix
     ../../system/pkgs/workstation.nix
     ../../system/pkgs/unfree.nix
