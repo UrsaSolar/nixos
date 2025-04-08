@@ -19,8 +19,13 @@
 
   services.borgbackup.jobs."docker".repo = lib.mkForce "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
   
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.device = "/dev/disk/by-uuid/63f4cd7f-3b28-4c0b-9ce2-a22158345fe0"; 
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0";
+    };
+  };
 
   virtualisation.docker.daemon.settings.ip = "192.168.80.22";
   services.qemuGuest.enable = true;
