@@ -18,7 +18,6 @@
   networking.firewall.enable = true;
 
   services.borgbackup.jobs."docker".repo = lib.mkForce "ssh://n4325hol@n4325hol.repo.borgbase.com/./repo";
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   virtualisation.docker.daemon.settings.ip = "192.168.80.124";
