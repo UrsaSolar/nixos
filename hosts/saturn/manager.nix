@@ -33,7 +33,7 @@
         '';
       };
     };
-    kernelParams = [ "console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 consoleblank=0" ];
+    kernelParams = [ "console=tty0" "console=ttyS0,115200" "earlyprintk=ttyS0,115200" "consoleblank=0" ];
   };
 
   virtualisation.docker.daemon.settings.ip = "192.168.80.22";
