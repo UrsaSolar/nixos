@@ -25,6 +25,9 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
+      extraConfig = ''
+        quiet console=tty0 console=ttyS0,115200
+      '';
     };
   };
 
