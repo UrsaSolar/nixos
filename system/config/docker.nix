@@ -34,7 +34,6 @@
     options = "--delete-older-than 1d";
   };
 
-  services.qemuGuest.enable = true;
   virtualisation.docker = {
     enable = true;
     liveRestore = false; # Necessary to be disabled for swarm mode
