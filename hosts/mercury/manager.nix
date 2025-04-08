@@ -21,6 +21,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  virtualisation.docker.daemon.settings.ip = "192.168.80.126";
-  services.openssh.listenAddresses = [{ addr = "192.168.40.104"; port = 22; }];
+  virtualisation.docker.daemon.settings.ip = "192.168.80.21";
+  #services.openssh.listenAddresses = [{ addr = "192.168.40.104"; port = 22; }];
 }
