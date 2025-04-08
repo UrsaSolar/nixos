@@ -1,8 +1,32 @@
 { pkgs, ... }:
 {
+
+  system.stateVersion = "24.11";
+
   boot.kernel.sysctl = {
     "net.ipv4.ip_unprivileged_port_start" = 0;
   };
+
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        extraConfig = ''
+          serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
+          terminal_input --append serial
+          terminal_output --append serial
+        '';
+      };
+    };
+    kernelParams = [ "console=tty0" "console=ttyS0,115200" "earlyprintk=ttyS0,115200" "consoleblank=0" ];
+  };
+
+  services.qemuGuest.enable = true;
+
+  networking.firewall.enable = true;
 
   nix.gc = {
     automatic = true;
