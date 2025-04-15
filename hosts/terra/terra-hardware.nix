@@ -29,10 +29,7 @@
     luks-c6ef5c75-08af-4bfd-8391-a9e4368e6436 UUID=c6ef5c75-08af-4bfd-8391-a9e4368e6436 /root/secrets/bfd.key
   '';
 
-  fileSystems =
-    let
-      smb_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,credentials=/etc/secrets/samba/jupiter,uid=1000,gid=1000";
-    in {
+  fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/9882b632-b08a-4fe6-856e-cf4e028aa62d";
       fsType = "ext4";
@@ -46,22 +43,18 @@
       fsType = "ext4";
       options = ["defaults,nofail,x-systemd.device-timeout=5s"];
     };
-    "/mnt/jupiter/media" = {
-      device = "//192.168.40.10/media";
-      fsType = "cifs";
-      options = ["${smb_opts}"];
+    "/mnt/storage" = {
+      device = "192.168.40.10:/mnt/hydrogen/data/storage";
+      fsType = "nfs";
+      options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
     };
-    "/mnt/jupiter/storage" = {
-      device = "//192.168.40.10/storage";
-      fsType = "cifs";
-      options = ["${smb_opts}"];
-    };
-    "/mnt/jupiter/helium" = {
-      device = "//192.168.40.10/helium";
-      fsType = "cifs";
-      options = ["${smb_opts}"];
 
+    "/mnt/media" = {
+      device = "192.168.40.10:/mnt/hydrogen/data/media";
+      fsType = "nfs";
+      options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" "x-systemd.idle-timeout=60" "x-systemd.mount-timeout=5s" ];
     };
+
     "/mnt/Hell" = {
       device = "/dev/disk/by-uuid/DA227AEC227ACCCF";
       fsType = "ntfs";
