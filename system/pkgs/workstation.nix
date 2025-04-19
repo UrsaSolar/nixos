@@ -16,6 +16,7 @@
     xdg-ninja
     hyfetch
     lm_sensors
+    jq
 
     # language servers for nvim
     nil # Nix
