@@ -54,7 +54,16 @@
         plugin = nvim-lspconfig; # syntax highlighting and completion
         type = "lua";
         config = ''
-          require('lspconfig').nil_ls.setup{}
+          require('lspconfig').nil_ls.setup{
+            settings = {
+              nix = {
+                flake = {
+                  -- calls `nix flake archive` to put a flake and its output to store
+                  autoArchive = true,
+                },
+              },
+            },
+          }
           require('lspconfig').docker_compose_language_service.setup{}
           require('lspconfig').yamlls.setup{}
         '';
