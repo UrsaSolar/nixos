@@ -42,8 +42,14 @@ Host saturn
     user root
     RequestTTY yes
     StrictHostKeyChecking no
-Host mercury-manager
+Host saturn-manager
     Hostname 192.168.80.22
+    Port 222
+    User solarbear
+    RequestTTY yes
+    RemoteCommand tmux new -A -s solarbear
+Host saturn-gpu
+    Hostname 192.168.80.24
     Port 222
     User solarbear
     RequestTTY yes
