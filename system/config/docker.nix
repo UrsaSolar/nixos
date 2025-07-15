@@ -58,10 +58,11 @@
       7946 # Overlay network node discovery
       4789 # Overlay network traffic
     ];
-    extraCommands = ''
-      iptables -I DOCKER-USER -o ens19 -s 192.168.40.0/24 -j DROP
-      iptables -I DOCKER-USER -i ens19 -s 192.168.40.0/24 -j DROP
-    '';
+    #extraCommands = ''
+    #  iptables -I DOCKER-USER -p tcp --dport 9001 -o ens19 -d 192.168.40.10/24 -j ACCEPT
+    #  iptables -I DOCKER-USER -o ens19 -s 192.168.40.0/24 -j DROP
+    #  iptables -I DOCKER-USER -i ens19 -s 192.168.40.0/24 -j DROP
+    #'';
   };
 
   fileSystems."/mnt/storage" = {
