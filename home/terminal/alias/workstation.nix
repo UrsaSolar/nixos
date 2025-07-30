@@ -3,6 +3,7 @@
  home.shellAliases = {
 
     zrl = "source $XDG_CONFIG_HOME/zsh/.zshrc";
+    wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
     # Fuzzy finder & directory hoppers
     jj = "clear && cd $(find ~/Software/ ~/.config/ ~/Documents -type d | fbat)";
     vv = "clear && nvim $(find ~/Software/ ~/.config/ ~/Documents ~/Downloads -type f | fbat)";
