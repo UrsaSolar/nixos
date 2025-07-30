@@ -15,5 +15,5 @@
   services.gpg-agent = {
     enable = true;
   };
-
+  services.ssh-agent.enable = true;
 }

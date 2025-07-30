@@ -8,7 +8,6 @@
   ];
 
   programs.bat.enable = true;
-  services.ssh-agent.enable = true;
 
   programs.tealdeer = {
     enable = true;
