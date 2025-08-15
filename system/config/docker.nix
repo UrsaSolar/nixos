@@ -84,7 +84,7 @@
 
   environment.systemPackages = with pkgs; [
     nfs-utils
-    import ../../docker-rebalance.nix
+    (import ../../docker-rebalance.nix)
   ];
 
   services.cron = {
