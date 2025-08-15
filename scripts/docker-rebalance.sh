@@ -9,4 +9,6 @@ if [ "$leader" = "true" ]; then
     sudo docker service update --force "${MAPFILE[$i]}"
     sleep 10
   done
+else
+    echo "Not leader, quitting".
 fi
