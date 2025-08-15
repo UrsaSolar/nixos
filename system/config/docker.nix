@@ -84,6 +84,7 @@
 
   environment.systemPackages = with pkgs; [
     nfs-utils
+    docker-rebalance
   ];
 
   services.cron = let
