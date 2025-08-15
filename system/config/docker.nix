@@ -84,14 +84,8 @@
 
   environment.systemPackages = with pkgs; [
     nfs-utils
-    docker-rebalance
+    import ../../docker-rebalance.nix
   ];
-
-  pkgs.writeShellScriptBin = {
-    runtimeInputs = [ pkgs.docker ];
-    name = "docker-rebalance";
-    text = builtins.readFile ../../scripts/docker-rebalance.sh;
- };
 
   services.cron = {
     enable = true;

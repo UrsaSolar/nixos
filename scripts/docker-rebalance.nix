@@ -1,3 +1,6 @@
+with import <nixpkgs> {};
+writeShellScriptBin "docker-rebalance.sh" ''
+
 hostname="$(hostname)"
 leader="$(docker node inspect "$hostname" --format '{{ .ManagerStatus.Leader }}')"
 
@@ -12,3 +15,5 @@ if [ "$leader" = "true" ]; then
 else
     echo "Not leader, quitting".
 fi
+
+''
