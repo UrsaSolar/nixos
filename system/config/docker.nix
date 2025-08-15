@@ -87,17 +87,16 @@
     docker-rebalance
   ];
 
-  services.cron = let
-    scriptContent = builtins.readFile ../../scripts/docker-rebalance.sh;
-    rebalanceScript = pkgs.writeShellApplication {
-      runtimeInputs = [pkgs.docker];
-      name = "docker-rebalance";
-      text = scriptContent;
-    };
-    in {
-      enable = true;
-      systemCronJobs = [ "0 5 * * * root ${lib.getExe rebalanceScript}" ];
-    };
+  pkgs.writeShellScriptBin = {
+    runtimeInputs = [ pkgs.docker ];
+    name = "docker-rebalance";
+    text = builtins.readFile ../../scripts/docker-rebalance.sh;
+ };
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [ "0 5 * * * root docker-rebalance" ];
+  };
   
   #services.prometheus.exporters.node.enable = true;
 
