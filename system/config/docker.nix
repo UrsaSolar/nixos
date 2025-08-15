@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
 
   system.stateVersion = "24.11";
@@ -95,7 +95,7 @@
     };
     in {
       enable = true;
-      systemCronJobs = [ "0 5 * * * root ${rebalanceScript}" ];
+      systemCronJobs = [ "0 5 * * * root ${lib.getExe rebalanceScript}" ];
     };
   
   #services.prometheus.exporters.node.enable = true;
