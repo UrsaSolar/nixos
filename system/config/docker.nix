@@ -90,7 +90,7 @@
     scriptContent = builtins.readFile ../../scripts/docker-rebalance.sh;
     rebalanceScript = pkgs.writeShellApplication {
       runtimeInputs = [pkgs.docker];
-      name = "docker-rebalance.sh";
+      name = "docker-rebalance";
       text = scriptContent;
     };
     in {
