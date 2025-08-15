@@ -1,6 +1,6 @@
 leader="$(docker node inspect $(hostname) --format '{{ .ManagerStatus.Leader }}')"
 
-if [ $leader = "true" ]; then
+if [ "$leader" = "true" ]; then
   readarray -t <<<"$(sudo docker service ls -q)"
   for (( i=0; i<${#MAPFILE[@]}; i++ ))
   do
