@@ -89,9 +89,9 @@
   services.cron = let
     scriptContent = builtins.readFile ../../scripts/docker-rebalance.sh;
     rebalanceScript = pkgs.writeShellApplication {
+      runtimeInputs = [pkgs.docker];
       name = "docker-rebalance.sh";
       text = scriptContent;
-      executable = true;
     };
     in {
       enable = true;
