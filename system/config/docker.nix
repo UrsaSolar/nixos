@@ -84,14 +84,8 @@
 
   environment.systemPackages = with pkgs; [
     nfs-utils
-    (import ../../scripts/docker-rebalance.nix)
   ];
 
-  services.cron = {
-    enable = true;
-    systemCronJobs = [ "0 5 * * * root docker-rebalance" ];
-  };
-  
   #services.prometheus.exporters.node.enable = true;
 
   #services.telegraf = {
