@@ -86,6 +86,18 @@
     nfs-utils
   ];
 
+  services.cron = let
+    scriptContent = builtins.readFile ../../scripts/docker-rebalance.sh;
+    rebalanceScript = pkgs.writeShellApplication {
+      name = "docker-rebalance.sh";
+      text = scriptContent;
+      executable = true;
+    };
+    in {
+      enable = true;
+      systemCronJobs = [ "0 5 * * * root ${rebalanceScript}" ];
+    };
+  
   #services.prometheus.exporters.node.enable = true;
 
   #services.telegraf = {
