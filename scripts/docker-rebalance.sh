@@ -1,4 +1,4 @@
-leader=$(docker node inspect $(hostname) --format "{{ .ManagerStatus.Leader }}")
+leader="$(docker node inspect $(hostname) --format '{{ .ManagerStatus.Leader }}')"
 
 if [ $leader = "true" ]; then
   readarray -t <<<"$(sudo docker service ls -q)"
