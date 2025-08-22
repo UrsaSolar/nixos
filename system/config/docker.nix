@@ -98,7 +98,7 @@
           gather_services = false;
           source_tag = false;
           timeout = "5s";
-          fielddrop = [
+          tagdrop = [
             "build_version"
             "com.docker.swarm.node.id"
             "com.docker.swarm.service.id"
