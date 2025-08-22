@@ -118,8 +118,6 @@
             "STACK"
             "com.nvidia.*"
           ];
-         #perdevice = true;
-          #total = false;
         };
       };
       outputs = {
