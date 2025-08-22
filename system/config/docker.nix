@@ -106,7 +106,7 @@
         influxdb_v2 = {
           urls = ["https://influxdb.internal.ursa.solar"];
           token = "$INFLUXTOKEN";
-          organization = "ursa-solar";
+          organization = "ursasolar";
           bucket = "docker";
         };
       };
