@@ -98,6 +98,16 @@
           gather_services = false;
           source_tag = false;
           timeout = "5s";
+          #perdevice = true;
+          #total = false;
+        };
+      };
+      outputs = {
+        influxdb_v2 = {
+          urls = ["https://influxdb.internal.ursa.solar"];
+          token = "$INFLUXTOKEN";
+          organization = "ursasolar";
+          bucket = "docker";
           namedrop = [
             "build_version"
             "com.docker.swarm.node.id"
@@ -110,16 +120,6 @@
             "maintainer"
             "io.portainer.*"
           ];
-          #perdevice = true;
-          #total = false;
-        };
-      };
-      outputs = {
-        influxdb_v2 = {
-          urls = ["https://influxdb.internal.ursa.solar"];
-          token = "$INFLUXTOKEN";
-          organization = "ursasolar";
-          bucket = "docker";
         };
       };
     };
