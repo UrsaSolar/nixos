@@ -95,7 +95,7 @@
       agent = {
         interval = "10s";
         round_interval = true;
-        flush interval = "10s";
+        flush_interval = "10s";
       };
       inputs = {
         docker = {
