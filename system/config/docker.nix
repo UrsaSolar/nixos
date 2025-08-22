@@ -92,6 +92,11 @@
     enable = true;
     environmentFiles = [ "/root/secrets/telegraf.env" ];
     extraConfig = {
+      agent = {
+        interval = "10s";
+        round_interval = true;
+        flush interval = "10s";
+      };
       inputs = {
         docker = {
           endpoint = "unix:///var/run/docker.sock";
