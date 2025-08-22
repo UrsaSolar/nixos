@@ -98,6 +98,18 @@
           gather_services = false;
           source_tag = false;
           timeout = "5s";
+          namedrop = [
+            "build_version"
+            "com.docker.swarm.node.id"
+            "com.docker.swarm.service.id"
+            "com.docker.swarm.task.*"
+            "container_*"
+            "engine_host"
+            "org.opencontainers.*"
+            "server_version"
+            "maintainer"
+            "io.portainer.*"
+          ];
           #perdevice = true;
           #total = false;
         };
