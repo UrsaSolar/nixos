@@ -97,8 +97,8 @@
           endpoint = "unix:///var/run/docker.sock";
           gather_services = false;
           source_tag = false;
-          timeout = "5s";
-          tagdrop = [
+          #timeout = "5s";
+          tagexclude = [
             "build_version"
             "com.docker.swarm.node.id"
             "com.docker.swarm.service.id"
