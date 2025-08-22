@@ -97,7 +97,6 @@
           endpoint = "unix:///var/run/docker.sock";
           gather_services = false;
           source_tag = false;
-          #timeout = "5s";
           tagexclude = [
             "build_version"
             "com.docker.swarm.node.id"
@@ -109,6 +108,9 @@
             "server_version"
             "maintainer"
             "io.portainer.*"
+            "com.docker.compose.*"
+            "STACK"
+            "com.nvidia.*"
           ];
          #perdevice = true;
           #total = false;
