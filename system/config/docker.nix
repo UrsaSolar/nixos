@@ -88,31 +88,31 @@
 
   #services.prometheus.exporters.node.enable = true;
 
-  #services.telegraf = {
-  #  enable = true;
-  #  environmentFiles = [ "/root/secrets/telegraf.env" ];
-  #  extraConfig = {
-  #    inputs = {
-  #      docker = {
-  #        endpoint = "unix:///var/run/docker.sock";
-  #        gather_services = false;
-  #        source_tag = false;
-  #        timeout = "5s";
-  #        perdevice = true;
-  #        total = false;
-  #      };
-  #    };
-  #    outputs = {
-  #      influxdb_v2 = {
-  #        urls = ["https://influxdb.proxy.ursa.solar"];
-  #        token = "$INFLUXTOKEN";
-  #        organization = "ursa-solar";
-  #        bucket = "docker";
-  #      };
-  #    };
-  #  };
-  #};
-  #users.users.telegraf.extraGroups = [ "docker" ];
+  services.telegraf = {
+    enable = true;
+    environmentFiles = [ "/root/secrets/telegraf.env" ];
+    extraConfig = {
+      inputs = {
+        docker = {
+          endpoint = "unix:///var/run/docker.sock";
+          gather_services = false;
+          source_tag = false;
+          timeout = "5s";
+          #perdevice = true;
+          #total = false;
+        };
+      };
+      outputs = {
+        influxdb_v2 = {
+          urls = ["https://influxdb.internal.ursa.solar"];
+          token = "$INFLUXTOKEN";
+          organization = "ursa-solar";
+          bucket = "docker";
+        };
+      };
+    };
+  };
+  users.users.telegraf.extraGroups = [ "docker" ];
 
 
 }
