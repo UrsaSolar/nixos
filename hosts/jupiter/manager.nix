@@ -43,6 +43,7 @@
     exclude = [
       "/mnt/docker/syncthing"
       "/mnt/docker/romm"
+      "/mnt/docker/ollama"
     ];
     encryption = {
       mode = "repokey-blake2";
