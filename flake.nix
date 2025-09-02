@@ -14,8 +14,11 @@
         home-manager.follows = "home-manager";
       };
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    stylix.url = "github:danth/stylix/f121a142abde1b6aa9738e4c21a330c0ddd4eb70";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
