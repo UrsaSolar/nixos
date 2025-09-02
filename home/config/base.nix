@@ -14,7 +14,7 @@
 
   nix.gc = {
     automatic = true;
-    frequency = "daily";
+    dates = "daily";
   };
 
   home.sessionVariables = {
