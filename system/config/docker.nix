@@ -76,6 +76,7 @@
       iptables --append DOCKER-USER -o ens19 --src 192.168.80.10 --jump DROP
       '';
     wantedBy = [ "multi-user.target" ];
+    path = [ "iptables" ];
   };
 
   #services.keepalived = {
