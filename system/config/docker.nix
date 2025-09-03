@@ -59,8 +59,8 @@
       4789 # Overlay network traffic
     ];
     extraCommands = ''
-      iptables --insert DOCKER-USER -o ens19 --dst 192.168.40.10/24 --protocol tcp --dport 9001 --jump ACCEPT
-      iptables --append DOCKER-USER -o ens19 --src 192.168.40.0/24 --jump DROP
+      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10/24 --protocol tcp --dport 9001 --jump ACCEPT
+      iptables --append DOCKER-USER -o ens19 --src 192.168.80.10/24 --jump DROP
     '';
   };
 
@@ -70,19 +70,19 @@
   #};
 
   fileSystems."/mnt/storage" = {
-    device = "192.168.40.10:/mnt/hydrogen/data/storage";
+    device = "192.168.80.10:/mnt/hydrogen/data/storage";
     fsType = "nfs";
     options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
   };
 
   fileSystems."/mnt/media" = {
-    device = "192.168.40.10:/mnt/hydrogen/data/media";
+    device = "192.168.80.10:/mnt/hydrogen/data/media";
     fsType = "nfs";
     options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
   };
 
   fileSystems."/mnt/docker" = {
-    device = "192.168.40.10:/mnt/helium/data/docker";
+    device = "192.168.80.10:/mnt/helium/data/docker";
     fsType = "nfs";
     options = [ "nfsvers=4.2" "x-systemd.automount" "noauto" "nofail" "x-systemd.device-timeout=5s" ];
   };
