@@ -64,6 +64,11 @@
     '';
   };
 
+  #services.keepalived = {
+  #  enable = true;
+  #  openFirewall = true;
+  #};
+
   fileSystems."/mnt/storage" = {
     device = "192.168.40.10:/mnt/hydrogen/data/storage";
     fsType = "nfs";
