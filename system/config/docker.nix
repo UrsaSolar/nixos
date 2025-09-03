@@ -59,10 +59,21 @@
       4789 # Overlay network traffic
     ];
     extraCommands = ''
+      iptables -F DOCKER-USER
       iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 9001 --jump ACCEPT
       iptables --append DOCKER-USER -o ens19 --dst 192.168.80.10 --jump DROP
       iptables --append DOCKER-USER -o ens19 --src 192.168.80.10 --jump DROP
     '';
+  };
+
+  systemd.services.docker-firewall-rules = {
+    script = ''
+      iptables -F DOCKER-USER
+      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 9001 --jump ACCEPT
+      iptables --append DOCKER-USER -o ens19 --dst 192.168.80.10 --jump DROP
+      iptables --append DOCKER-USER -o ens19 --src 192.168.80.10 --jump DROP
+      '';
+    wantedBy = [ "multi-user.target" ];
   };
 
   #services.keepalived = {
