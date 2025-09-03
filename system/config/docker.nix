@@ -60,6 +60,7 @@
     ];
     extraCommands = ''
       iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10/24 --protocol tcp --dport 9001 --jump ACCEPT
+      iptables --append DOCKER-USER -o ens19 --dst 192.168.80.10/24 --jump DROP
       iptables --append DOCKER-USER -o ens19 --src 192.168.80.10/24 --jump DROP
     '';
   };
