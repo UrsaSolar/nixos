@@ -60,8 +60,8 @@
     ];
     extraCommands = ''
       iptables -F DOCKER-USER
-      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 8080 --jump ACCEPT # TrueNAS
-      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 9001 --jump ACCEPT # Portainer
+      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 8080 --jump ACCEPT
+      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 9001 --jump ACCEPT
       iptables --append DOCKER-USER -o ens19 --dst 192.168.80.10 --jump DROP
       iptables --append DOCKER-USER -o ens19 --src 192.168.80.10 --jump DROP
     '';
