@@ -7,7 +7,7 @@
   programs.zsh = {
 
     enable = true;
-    dotDir = ".config/zsh"; # Relative to home, must be directly set; DEPRECATED SOON BUT DOESN'T FUCKING WORK WITH THE EXAMPLE GIVEN
+    dotDir = "${config.xdg.configHome}/zsh";
 
     autosuggestion = {
       enable = true;
