@@ -19,7 +19,7 @@
 
   system.stateVersion = "23.11"; # Historical reference
   networking.hostName = "terra";
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  #boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -34,12 +34,12 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  hardware.ckb-next.enable = true;
+  #hardware.ckb-next.enable = true;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  chaotic.hdr.enable = true;
+  #chaotic.hdr.enable = true;
 }
