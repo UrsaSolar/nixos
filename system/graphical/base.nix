@@ -40,7 +40,7 @@
     thunderbird
     ungoogled-chromium
     vlc
-    jellyfin-media-player
+    #    jellyfin-media-player
     nextcloud-client
   ];
 
