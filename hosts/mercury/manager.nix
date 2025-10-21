@@ -20,9 +20,11 @@
   
   services.keepalived = {
     enable = true;
-    state = "MASTER";
-    interface = "ens18";
-    vrrpInstances.docker.priority = 200;
+    vrrpInstances.docker = {
+      state = "MASTER";
+      interface = "ens18"; 
+      priority = 200;
+    };
   };
 
 }

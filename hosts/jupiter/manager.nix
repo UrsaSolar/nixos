@@ -19,9 +19,12 @@
 
   services.keepalived = {
     enable = true;
-    state = "BACKUP";
-    interface = "ens18"; 
-    vrrpInstances.docker.priority = 101;
+    vrrpInstances.docker = {
+      state = "BACKUP";
+      interface = "ens18"; 
+      priority = 101;
+    };
+  };
 
   services.borgbackup.jobs."docker" = {
     repo = "ssh://o23tz4xe@o23tz4xe.repo.borgbase.com/./repo";

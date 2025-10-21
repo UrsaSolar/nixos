@@ -18,9 +18,12 @@
 
   services.keepalived = {
     enable = true;
-    state = "BACKUP";
-    interface = "ens19"; 
-    vrrpInstances.docker.priority = 100;
+    vrrpInstances.docker = {
+      state = "BACKUP";
+      interface = "ens19"; 
+      priority = 100;
+    };
   };
+
 
 }
