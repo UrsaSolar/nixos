@@ -67,18 +67,39 @@
     '';
   };
 
-  systemd.services.docker-firewall-rules = {
-    script = ''
-      iptables -F DOCKER-USER
-      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 8080 --jump ACCEPT # TrueNAS
-      iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 9001 --jump ACCEPT # Portainer
-      iptables --append DOCKER-USER -o ens19 --dst 192.168.80.10 --jump DROP
-      iptables --append DOCKER-USER -o ens19 --src 192.168.80.10 --jump DROP
+  systemd.services = {
+    docker-firewall-rules = {
+      script = ''
+        iptables -F DOCKER-USER
+        iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 8080 --jump ACCEPT # TrueNAS
+        iptables --insert DOCKER-USER -o ens19 --dst 192.168.80.10 --protocol tcp --dport 9001 --jump ACCEPT # Portainer
+        iptables --append DOCKER-USER -o ens19 --dst 192.168.80.10 --jump DROP
+        iptables --append DOCKER-USER -o ens19 --src 192.168.80.10 --jump DROP
+        '';
+      wantedBy = [ "multi-user.target" ];
+      path = with pkgs; [ iptables ];
+    };
+    docker-reboot-rebalance = {
+      script = ''
+        sleep 600
+        hostname="$(hostname)"
+        leader="$(docker node inspect "$hostname" --format '{{ .ManagerStatus.Leader }}')"
+        if [ "$leader" = "true" ]; then
+          readarray -t <<<"$(sudo docker service ls -q)"
+          for (( i=0; i<${#MAPFILE[@]}; i++ ))
+          do
+            echo "Rebalancing ${MAPFILE[$i]}"
+            sudo docker service update --force "${MAPFILE[$i]}"
+            sleep 10
+          done
+        else
+          echo "Not leader, quitting."
+        fi
       '';
-    wantedBy = [ "multi-user.target" ];
-    path = with pkgs; [ iptables ];
+      wantedBy = [ "multi-user.target" ];
+      path = with pkgs; [ docker ];
+    };
   };
-
   fileSystems."/mnt/storage" = {
     device = "192.168.80.10:/mnt/hydrogen/data/storage";
     fsType = "nfs";
