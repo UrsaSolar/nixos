@@ -14,7 +14,7 @@
 
   networking.hostName = "jupiter-manager";
 
-  virtualisation.docker.daemon.settings.ip = "192.168.80.23";
+  #virtualisation.docker.daemon.settings.ip = "192.168.80.23";
   #services.openssh.listenAddresses = [{ addr = "192.168.40.102"; port = 22; }];
 
   services.keepalived = {

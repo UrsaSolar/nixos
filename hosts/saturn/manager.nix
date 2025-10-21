@@ -14,7 +14,7 @@
 
   networking.hostName = "saturn-manager";
 
-  virtualisation.docker.daemon.settings.ip = "192.168.80.22";
+  #virtualisation.docker.daemon.settings.ip = "192.168.80.22";
 
   services.keepalived = {
     enable = true;
