@@ -18,10 +18,17 @@
 
   services.keepalived = {
     enable = true;
+    openFirewall = true;
     vrrpInstances.docker = {
       state = "BACKUP";
+      virtualRouterId = 101;
       interface = "ens19"; 
       priority = 100;
+      virtualIps = [
+        {
+          addr = 192.168.80.80/24;
+        }
+      ];
     };
   };
 
