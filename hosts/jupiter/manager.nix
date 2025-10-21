@@ -17,6 +17,12 @@
   virtualisation.docker.daemon.settings.ip = "192.168.80.23";
   #services.openssh.listenAddresses = [{ addr = "192.168.40.102"; port = 22; }];
 
+  services.keepalived = {
+    enable = true;
+    state = "BACKUP";
+    interface = "ens18"; 
+    vrrpInstances.docker.priority = 101;
+
   services.borgbackup.jobs."docker" = {
     repo = "ssh://o23tz4xe@o23tz4xe.repo.borgbase.com/./repo";
     user = "root"; # required due to write permissions inside volumes

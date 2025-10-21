@@ -79,10 +79,19 @@
     path = with pkgs; [ iptables ];
   };
 
-  #services.keepalived = {
-  #  enable = true;
-  #  openFirewall = true;
-  #};
+  services.keepalived = {
+    enable = false;
+    openFirewall = true;
+    vrrpInstances.docker = {
+      priority = 100;
+      virtualRouterId = 101;
+      virtualIps = [
+        {
+          addr = 192.168.80.80/24;
+        }
+      ];
+    };
+  };
 
   fileSystems."/mnt/storage" = {
     device = "192.168.80.10:/mnt/hydrogen/data/storage";

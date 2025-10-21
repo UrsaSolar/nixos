@@ -17,4 +17,12 @@
   virtualisation.docker.daemon.settings.ip = "192.168.80.21";
   #services.openssh.listenAddresses = [{ addr = "192.168.40.104"; port = 22; }];
   services.telegraf.extraConfig.inputs.docker.gather_services = lib.mkForce true;
+  
+  services.keepalived = {
+    enable = true;
+    state = "MASTER";
+    interface = "ens18";
+    vrrpInstances.docker.priority = 200;
+  };
+
 }
