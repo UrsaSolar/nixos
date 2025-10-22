@@ -44,6 +44,8 @@
       log-driver = "syslog";
       log-opts = {
         syslog-address = "udp://192.168.80.80:514";
+        syslog-format = "rfc5424";
+        labels = "{{.Name}}"
       };
     };
     autoPrune = {
