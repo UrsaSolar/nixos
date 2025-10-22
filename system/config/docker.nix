@@ -41,11 +41,11 @@
       default-address-pools = [{ base = "172.16.0.0/12"; size = 24;}];
       fixed-cidr = "172.16.0.0/12";
       bip = "172.16.0.1/24";
-      log-driver = "syslog";
+      log-driver = "loki";
       log-opts = {
-        syslog-address = "udp://192.168.80.80:514";
-        syslog-format = "rfc5424";
-        labels = "{{.Name}}";
+        loki-url = "https://loki.internal.ursa.solar/loki/api/v1/push";
+        loki-retries = 5;
+        loki-batch-size = 400;
       };
     };
     autoPrune = {
