@@ -44,8 +44,8 @@
       log-driver = "loki";
       log-opts = {
         loki-url = "https://loki.internal.ursa.solar/loki/api/v1/push";
-        loki-retries = 5;
-        loki-batch-size = 400;
+        loki-retries = "5";
+        loki-batch-size = "400";
       };
     };
     autoPrune = {
