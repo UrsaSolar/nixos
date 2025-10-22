@@ -41,6 +41,10 @@
       default-address-pools = [{ base = "172.16.0.0/12"; size = 24;}];
       fixed-cidr = "172.16.0.0/12";
       bip = "172.16.0.1/24";
+      log-driver = "syslog";
+      log-opts = {
+        syslog-address = "udp://192.168.80.80:514";
+      };
     };
     autoPrune = {
       enable = true;
@@ -85,6 +89,14 @@
       path = with pkgs; [ docker ];
     };
   };
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "30 6 * * * /root/docker-rebalance.sh"
+    ];
+  };
+
   fileSystems."/mnt/storage" = {
     device = "192.168.80.10:/mnt/hydrogen/data/storage";
     fsType = "nfs";
