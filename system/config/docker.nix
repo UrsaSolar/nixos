@@ -43,7 +43,7 @@
       bip = "172.16.0.1/24";
       log-driver = "syslog";
       log-opts = {
-        syslog-address = "udp://192.168.80.80:514";
+        syslog-address = "tcp://192.168.80.80:601";
       };
     };
     autoPrune = {
