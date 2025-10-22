@@ -85,11 +85,11 @@
       wantedBy = [ "multi-user.target" ];
       path = with pkgs; [ iptables ];
     };
-    docker-reboot-rebalance = {
-      script = builtins.readFile ../scripts/docker-rebalance.sh;
-      wantedBy = [ "multi-user.target" ];
-      path = with pkgs; [ docker ];
-    };
+    #docker-reboot-rebalance = {
+    #  script = builtins.readFile ../scripts/docker-rebalance.sh;
+    #  wantedBy = [ "multi-user.target" ];
+    #  path = with pkgs; [ docker ];
+    #};
   };
 
   services.cron = {
