@@ -133,6 +133,20 @@
         flush_interval = "10s";
       };
       inputs = {
+        cpu = {
+          percpu = true;
+          totalcpu = true;
+          collect_cpu_time = false;
+          report_active = true;
+        };
+        disk = {};
+        diskio = {};
+        kernel = {};
+        mem = {};
+        net = {};
+        processes = {};
+        swap = {};
+        system = {};
         docker = {
           endpoint = "unix:///var/run/docker.sock";
           gather_services = false;
